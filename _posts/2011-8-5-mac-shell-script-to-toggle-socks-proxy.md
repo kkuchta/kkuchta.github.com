@@ -5,6 +5,7 @@ title: !binary |-
 mt_id: 23
 date: 2011-08-05 15:57:40.000000000 -07:00
 ---
+
 ### What
 
 A simple script that'll toggle your System Preferences proxy settings on a Mac.  It takes one argument- the name of the interface on which to toggle the proxy (eg, 'Airport' or 'Ethernet').  You can easily wrap this with an automator script using the "Get specified text" action to provide the argument and the 'Shell Script' action to run the script.
@@ -17,6 +18,7 @@ Nothing too complex here- uses the mac command line 'networksetup' tool, which a
 
 ### Code
 
+    {% highlight bash %}
     # Get current status
     interface=$1
     status=`networksetup -getsocksfirewallproxy $interface | grep "^Enabled: [a-zA-z]*$"`
@@ -37,4 +39,5 @@ Nothing too complex here- uses the mac command line 'networksetup' tool, which a
         message="Error toggling socks proxy on interface:'$interface'"
     fi
     osascript -e 'tell application "GrowlHelperApp"' -e 'set the allNotificationsList to {"Toggled"}' -e 'set the enabledNotificationsList to {"Toggled"}' -e 'register as application "Proxy Toggler" all notifications allNotificationsList default notifications enabledNotificationsList' -e "notify with name \"Toggled\" title \"Toggled\" description \"$message\" application name \"Proxy Toggler\"" -e 'end tell'
+    {% endhighlight %}
  

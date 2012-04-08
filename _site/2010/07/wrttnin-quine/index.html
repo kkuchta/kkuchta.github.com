@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Some title here</title>
+    <link href='/_site/stylesheets/global.css' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css' />
+  </head>
+  <body>
+    <div class='container'>
+      <div class='row'>
+        <div class='span-12'>
+          <p>Because I got bored and my javascript is rusty, I put together what I'm calling a Wrttn.in quine.</p>
+
+<p><strong>Edit:</strong> Does not appear to be working in Chrome (my main browser).  I'd only tested it in Firefox so far because A) firebug rocks and B) I'm too lazy to care about cross-browser compatibility in my free time.  I'll take a look at the problem sometime soon when it's not after midnight on a workday.</p>
+
+<h4>Wrttn.in</h4>
+
+<p>Wrttn.in is just a notepad-type site.  It's similar to a.longreply.com.  You enter some text, hit save, and it gives you two urls: a public one that shows that text (eg, wrttn.in/323f1) and a private one that allows you to administer it (eg. wrttn.in/admin/46feb701xda).  Now, as it happens, the text you enter will not be sanitized for html or javascript... :D</p>
+
+<h4>Quine</h4>
+
+<p>A <a href="http://en.wikipedia.org/wiki/Quine_(computing">quine</a>) is a programmer toy.  It's a program that outputs a copy of it's source code.  What I've written is a hunk of javascript that, when placed in a wrttn.in page, will put a button on the page.  Pressing that button will ajax up a new wrttn.in page, populate it with the same code as the initial page, and redirect to it.  Not a traditional quine, of course, but it's the same spirit.  :)</p>
+
+<h4>Explanations</h4>
+
+<p>A few things to explain in the following code:</p>
+
+<ul>
+<li>It's possible to pass in content on a wrttn.in create call, but that content will be stripped of it's javascript.  That's why we have a subsequent edit call- edit does not strip it.</li>
+<li>This may not work long since we're not using an api or anything stable- the calls were just reverse engineered from the pages.  It'd be pretty easy for the wrttn.in creator to shut down this code he decides to.  Just has to sanitize his edit inputs.</li>
+<li>Content type has to be markdown.  Textile encodes the quote marks.</li>
+<li>This is a quick hack- nothing more.  Don't expect great code.</li>
+</ul>
+
+
+<h4>Code</h4>
+
+<pre><code>&lt;div id="vcms_whole"&gt;
+    &lt;div id="vcms_content"&gt;&lt;input type="button" id="btnCreateNew" value="Create New!"/&gt;&lt;/div&gt;
+    &lt;script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.js" charset="utf-8"&gt;
+    &lt;/script&gt;
+    &lt;script type="text/javascript" charset="utf-8"&gt;
+        function createNewPage(){
+            var wcms_wholeElement = document.getElementById("vcms_whole");
+            var outerDiv = document.createElement("div");
+            outerDiv.appendChild(wcms_wholeElement);
+            wholeHTML = outerDiv.innerHTML;
+            var publicId = "none";
+            $.ajax({
+                async: false,
+                url: 'http://wrttn.in/create',
+                dataType: 'html',
+                type: 'POST',
+                data: {content:wholeHTML,parser:'markdown'},
+                success: onCreateSuccess,
+                cache: false
+            });
+            var fullEditUrl = "http://wrttn.in"+editUrl;
+
+            //Send edit request because 'create' filters out the javascript, but edit does not.
+            $.ajax({
+                url: fullEditUrl,
+                dataType: 'html',
+                async: false,
+                type: 'POST',
+                data: {content:wholeHTML},
+                success: onEditSuccess,
+                cache: false
+            });
+        }
+
+        function onCreateSuccess(data, status, request){
+            var dataEl = $(data).filter("title");
+            var titleText = dataEl.text()
+            adminId = titleText.replace("wrttn admin:","");
+            var idLink = document.createElement("a");
+            var something = $(data);
+            var editEl = $("#edit",something);
+            var formEl = editEl.children("form")[0];
+            editUrl = formEl.attributes.getNamedItem("action").value;
+            var editUrlSections = editUrl.split("/");
+            publicId=editUrlSections[editUrlSections.length-2];
+        }
+
+        function onEditSuccess(data, status, request){
+            window.location='http://wrttn.in/admin/'+adminId;
+        }
+
+        function setup(){
+            $("#btnCreateNew").bind('click',createNewPage);
+        }
+
+        setup();
+    &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>I have a slightly more interesting application for this technique, but I'll post about that when/if I actually get to it.</p>
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

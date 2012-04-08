@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Some title here</title>
+    <link href='/_site/stylesheets/global.css' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css' />
+  </head>
+  <body>
+    <div class='container'>
+      <div class='row'>
+        <div class='span-12'>
+          <h3>What is it?</h3>
+
+<p>"Senior Project" is the capstone class in the RIT Software Engineering program.  It's a 6-month project on a team of 4-5 SEs working for an external client on a real problem.  In my case, I'm working with 4 other seniors (<a href="http://tosswill.net">Chris Tosswill</a>, <a href="http://mattolenik.net/">Matt Olenik</a>, Bernard Stern, and Pete Bergeron; our sponsor is Eastman Kodak.</p>
+
+<p>What we're developing is a Facebook collage generator.  The flow is like this:</p>
+
+<ol>
+<li>Select photos from your Facebook albums (using combinations of manual selection and intelligent suggestions).</li>
+<li>View a generated, "interesting" collage containing those photos.  Manipulate the photos in it by rotating, resizing, cropping, etc in your browser as you see fit.</li>
+<li>Generate a high-res version of the collage to post to your wall, save, or print using Kodak's fulfillment services.</li>
+</ol>
+
+
+<h3>Sounds too easy...</h3>
+
+<p>I'll admit that on its face, it's not too bad.  The fun comes in the stretch goals.</p>
+
+<p>The "intelligent suggestions" for photos can be anything from photos with similar metadata to the ones you've already selected (eg, the same people tagged in them) to photos with similar color characteristics (involving some image processing) to photos with similar subjects (involving image understanding).</p>
+
+<p>The "interesting" collage generation is also non-trivial.  There are a lot of algorithms out there we can use- some are largely arbitrary, and some use understanding of the image content.  We may also build off of a <a href="http://www.se.rit.edu/~photorganize">previous Kodak-RIT senior project</a>.</p>
+
+<h3>So, how are you working this?</h3>
+
+<p>I'm glad you asked.  Check out this snazzy architecture diagram I threw together for our interim presentation:</p>
+
+<p><img alt="Architecture.png" src="http://kevinkuchta.webfactional.com/blog/SeniorProject/Architecture.png" width="419" height="531" class="mt-image-none" style="" /></p>
+
+<h3>What are you doing on it?</h3>
+
+<p>I'm working the rails/facebook end of things.  There are two of us on the Rails end, two of us on the .Net end, and one guy handling most of the Javascrip UI stuff (although there's overlap all over the place).</p>
+
+<h3>What about the non-technical aspects?</h3>
+
+<p>This being a capstone project, a visible process methodology is reasonably important.  We're going with Scrum.  Our department advises against this, since the project requirements are reasonably known in advance.</p>
+
+<p>Our first counterargument is that while the requirements are stable, there's still a lot of risk.  None of us have done OpenCV before, which is what we're using for a lot of the image manipulation and understanding.  There's minimal team experience with the Facebook API (outside of my experience with FulStack last year).  Further, Facebook likes to change both its API and it's TOS without warning and pretty frequently.  There's enough stuff that can change that we want to have an agile process that allows for a structured reaction to change.</p>
+
+<p>Our second counter-argument is that we have a sponsor requirement for rapid feedback and high customer visibility- that is, we need to have working products in their hands early and often.  Agile methodologies, as well as some general evolutionary ones, serve that purpose pretty well.</p>
+
+<p>Further, since we need (according to department-enforced senior project rules) to follow a specific, known methodology, we went with one of the better known agile ones: Scrum.</p>
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

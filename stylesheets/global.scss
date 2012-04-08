@@ -1,7 +1,23 @@
 ---
 ---
+$baseFontFamily: 'Pontano Sans', Verdana, Helvetica, sans-serif;
+$baseFontSize: 18px;
+$baseLineHeight: 1.6;
 
 @import "stylesheets/bootstrap";
+@import "stylesheets/pygments/default";
+
+h1,h2,h3,h4,h5{
+    font-family: 'Bevan', Georgia, serif;
+    font-size: $baseFontSize * 1.6;
+    line-height: $baseLineHeight;
+}
+pre code{
+    font-size: $baseFontSize * .8;
+    baseLineHeight: $baseFontSize * .8;
+}
 
 body{
+    letter-spacing: .075em;
+    word-spacing: .2em;
 }

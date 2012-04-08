@@ -1,9 +1,5 @@
 ---
 layout: post
-title: !binary |-
-  QmFzaWMgQXV0aGVudGljYXRpb24gd2l0aCBKU09OUA==
-mt_id: 24
-date: 2012-01-17 14:03:09.000000000 -08:00
 ---
 ## JSONP background
 

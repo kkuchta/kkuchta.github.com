@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Some title here</title>
+    <link href='/_site/stylesheets/global.css' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css' />
+  </head>
+  <body>
+    <div class='container'>
+      <div class='row'>
+        <div class='span-12'>
+          <h3>What</h3>
+
+<p>A simple script that'll toggle your System Preferences proxy settings on a Mac.  It takes one argument- the name of the interface on which to toggle the proxy (eg, 'Airport' or 'Ethernet').  You can easily wrap this with an automator script using the "Get specified text" action to provide the argument and the 'Shell Script' action to run the script.</p>
+
+<p>Uses growl to notify you of what it's done.  That can be removed if you want- just delete the end of the script below the relavent comment.</p>
+
+<h3>How</h3>
+
+<p>Nothing too complex here- uses the mac command line 'networksetup' tool, which allows command-line modification of network setting, to get and set the proxy state.  Then it uses the mac command line 'osascript' tool, which runs apple script, to notify growl.  The applescript in question just registers itself, then sends the message.</p>
+
+<h3>Code</h3>
+
+<div class="highlight"><pre><code class="bash">    <span class="c"># Get current status</span>
+    <span class="nv">interface</span><span class="o">=</span><span class="nv">$1</span>
+    <span class="nv">status</span><span class="o">=</span><span class="sb">`</span>networksetup -getsocksfirewallproxy <span class="nv">$interface</span> | grep <span class="s2">&quot;^Enabled: [a-zA-z]*$&quot;</span><span class="sb">`</span>
+    <span class="nb">echo</span> <span class="s2">&quot;status=$status&quot;</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;`echo $status | grep &quot;</span>No<span class="s2">&quot;`&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+<span class="k">        </span><span class="nv">newState</span><span class="o">=</span><span class="s2">&quot;on&quot;</span>
+    <span class="k">else</span>
+<span class="k">        </span><span class="nv">newState</span><span class="o">=</span><span class="s2">&quot;off&quot;</span>
+    <span class="k">fi</span>
+
+    <span class="c"># Set new state</span>
+    networksetup -setsocksfirewallproxystate Airport <span class="nv">$newState</span>
+
+    <span class="c"># Print message (delete after here to remove growl notification)</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;$status&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+<span class="k">        </span><span class="nv">message</span><span class="o">=</span><span class="s2">&quot;$interface socks proxy is now $newState&quot;</span>
+    <span class="k">else</span>
+<span class="k">        </span><span class="nv">message</span><span class="o">=</span><span class="s2">&quot;Error toggling socks proxy on interface:&#39;$interface&#39;&quot;</span>
+    <span class="k">fi</span>
+<span class="k">    </span>osascript -e <span class="s1">&#39;tell application &quot;GrowlHelperApp&quot;&#39;</span> -e <span class="s1">&#39;set the allNotificationsList to {&quot;Toggled&quot;}&#39;</span> -e <span class="s1">&#39;set the enabledNotificationsList to {&quot;Toggled&quot;}&#39;</span> -e <span class="s1">&#39;register as application &quot;Proxy Toggler&quot; all notifications allNotificationsList default notifications enabledNotificationsList&#39;</span> -e <span class="s2">&quot;notify with name \&quot;Toggled\&quot; title \&quot;Toggled\&quot; description \&quot;$message\&quot; application name \&quot;Proxy Toggler\&quot;&quot;</span> -e <span class="s1">&#39;end tell&#39;</span>
+    
+</code></pre>
+</div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

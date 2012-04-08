@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Some title here</title>
+    <link href='/_site/stylesheets/global.css' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css' />
+  </head>
+  <body>
+    <div class='container'>
+      <div class='row'>
+        <div class='span-12'>
+          <p>So, it turns out that any facebook page, when loaded in an iframe, will explode. That is, it'll display the facebook logo and nothing else. It'd say it's an anti-clickjacking measure, if I had to guess.</p>
+
+<p>The problem is that this applies to /any/ iframe, including facebook's own. This presents a problem when trying to load facebook's authorization page in a facebook iframe-based app. This was a problem as of Jan 1, 2011, but facebook changes things so fast that it may be resolved by now. If not, here's how to fix it.</p>
+
+<h4>How it should work:</h4>
+
+<ol>
+<li>User loads apps.facebook.com/myapp, which loads myserver.com/fb_content/start in an iframe, which, upon detecting that the user has not authorized the app, will redirect to-</li>
+<li>Facebook's authorization page (still in the iframe).  If the user clicks "Allow", it'll redirect to whatever url you passed in the redirect, such as-</li>
+<li>myserver.com/fb_content/cool_authorized/stuff (still in the iframe)</li>
+</ol>
+
+
+<p>Of course, as stated, step 2 blows up.</p>
+
+<h4>How to make it work</h4>
+
+<ol>
+<li>User loades apps.facebook.com/myapp, which loads myserver.com/fb_content/start in an iframe, which, upon detecting that the user has not authorized the app, will <em>javascript</em> redirect (busting out of the frame) to:</li>
+<li>Facebook's authorization page (<em>not</em> in an iframe).  If the user clicks "Allow", it'll redirect to the url passed, which gets you back to-</li>
+<li>myserver.com/fb_content/start (<em>not</em> in an iframe), since facebook authorization won't redirect to a domain that's not yours (eg, can't do apps.facebook.com), so you need to first redirect to a page you control, detect that you're not in an iframe, and so redirect to-</li>
+<li>apps.facebook.com/myapp, which loads myserver.com/fb_content/start in an iframe, which, upon detecting that the user <em>has</em> authorized your app, will redirect to-</li>
+<li>myserver.com/fb_content/cool_authorized/stuff (still in the iframe)</li>
+</ol>
+
+
+<p>Luckily, this all looks like "How it should work" to the user if the redirects are fast.</p>
+
+<h4>Rails code to do it</h4>
+
+<p>In app/controllers/oauth_controller:</p>
+
+<pre><code>def start
+    require 'uri'
+    escaped_callback_url = URI.escape(FB_CONFIG['callback_url'], Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
+    signed_request_data = decode_signed_request(FB_CONFIG['app_secret'],params[:signed_request])
+
+    if(signed_request_data)
+        if(signed_request_data["user_id"] != nil)
+            # User has already or just accepted the app
+            session['auth_token'] = signed_request_data['oauth_token']
+            redirect_to "wherever you want to go after authentication"
+        else
+            # User hasn't accepted our app
+            @redirect_url = "https://graph.facebook.com/oauth/authorize?client_id=#{FB_CONFIG['app_id']}&amp;redirect_uri=#{escaped_callback_url}&amp;display=page&amp;scope=publish_stream,user_photo_video_tags&amp;type=user_agent&amp;display=page"
+        end
+    else        
+        #We're not in a facebook iframe
+        redirect_to FB_CONFIG['app_url']
+    end
+end
+
+private
+    require 'base64'
+    def base64_url_decode(str)
+      str += '=' * (4 - str.length.modulo(4))
+      Base64.decode64(str.gsub("-", "+").gsub("_", "/"))
+    end
+
+    require 'hmac-sha2'
+    # used to validate signed requests from facebook http://developers.facebook.com/docs/authentication/canvas
+    def decode_signed_request(facebook_secret, signed_request)
+        if(signed_request==nil)
+            return nil
+        end
+        if(facebook_secret==nil)
+            raise "Facebook secret not set."
+        end
+      encoded_sig, encoded_data = signed_request.split(".")
+      decoded_data = base64_url_decode(encoded_data)
+      decoded_sig = base64_url_decode(encoded_sig)
+        logger.info "Decoded data = " + decoded_data.inspect
+        logger.info "Json parsed decoded data = " + ActiveSupport::JSON.decode(decoded_data).inspect
+        expected_sig = HMAC::SHA256.digest(facebook_secret, encoded_data)
+      return decoded_sig==expected_sig ? ActiveSupport::JSON.decode(decoded_data) : nil
+    end
+</code></pre>
+
+<p>In app/views/oauth:</p>
+
+<pre><code>&lt;% if @redirect_url %&gt;
+    &lt;script type='text/javascript'&gt;top.location.href = '&lt;%= raw @redirect_url %&gt;';&lt;/script&gt;
+&lt;% end %&gt;
+</code></pre>
+
+<p>In config/initializers/load_config:</p>
+
+<pre><code>FB_CONFIG = YAML.load_file("#{RAILS_ROOT}/config/facebook.yml")[RAILS_ENV]
+</code></pre>
+
+<p>In config/facebook.yml:</p>
+
+<pre><code>production:
+    app_id: '1234your_app_id'
+    api_key: '1234your_app_key'
+    app_secret: '1234your_app_secret'
+    callback_url: "myserver.com/fb_content/start"
+    app_url: http://apps.facebook.com/myapp
+</code></pre>
+
+<p>In Gemfile:</p>
+
+<pre><code>gem 'json'
+gem 'ruby-hmac' 
+</code></pre>
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

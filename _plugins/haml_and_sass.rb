@@ -44,5 +44,16 @@ module Jekyll
     end
   end
 
+  # Monkey patch layouts to allow haml in layouts
+  class Layout
+    alias old_initialize initialize
+
+    def initialize(*args)
+      old_initialize(*args)
+      self.transform
+    end
+  end
+  
+
 end
 

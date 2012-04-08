@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Some title here</title>
+    <link href='/_site/stylesheets/global.css' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css' />
+  </head>
+  <body>
+    <div class='container'>
+      <div class='row'>
+        <div class='span-12'>
+          <h2>JSONP background</h2>
+
+<p><a href="http://en.wikipedia.org/wiki/JSONP">JSONP</a> is the name for a technique to get around the <a href="http://en.wikipedia.org/wiki/Same_origin_policy">same-origin policy</a>.  It works pretty well when you're trying to make a cross-domain request- for example, to some service's api, without using a server proxy.  In my case, I was trying to build a tool that would work from a flat file.</p>
+
+<h2>The problem</h2>
+
+<p>JSONP <a href="http://stackoverflow.com/questions/1640391/how-do-i-make-a-jsonp-call-with-jquery-with-basic-authentication">doesn't work</a> with basic authentication.  We can verify this by skipping the jquery shortcuts and trying a very simple jsonp request by hand:</p>
+
+<pre><code> function makeRequest(username,password){
+    var url = "https://" + username + ":" + password + "@api.github.com/user?callback=jsonpCallback";
+    var scriptToAdd = $('&lt;script type="text/javascript" src=""&gt;&lt;/script&gt;');
+    scriptToAdd.attr('src',url);
+    $('body').append(scriptToAdd);
+}
+function jsonpCallback(response){
+    console.log( "response=",response );
+}
+</code></pre>
+
+<p>The above code attempts to make an authenticated request by appending a script tag with an src of "user:pass@host.com/path."  Test it out by adding that (and jquery) to a page running <code>makeRequest( 'kkuchta', 'hunter2' );</code>, substituting your username and password, of course.  Inspect the resulting object, and you'll see that the authentication failed.</p>
+
+<h2>The solution</h2>
+
+<p>Script tags may not like authentication in the url, but image tags don't mind it.  Furthermore, basic authentication will get cached.  As such, all we need to do it add an image element whose src is our url with basic auth, then wait for it to load:</p>
+
+<pre><code>function makeRequest(username,password){
+    var imgUrl = "https://" + username + ":" + password + "@api.github.com/user";
+    var scriptUrl = "https://api.github.com/user?callback=jsonpCallback";
+
+    // Attach image to cache auth
+    var img = $('&lt;img /&gt;').attr( "src", imgUrl );
+    $('body').append(img);
+    img.remove();
+
+    // Let the image load, then do the jsonp request
+    setTimeout(function(){
+        var scriptToAdd = $('&lt;script type="text/javascript"&gt;&lt;/script&gt;');
+        scriptToAdd.attr('src',scriptUrl);
+        $('body').append(scriptToAdd);
+    },1000);
+}
+function jsonpCallback(response){
+    console.log( "response=",response );
+}
+</code></pre>
+
+<p>Again, try <code>makeRequest( 'someGithubUser', 'someGithubPass' )</code>.  This time, the resulting object should the correct, authenticated response.  Jsonp with basic auth, woo!  You should only have to do this once per session- all jsonp requests thereafter should be go right past the authentication.  This also works fine with at least jQuery's jsonp- presumably any other jsonp wrapper as well.</p>
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
