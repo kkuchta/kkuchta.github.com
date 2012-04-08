@@ -1,0 +1,14 @@
+---
+layout: post
+title: !binary |-
+  S0suY29t
+mt_id: 7
+date: 2010-01-16 23:51:27.000000000 -08:00
+---
+###What is it?
+[KevinKuchta.com](http://www.kevinkuchta.com) is my blog and main site- a central repository for all things related to me.  Technically, it's built around Movable Type.  The blog aspect of it is interesting, since I'm finding that it requires a bit more depth of knowledge to write about a topic than just to be able to use it.
+
+###What am I learning from it?
+It's mostly been an experience in web design, exercising knowledge of CSS and HTML.  With CSS3 and HTML5 on the way, I expect I'll be using this as a platform to play with some new technologies as they become available.  My stated goal is to support Firefox, Safari, and Internet Explorer (much as I'd like not to).
+
+ 

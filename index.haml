@@ -14,4 +14,9 @@ title: Basic content
           .hero-unit
             %h1 Example Index
             %p This is the basic index page
-            %p {{ site.time | date_to_xmlschema }}
+      .row
+        .span-12
+          {% for post in site.posts %}.row
+            .span4
+              %a{href: '{{site.baseurl}}{{post.url}}' } {{ post.title }}
+          {% endfor %}

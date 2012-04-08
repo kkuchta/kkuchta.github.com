@@ -6,3 +6,4 @@ safe: false
 exclude: 
     - index.html
     - CNAME
+baseurl: /_site/

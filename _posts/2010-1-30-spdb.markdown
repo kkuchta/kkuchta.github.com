@@ -1,0 +1,29 @@
+---
+layout: post
+title: !binary |-
+  U1BEQg==
+mt_id: 10
+date: 2010-01-30 19:39:19.000000000 -08:00
+---
+###What is it?
+The [SOFA Projects Database](https://apps.rit.edu/~a-spdb/) is an online tool for SOFA, the School of Film and Animation at RIT. Students taking film classes, especially upper level ones, are often required to produce a film for their class- this tool aims to help them find actors, organize shoots and acquire crew (boom operators, animators, sounds guys, and the like). It also acts as a central repository for films in progress to allow professors to keep an eye on them.
+
+###How'd you get involved?
+The original SPDB was started by a film student friend/coworker of mine. I ended up picking up where he left off when he graduated, and worked part time on the project through release. The customer (the RIT School of Film and Animation) has a long list of features they still want, so I'm slowly adding them.
+
+###What's the latest on it?
+I'm currently pushing it on two fronts:
+
+1.    Adding new features. SOFA wants a more involved way to track available actors, which is my current thrust. We want directors to easily find free actors for their films, and free actors to easily find open roles they fit.
+
+2.    Migrating the whole thing onto CodeIgniter. The original code was, well, a little messy. 95% of the code was in one file called functions.inc.php, which was included in every page file. All the raw html was produced by echo statements in that file. No separation of view and logic. Etc. To put it lightly, it needs some work.
+
+    I'm slowly reimplementing sections of the old site on top of CodeIgniter, and stitching the two together in Frankensteinesque mesh. It's not ideal, but I can't afford to take the whole old site down long enough to produce the new one, and I don't want to implement new features in the old site's structure just to have to redo them in the new one. It's a bit ugly, but it's working, and it'll be a lot cleaner when I manage to get rid of the last dregs of the old system.
+
+###What are you learning?
+SPDB is entirely in PHP, as it was when I took it over.  I'd probably have done it in Rails if I were starting from scratch, if only for the abundance of handy tools, plug-ins, and generators.  Failing that, I'm using PHP with CodeIgnitor.  They're interacting with a handful of MySQL tables and RIT's LDAP system (for authentication).  I'm getting some experience with all of this.
+
+Further, I'm getting some lessons in personal software development practices outside of my own projects.  I've found Fixx, a simple issue tracker, to be invaluable.  I'm just starting out playing with mercurial- it may prove more useful than SVN even for a project this size.
+
+I'm also getting some interesting project management experience in terms of dealing with requirements and users.  The guy I report to is, though a great guy, not especially technical.  Discussing features, bug fixes, and requirements changes with him presents some challenges not present when dealing with other programmers.
+ 
