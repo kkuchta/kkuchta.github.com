@@ -1,6 +1,6 @@
 markdown: rdiscount
 pygments: true # is true regardles on github pages
-safe: true # is true regardles on github pages
 auto: true # only applies when run with --server, I think
 permalink: /:year/:month/:title
 safe: false
+exclude: index.html
