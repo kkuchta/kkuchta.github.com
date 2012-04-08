@@ -14,13 +14,10 @@ module Jekyll
 
     def convert(content)
       begin
-        puts "HERE2!"
         engine = Sass::Engine.new(content, syntax: :scss)
         engine.render
       rescue StandardError => e
         puts "!!! SASS Error: " + e.message
-      rescue
-        puts "Some error here"
       end
     end
   end
