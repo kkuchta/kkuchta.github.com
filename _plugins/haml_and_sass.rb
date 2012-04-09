@@ -53,7 +53,6 @@ module Jekyll
       self.transform
     end
   end
-  
 
 end
 

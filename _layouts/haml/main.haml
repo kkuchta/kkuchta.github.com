@@ -1,0 +1,13 @@
+!!! 5
+%html
+  %head
+    %title Kevin Kuchta
+    {% include header_resources.html %}
+
+  %body
+    .container
+      .row
+        .span2
+          {% include sidebar.html %}
+        .span10
+          {{content}}
