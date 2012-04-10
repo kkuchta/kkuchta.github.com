@@ -1,7 +1,7 @@
 ---
 ---
-/*$baseFontFamily: 'PT Sans', Helvetica, Arial, sans-serif;*/
-$baseFontFamily: 'Pontano Sans', Verdana, Helvetica, sans-serif;
+$baseFontFamily: 'PT Sans', Helvetica, Arial, sans-serif;
+/*$baseFontFamily: 'Allerta', Verdana, Helvetica, sans-serif;*/
 $baseFontSize: 18px;
 $baseLineHeight: 1.6;
 
@@ -20,8 +20,8 @@ pre code{
 }
 
 body{
-    letter-spacing: .065em;
-    word-spacing: .15em;
+    /*letter-spacing: .065em;*/
+    /*word-spacing: .15em;*/
     font-color: $grayDarker;
 }
 

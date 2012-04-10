@@ -1,4 +1,4 @@
-/*$baseFontFamily: 'PT Sans', Helvetica, Arial, sans-serif;*/
+/*$baseFontFamily: 'Allerta', Verdana, Helvetica, sans-serif;*/
 .clearfix {
   *zoom: 1; }
   .clearfix:before, .clearfix:after {
@@ -82,7 +82,7 @@ textarea {
 
 body {
   margin: 0;
-  font-family: "Pontano Sans", Verdana, Helvetica, sans-serif;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 1.6;
   color: #333333;
@@ -244,7 +244,7 @@ a:hover {
 
 p {
   margin: 0 0 0.8;
-  font-family: "Pontano Sans", Verdana, Helvetica, sans-serif;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 1.6; }
   p small {
@@ -483,7 +483,7 @@ label, input, button, select, textarea {
   line-height: 1.6; }
 
 input, button, select, textarea {
-  font-family: "Pontano Sans", Verdana, Helvetica, sans-serif; }
+  font-family: "PT Sans", Helvetica, Arial, sans-serif; }
 
 label {
   display: block;
@@ -3619,8 +3619,8 @@ pre code {
   baseLineHeight: 14.4px; }
 
 body {
-  letter-spacing: .065em;
-  word-spacing: .15em;
+  /*letter-spacing: .065em;*/
+  /*word-spacing: .15em;*/
   font-color: #222222; }
 
 .sidebar {
