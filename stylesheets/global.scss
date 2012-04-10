@@ -27,6 +27,7 @@ body{
 
 .sidebar{
     @include border-radius(20px);
+    min-width: 350px;
     border:15px solid $grayDarker;
     margin-left: 15px;
     margin-top: 30px;
@@ -44,5 +45,6 @@ body{
 
 .main{
     margin-top: 30px;
+    min-width: 350px;
 }
 
