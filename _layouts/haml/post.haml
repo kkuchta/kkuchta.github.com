@@ -1,13 +1,4 @@
-!!! 5
-%html
-  %head
-    %title some title here
-    {% include header_resources.html %}
-
-  %body
-    .container
-      .row
-        .span2
-          {% include sidebar.html %}
-        .span10
-          {{content}}
+\---
+layout: main
+\---
+{{content}}

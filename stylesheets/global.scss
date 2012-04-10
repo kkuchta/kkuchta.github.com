@@ -1,5 +1,6 @@
 ---
 ---
+/*$baseFontFamily: 'PT Sans', Helvetica, Arial, sans-serif;*/
 $baseFontFamily: 'Pontano Sans', Verdana, Helvetica, sans-serif;
 $baseFontSize: 18px;
 $baseLineHeight: 1.6;
@@ -9,6 +10,7 @@ $baseLineHeight: 1.6;
 
 h1,h2,h3,h4,h5{
     font-family: 'Bevan', Georgia, serif;
+    /*font-family:'Arvo', Georgia, Times, serif;*/
     font-size: $baseFontSize * 1.6;
     line-height: $baseLineHeight;
 }
@@ -18,6 +20,29 @@ pre code{
 }
 
 body{
-    letter-spacing: .075em;
-    word-spacing: .2em;
+    letter-spacing: .065em;
+    word-spacing: .15em;
+    font-color: $grayDarker;
 }
+
+.sidebar{
+    @include border-radius(20px);
+    border:15px solid $grayDarker;
+    margin-left: 15px;
+    margin-top: 30px;
+    padding-left: 15px;
+    padding-top: 15px;
+    font-size: 24px;
+    h1{
+        font-size: 72px;
+        line-height: 0.9em;
+    }
+    ul{
+        margin-left: 30px;
+    }
+}
+
+.main{
+    margin-top: 30px;
+}
+

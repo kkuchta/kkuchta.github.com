@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>some title here</title>
-    {% include header_resources.html %}
-  </head>
-  <body>
-    <div class='container'>
-      <div class='row'>
-        <div class='span2'>
-          {% include sidebar.html %}
-        </div>
-        <div class='span10'>
-          {{content}}
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+---
+layout: main
+---
+{{content}}

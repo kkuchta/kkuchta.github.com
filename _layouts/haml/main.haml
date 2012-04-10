@@ -5,9 +5,10 @@
     {% include header_resources.html %}
 
   %body
-    .container
-      .row
-        .span2
-          {% include sidebar.html %}
-        .span10
+    .container-fluid
+      .row-fluid
+        .span4.sidebar
+          .sidebar-inner
+            {% include sidebar.html %}
+        .span7.main
           {{content}}
