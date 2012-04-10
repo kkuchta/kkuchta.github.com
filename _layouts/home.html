@@ -1,4 +1,23 @@
 ---
 layout: main
 ---
-<h1>Kevin Kuchta.com</h1>
+<div class='home'>
+  <div class='headline'>
+    <h1>I'm Software Engineer.</h1>
+    <p class='p1'>I've worked at <a href="http://expensify.com/">Expensify</a> in San Francisco since I graduated from <a href="http://rit.edu">RIT</a> in upstate NY in 2011.</p>
+  </div>
+  <div class='rest'>
+    {% for post in site.posts limit: 5 %}
+    <h1>
+      <a href='{{site.baseurl}}{{post.url}}'>{{post.title}}</a>
+    </h1>
+    <p>
+      {{post.content | truncatewords: 50}}
+    </p>
+    <p>
+      <a href='{{site.baseurl}}{{post.url}}'>Read more</a>
+    </p>
+    <hr />
+    {% endfor %}
+  </div>
+</div>

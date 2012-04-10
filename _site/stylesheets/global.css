@@ -3614,6 +3614,9 @@ h1, h2, h3, h4, h5 {
   font-size: 28.8px;
   line-height: 1.6; }
 
+h2 {
+  font-size: 25.2px; }
+
 pre code {
   font-size: 14.4px;
   baseLineHeight: 14.4px; }
@@ -3643,3 +3646,25 @@ body {
 .main {
   margin-top: 30px;
   min-width: 350px; }
+  .main .home h1, .main .home .p1 {
+    display: inline;
+    font-size: 25.2px; }
+  .main .home .headline {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    border: 15px solid #eee;
+    padding: 15px;
+    min-width: 330px;
+    margin-bottom: 15px; }
+  .main .home .rest {
+    padding: 30px;
+    padding-top: 0;
+    min-width: 330px; }
+    .main .home .rest h2, .main .home .rest h3, .main .home .rest pre code {
+      display: none; }
+    .main .home .rest hr {
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      border-radius: 20px;
+      border: 7.5px solid #eee; }
