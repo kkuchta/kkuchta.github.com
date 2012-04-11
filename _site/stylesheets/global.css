@@ -3609,8 +3609,7 @@ a.thumbnail:hover {
 
 /* Literal.Number.Integer.Long */
 h1, h2, h3, h4, h5 {
-  font-family: 'Bevan', Georgia, serif;
-  /*font-family:'Arvo', Georgia, Times, serif;*/
+  font-family: "Bevan", Georgia, serif;
   font-size: 28.8px;
   line-height: 1.6; }
 
@@ -3622,8 +3621,6 @@ pre code {
   baseLineHeight: 14.4px; }
 
 body {
-  /*letter-spacing: .065em;*/
-  /*word-spacing: .15em;*/
   font-color: #222222; }
 
 .sidebar {
@@ -3634,18 +3631,37 @@ body {
   border: 15px solid #222222;
   margin-left: 15px;
   margin-top: 30px;
-  padding-left: 15px;
-  padding-top: 15px;
-  font-size: 24px; }
+  padding-left: 20px;
+  padding-top: 20px; }
   .sidebar h1 {
     font-size: 72px;
     line-height: 0.9em; }
+    .sidebar h1 a {
+      color: #222222; }
+    .sidebar h1 a:hover {
+      color: #333333;
+      text-decoration: none; }
   .sidebar ul {
+    font-family: "Bevan", Georgia, serif;
+    font-size: 32.4px;
     margin-left: 30px; }
 
 .main {
   margin-top: 30px;
   min-width: 350px; }
+  .main hr {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    border: 7.5px solid #eee;
+    width: 75%; }
+  .main .page {
+    padding: 30px;
+    padding-top: 0; }
+    .main .page h1 {
+      font-size: 39.6px; }
+    .main .page hr {
+      margin-top: 30px; }
   .main .home h1, .main .home .p1 {
     display: inline;
     font-size: 25.2px; }
@@ -3653,7 +3669,7 @@ body {
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
-    border: 15px solid #eee;
+    border: 15px solid #ccc;
     padding: 15px;
     min-width: 330px;
     margin-bottom: 15px; }
@@ -3663,8 +3679,3 @@ body {
     min-width: 330px; }
     .main .home .rest h2, .main .home .rest h3, .main .home .rest pre code {
       display: none; }
-    .main .home .rest hr {
-      -webkit-border-radius: 20px;
-      -moz-border-radius: 20px;
-      border-radius: 20px;
-      border: 7.5px solid #eee; }

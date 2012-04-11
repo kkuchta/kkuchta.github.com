@@ -1,6 +1,7 @@
 ---
 ---
 $baseFontFamily: 'PT Sans', Helvetica, Arial, sans-serif;
+$headerFontFamily: 'Bevan', Georgia, serif;
 /*$baseFontFamily: 'Allerta', Verdana, Helvetica, sans-serif;*/
 $baseFontSize: 18px;
 $baseLineHeight: 1.6;
@@ -9,8 +10,7 @@ $baseLineHeight: 1.6;
 @import "stylesheets/pygments/default";
 
 h1,h2,h3,h4,h5{
-    font-family: 'Bevan', Georgia, serif;
-    /*font-family:'Arvo', Georgia, Times, serif;*/
+    font-family: $headerFontFamily;
     font-size: $baseFontSize * 1.6;
     line-height: $baseLineHeight;
 }
@@ -23,8 +23,6 @@ pre code{
 }
 
 body{
-    /*letter-spacing: .065em;*/
-    /*word-spacing: .15em;*/
     font-color: $grayDarker;
 }
 
@@ -34,14 +32,22 @@ body{
     border:15px solid $grayDarker;
     margin-left: 15px;
     margin-top: 30px;
-    padding-left: 15px;
-    padding-top: 15px;
-    font-size: 24px;
+    padding-left: 20px;
+    padding-top: 20px;
     h1{
+        a{
+            color: $grayDarker;
+        }
+        a:hover{
+            color: $grayDark;
+            text-decoration: none;
+        }
         font-size: 72px;
         line-height: 0.9em;
     }
     ul{
+        font-family: $headerFontFamily;
+        font-size: $baseFontSize * 1.8;
         margin-left: 30px;
     }
 }
@@ -49,6 +55,22 @@ body{
 .main{
     margin-top: 30px;
     min-width: 350px;
+    hr{
+        @include border-radius(20px);
+        border:7.5px solid #eee;
+        width: 75%;
+    }
+
+    .page{
+        h1{
+            font-size: $baseFontSize * 2.2;
+        }
+        hr{
+            margin-top: 30px;
+        }
+        padding:30px;
+        padding-top:0;
+    }
 
     .home{
         h1, .p1{
@@ -58,7 +80,7 @@ body{
 
         .headline{
             @include border-radius(20px);
-            border:15px solid #eee;
+            border:15px solid #ccc;
             padding:15px;
             min-width: 330px;
             margin-bottom: 15px;
@@ -71,10 +93,6 @@ body{
                 display:none;
             }
 
-            hr{
-                @include border-radius(20px);
-                border:7.5px solid #eee;
-            }
         }
     }
 }
