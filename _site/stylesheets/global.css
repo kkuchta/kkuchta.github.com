@@ -3655,11 +3655,20 @@ body {
     border-radius: 20px;
     border: 7.5px solid #eee;
     width: 75%; }
+  .main hr.divider {
+    width: 90%;
+    border: 7.5px solid #ddd; }
   .main .page {
     padding: 30px;
     padding-top: 0; }
     .main .page h1 {
       font-size: 39.6px; }
+    .main .page h2 {
+      margin-top: 20px; }
+      .main .page h2 .github {
+        color: gray; }
+        .main .page h2 .github a {
+          color: #abd7ed; }
     .main .page hr {
       margin-top: 30px; }
   .main .home h1, .main .home .p1 {

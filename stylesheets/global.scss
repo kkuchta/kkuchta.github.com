@@ -60,10 +60,23 @@ body{
         border:7.5px solid #eee;
         width: 75%;
     }
+    hr.divider{
+        width: 90%;
+        border:7.5px solid #ddd;
+    }
 
     .page{
         h1{
             font-size: $baseFontSize * 2.2;
+        }
+        h2{
+            margin-top: 20px;
+            .github{
+                color: gray;
+                a{
+                    color: lighten( desaturate( $linkColor, 35% ), 40% );
+                }
+            }
         }
         hr{
             margin-top: 30px;
