@@ -72,7 +72,6 @@ body{
         h2{
             margin-top: 20px;
             .github a{
-                color: gray;
                 color: lighten( desaturate( $linkColor, 35% ), 40% );
             }
         }
@@ -108,6 +107,16 @@ body{
             }
 
         }
+    }
+
+    .archive-summary{
+        h2,h3{
+            display:none;
+        }
+    }
+    .archive-date{
+        color: $grayLight;
+        /*color: lighten( desaturate( $grayDarker, 35% ), 40% );*/
     }
 }
 

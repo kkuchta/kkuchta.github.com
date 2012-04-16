@@ -3666,7 +3666,6 @@ body {
     .main .page h2 {
       margin-top: 20px; }
       .main .page h2 .github a {
-        color: gray;
         color: #abd7ed; }
     .main .page hr {
       margin-top: 30px; }
@@ -3689,3 +3688,8 @@ body {
       display: none; }
     .main .home .rest .more-posts {
       text-align: center; }
+  .main .archive-summary h2, .main .archive-summary h3 {
+    display: none; }
+  .main .archive-date {
+    color: #999999;
+    /*color: lighten( desaturate( $grayDarker, 35% ), 40% );*/ }
