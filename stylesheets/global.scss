@@ -71,11 +71,9 @@ body{
         }
         h2{
             margin-top: 20px;
-            .github{
+            .github a{
                 color: gray;
-                a{
-                    color: lighten( desaturate( $linkColor, 35% ), 40% );
-                }
+                color: lighten( desaturate( $linkColor, 35% ), 40% );
             }
         }
         hr{
@@ -104,6 +102,9 @@ body{
             min-width: 330px;
             h2,h3, pre code{
                 display:none;
+            }
+            .more-posts{
+                text-align:center;
             }
 
         }

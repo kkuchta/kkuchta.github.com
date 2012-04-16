@@ -3665,10 +3665,9 @@ body {
       font-size: 39.6px; }
     .main .page h2 {
       margin-top: 20px; }
-      .main .page h2 .github {
-        color: gray; }
-        .main .page h2 .github a {
-          color: #abd7ed; }
+      .main .page h2 .github a {
+        color: gray;
+        color: #abd7ed; }
     .main .page hr {
       margin-top: 30px; }
   .main .home h1, .main .home .p1 {
@@ -3688,3 +3687,5 @@ body {
     min-width: 330px; }
     .main .home .rest h2, .main .home .rest h3, .main .home .rest pre code {
       display: none; }
+    .main .home .rest .more-posts {
+      text-align: center; }
