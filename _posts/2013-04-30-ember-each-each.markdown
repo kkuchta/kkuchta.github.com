@@ -1,7 +1,8 @@
 ---
 layout: post
+title: Ember.js @each@each workaround
 ---
-# Ember.js @each.@each workaround
+## Background
 
 This is just a simple workaround post for future references.  For more in-depth reading, read up on Ember's [object model](http://emberjs.com/guides/object-model/observers/).
 
