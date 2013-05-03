@@ -4,6 +4,7 @@ auto: true # only applies when run with --server, I think
 permalink: /:year/:month/:title
 safe: false
 exclude: 
+    - README.md
     - index.html
     - CNAME
 baseurl: /_site/
