@@ -5,6 +5,7 @@ permalink: /:year/:month/:title
 safe: false
 exclude: 
     - README.md
-    - index.html
+    - /index.html
     - CNAME
+    - Rakefile
 baseurl: /_site/
