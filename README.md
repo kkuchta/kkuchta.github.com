@@ -6,7 +6,7 @@ Just a blog and with some project pages and contact info.
 
 It's mostly a stock [Jekyll](http://jekyllrb.com/) setup.  If you're just adding content, all you need to do is run:
 
-    jekyll --server
+    jekyll serve -w
 
 Do that from the root of this repo and it'll monitor content changes and show the resulting site at `localhost:4000/_site/`.
 
