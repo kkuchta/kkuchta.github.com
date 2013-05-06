@@ -17,6 +17,9 @@ h1,h2,h3,h4,h5{
 h2{
     font-size: $baseFontSize * 1.4;
 }
+h3{
+    font-size: $baseFontSize * 1.2;
+}
 pre code{
     font-size: $baseFontSize * .8;
     baseLineHeight: $baseFontSize * .8;
@@ -71,6 +74,8 @@ body{
         }
         h2{
             margin-top: 20px;
+        }
+        h1,h2{
             .github a{
                 color: lighten( desaturate( $linkColor, 35% ), 40% );
             }

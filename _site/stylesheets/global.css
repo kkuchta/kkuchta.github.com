@@ -3616,6 +3616,9 @@ h1, h2, h3, h4, h5 {
 h2 {
   font-size: 25.2px; }
 
+h3 {
+  font-size: 21.6px; }
+
 pre code {
   font-size: 14.4px;
   baseLineHeight: 14.4px; }
@@ -3665,8 +3668,8 @@ body {
       font-size: 39.6px; }
     .main .page h2 {
       margin-top: 20px; }
-      .main .page h2 .github a {
-        color: #abd7ed; }
+    .main .page h1 .github a, .main .page h2 .github a {
+      color: #abd7ed; }
     .main .page hr {
       margin-top: 30px; }
   .main .home h1, .main .home .p1 {
