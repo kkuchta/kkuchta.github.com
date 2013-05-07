@@ -4,7 +4,10 @@ permalink: /:year/:month/:title
 safe: false
 exclude: 
     - README.md
-    - /index.html
+    - index.html
     - CNAME
     - Rakefile
+    - Guardfile
+    - Gemfile
+    - Gemfile.lock
 baseurl: /_site/

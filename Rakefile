@@ -4,8 +4,6 @@ task :parse_haml do
   parseHaml( '_layouts/haml' );
   print "Parsing Haml includes..."
   parseHaml( '_includes/haml' );
-  print "Parsing haml misc..."
-  parseHaml( 'resume/haml' );
   puts "done."
 end
 

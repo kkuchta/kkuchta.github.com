@@ -54,6 +54,32 @@
 
 <h3>Code</h3>
 
+<div class="highlight"><pre><code class="bash">    <span class="c"># Get current status</span>
+    <span class="nv">interface</span><span class="o">=</span><span class="nv">$1</span>
+    <span class="nv">status</span><span class="o">=</span><span class="sb">`</span>networksetup -getsocksfirewallproxy <span class="nv">$interface</span> | grep <span class="s2">&quot;^Enabled: [a-zA-z]*$&quot;</span><span class="sb">`</span>
+    <span class="nb">echo</span> <span class="s2">&quot;status=$status&quot;</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;`echo $status | grep &quot;</span>No<span class="s2">&quot;`&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+<span class="k">        </span><span class="nv">newState</span><span class="o">=</span><span class="s2">&quot;on&quot;</span>
+    <span class="k">else</span>
+<span class="k">        </span><span class="nv">newState</span><span class="o">=</span><span class="s2">&quot;off&quot;</span>
+    <span class="k">fi</span>
+
+    <span class="c"># Set new state</span>
+    networksetup -setsocksfirewallproxystate Airport <span class="nv">$newState</span>
+
+    <span class="c"># Print message (delete after here to remove growl notification)</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;$status&quot;</span> <span class="o">]</span>; <span class="k">then</span>
+<span class="k">        </span><span class="nv">message</span><span class="o">=</span><span class="s2">&quot;$interface socks proxy is now $newState&quot;</span>
+    <span class="k">else</span>
+<span class="k">        </span><span class="nv">message</span><span class="o">=</span><span class="s2">&quot;Error toggling socks proxy on interface:&#39;$interface&#39;&quot;</span>
+    <span class="k">fi</span>
+<span class="k">    </span>osascript -e <span class="s1">&#39;tell application &quot;GrowlHelperApp&quot;&#39;</span> -e <span class="s1">&#39;set the allNotificationsList to {&quot;Toggled&quot;}&#39;</span> -e <span class="s1">&#39;set the enabledNotificationsList to {&quot;Toggled&quot;}&#39;</span> -e <span class="s1">&#39;register as application &quot;Proxy Toggler&quot; all notifications allNotificationsList default notifications enabledNotificationsList&#39;</span> -e <span class="s2">&quot;notify with name \&quot;Toggled\&quot; title \&quot;Toggled\&quot; description \&quot;$message\&quot; application name \&quot;Proxy Toggler\&quot;&quot;</span> -e <span class="s1">&#39;end tell&#39;</span>
+    
+</code></pre></div>
+
+
+
+
 
         </div>
       </div>
