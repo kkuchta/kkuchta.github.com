@@ -3696,3 +3696,8 @@ body {
   .main .archive-date {
     color: #999999;
     /*color: lighten( desaturate( $grayDarker, 35% ), 40% );*/ }
+
+.resume .header {
+  /*h1{*/
+  /*color:blue;*/
+  /*}*/ }

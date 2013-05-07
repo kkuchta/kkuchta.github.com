@@ -3,18 +3,18 @@ layout: page
 ---
 # Projects
 
-## [Vimbits.com](vimbits.com) <span class='github'>[[github]](https://github.com/kkuchta/Vimbits)</span>
+## [Vimbits.com](https://www.vimbits.com) <span class='github'>[[github]](https://github.com/kkuchta/Vimbits)</span>
 
 A site to upvote and downvote your favorite Vim configuration snippets.  Made with Bootstrap and Rails (decided to keep it largely js-free for v1).  Hit the HN front page twice, and got about 12k uniques in the first week or so.  It's levelled off to around 80 uniques a day.  It needs a lot of visual work and some bug fixes, but mostly it needs better features to support wading through the mass of noise to find the gems: duplicate detection, a moderation queue/interface, real searching, better tagging, etc.
 <hr>
 
-## [KevinKuchta.com](kevinkuchta.com) <span class='github'>[[github]](https://github.com/kkuchta/kkuchta.github.com)</span>
+## [KevinKuchta.com](https://www.kevinkuchta.com) <span class='github'>[[github]](https://github.com/kkuchta/kkuchta.github.com)</span>
 
 Included here for completeness, this is a generated static Jekyll-based site hosted on github pages.  I've added in Haml for the html and Sass for the css, along with Jekyll's built-in markdown parsing for the content.  I started from a bootstrap base, but the visible design and css are my own.  I'm debating whether to keep the faux-bold headings- my more design-oriented friends say they're crap- I'm mixed on it.
 
 <hr>
 
-## [SFRentalApp](sfrentalapp.com) <span class='github'>[[github]](https://github.com/kkuchta/amaretto)</span>
+## [SFRentalApp](https://www.sfrentalapp.com) <span class='github'>[[github]](https://github.com/kkuchta/amaretto)</span>
 
 This was just a simple 'scratch my own itch' site.  I was applying for appartments and it was surprisingly difficult to find a basic common rental application.  So, I built one myself.  It's just a flatfile js page that looks like a printed form (and some of the interface disappears when you actually print it).  I used it as an excuse to play with coffeescript some more, so it has kind of an overbuilt class structure, but I had fun with it.  :)
 
