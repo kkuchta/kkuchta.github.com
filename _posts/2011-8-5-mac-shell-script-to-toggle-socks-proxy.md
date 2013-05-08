@@ -1,7 +1,6 @@
 ---
 layout: post
-title: !binary |-
-  TWFjIHNoZWxsIHNjcmlwdCB0byB0b2dnbGUgc29ja3MgcHJveHk=
+title: Mac shell script to toggle socks proxy
 mt_id: 23
 date: 2011-08-05 15:57:40.000000000 -07:00
 ---

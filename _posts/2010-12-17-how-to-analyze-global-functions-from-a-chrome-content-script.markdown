@@ -1,8 +1,6 @@
 ---
 layout: post
-title: !binary |-
-  SG93IHRvIGFuYWx5emUgZ2xvYmFsIGZ1bmN0aW9ucyBmcm9tIGEgQ2hyb21l
-  IGNvbnRlbnQgc2NyaXB0
+title: How to analyze global functions from a chrome content script
 mt_id: 18
 date: 2010-12-17 18:12:07.000000000 -08:00
 ---

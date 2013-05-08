@@ -1,7 +1,6 @@
 ---
 layout: post
-title: !binary |-
-  RmFjZWJvb2sgaUZyYW1lIEF1dGhvcml6YXRpb24=
+title: Facebook iFrame Authorization
 mt_id: 20
 date: 2011-02-01 01:18:31.000000000 -08:00
 ---

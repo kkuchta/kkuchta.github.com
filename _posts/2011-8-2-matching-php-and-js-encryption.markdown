@@ -1,7 +1,6 @@
 ---
 layout: post
-title: !binary |-
-  TWF0Y2hpbmcgUEhQIGFuZCBKUyBFbmNyeXB0aW9u
+title: Matching PHP and JS Encryption
 mt_id: 22
 date: 2011-08-02 00:05:25.000000000 -07:00
 ---

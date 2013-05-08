@@ -1,7 +1,6 @@
 ---
 layout: post
-title: !binary |-
-  RnVsU3RhY2ssIGVtcHR5IGNvZmZlZSBjdXA=
+title: Fulstack, empty coffee cup
 mt_id: 14
 date: 2010-04-09 21:47:40.000000000 -07:00
 ---

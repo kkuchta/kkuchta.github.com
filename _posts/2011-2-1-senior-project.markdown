@@ -1,7 +1,6 @@
 ---
 layout: post
-title: !binary |-
-  U2VuaW9yIFByb2o=
+title: Seniot Project
 mt_id: 19
 date: 2011-02-01 01:16:32.000000000 -08:00
 ---

@@ -1,7 +1,6 @@
 ---
 layout: post
-title: !binary |-
-  Q29udmVydGluZyBTdGF0ZSBQbGFuZSBDb29yZGluYXRlcyBpbiBSdWJ5
+title: Converting state-plane coordinates in ruby
 mt_id: 21
 date: 2011-04-09 14:59:36.000000000 -07:00
 ---

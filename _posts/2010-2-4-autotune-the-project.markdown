@@ -1,7 +1,6 @@
 ---
 layout: post
-title: !binary |-
-  QXV0b3R1bmUgdGhlIHByb2plY3Q=
+title: Autotune the Project
 mt_id: 11
 date: 2010-02-04 20:18:04.000000000 -08:00
 ---

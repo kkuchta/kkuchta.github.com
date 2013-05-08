@@ -1,11 +1,12 @@
 ---
 layout: post
-title: !binary |-
-  Ik1vZGVybiBGb250IEVtYmVkZGluZyIgb3IgIkhvdyBJIGxlYXJuZWQgdG8g
-  aGF0ZSBJRSBhbGwgb3ZlciBhZ2FpbiI=
+title: Modern Font Embedding or How I learned to hate IE all over again
 mt_id: 9
 date: 2010-01-24 15:41:52.000000000 -08:00
 ---
+
+** Note: This post is so out of date as to be useless.  Ignore it! **
+
 ###A New Hope
 
 Since the dawn of time, man has yearned for full control of fonts on his website.  For many years, though, we've been stuck using just the fonts that we can reliably expect every user to have installed on their machines.

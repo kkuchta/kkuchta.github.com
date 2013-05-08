@@ -20,6 +20,9 @@ h2{
 h3{
     font-size: $baseFontSize * 1.2;
 }
+h4{
+    font-size: $baseFontSize * 1.1;
+}
 pre code{
     font-size: $baseFontSize * .8;
     baseLineHeight: $baseFontSize * .8;
@@ -66,6 +69,9 @@ body{
     hr.divider{
         width: 90%;
         border:7.5px solid #ddd;
+    }
+    ul,ol{
+        margin-left: 25px;
     }
 
     .page{

@@ -1,7 +1,6 @@
 ---
 layout: post
-title: !binary |-
-  RW5naW5lZXInZA==
+title: Engineer'd
 mt_id: 17
 date: 2010-10-17 22:52:03.000000000 -07:00
 ---

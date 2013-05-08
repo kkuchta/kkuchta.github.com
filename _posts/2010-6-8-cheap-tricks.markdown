@@ -1,7 +1,6 @@
 ---
 layout: post
-title: !binary |-
-  Q2hlYXAgVHJpY2tz
+title: Cheap Tricks
 mt_id: 15
 date: 2010-06-08 20:12:33.000000000 -07:00
 ---

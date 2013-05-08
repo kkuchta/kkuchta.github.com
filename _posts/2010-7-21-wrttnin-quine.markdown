@@ -1,7 +1,6 @@
 ---
 layout: post
-title: !binary |-
-  V3J0dG4uaW4gUXVpbmU=
+title: Wrttnin Quine
 mt_id: 16
 date: 2010-07-21 23:41:39.000000000 -07:00
 ---

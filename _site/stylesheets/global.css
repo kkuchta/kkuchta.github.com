@@ -3619,6 +3619,9 @@ h2 {
 h3 {
   font-size: 21.6px; }
 
+h4 {
+  font-size: 19.8px; }
+
 pre code {
   font-size: 14.4px;
   baseLineHeight: 14.4px; }
@@ -3661,6 +3664,8 @@ body {
   .main hr.divider {
     width: 90%;
     border: 7.5px solid #ddd; }
+  .main ul, .main ol {
+    margin-left: 25px; }
   .main .page {
     padding: 30px;
     padding-top: 0; }
