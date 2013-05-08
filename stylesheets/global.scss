@@ -160,5 +160,32 @@ body{
             }
         }
     }
+    .experience{
+        .job{
+            margin: 10px;
+            @include border-radius(10px);
+            padding: 10px;
+            ul.details{
+                list-style:none;
+                margin:0;
+                padding:0;
+                li.title{
+                    font-weight:bold;
+                }
+            }
+            .description ul{
+                list-style:none;
+                margin-top:0px;
+            }
+        }
+        .job:nth-child(odd){
+            background-color: #f5f5f5;
+        }
+    }
+    hr{
+        @include border-radius(20px);
+        border:7.5px solid #eee;
+        width: 50%;
+    }
 }
 
