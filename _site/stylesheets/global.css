@@ -3755,9 +3755,17 @@ body {
       margin-top: 0px; }
   .resume .experience .job:nth-child(even), .resume .experience .project:nth-child(even), .resume .projects .job:nth-child(even), .resume .projects .project:nth-child(even) {
     background-color: #f5f5f5; }
-  .resume .experience .job:last-child, .resume .projects .job:last-child {
+  .resume .experience .job:last-child, .resume .experience .project:last-child, .resume .projects .job:last-child, .resume .projects .project:last-child {
     margin-bottom: 0px;
     padding-bottom: 0px; }
+  .resume .other {
+    margin-top: 10px;
+    margin-bottom: 50px;
+    /*font-size: $baseFontSize * 1.2;*/ }
+    .resume .other .education {
+      margin-left: 10px; }
+    .resume .other h2 {
+      margin-left: 0px; }
   .resume hr {
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;

@@ -199,10 +199,21 @@ body{
         .job:nth-child(even), .project:nth-child(even){
             background-color: #f5f5f5;
         }
-        .job:last-child{
+        .job:last-child, .project:last-child{
             margin-bottom: 0px;
             padding-bottom: 0px;
         }
+    }
+    .other{
+        margin-top: 10px;
+        margin-bottom: 50px;
+        .education{
+            margin-left: 10px;
+        }
+        h2{
+            margin-left:0px;
+        }
+        /*font-size: $baseFontSize * 1.2;*/
     }
     hr{
         @include border-radius(20px);
