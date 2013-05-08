@@ -4,7 +4,13 @@
     %title Kevin Kuchta
     {% include header_resources.html %}
 
-  %body
+  %body.resume-page
+    .floater
+      %ul
+        %li
+          %a{href:'{{site.baseurl}}'} Back to site
+        %li
+          %a{href:'{{site.baseurl}}files/KevinKuchta.pdf'} PDF Version
     .container.resume
       .header.row
         .name
