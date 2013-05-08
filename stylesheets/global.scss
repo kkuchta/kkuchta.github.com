@@ -26,7 +26,7 @@ pre code{
 }
 
 body{
-    font-color: $grayDarker;
+    color: $grayDarker;
 }
 
 .sidebar{
@@ -126,10 +126,39 @@ body{
 }
 
 .resume{
+    margin-top: 20px;
+
     .header{
-        /*h1{*/
-            /*color:blue;*/
-        /*}*/
+        @include border-radius(20px);
+        border:15px solid $grayDarker;
+        text-align: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        .name{
+            a{
+                color:inherit;
+            }
+            font-family: $headerFontFamily;
+            font-size: $baseFontSize * 1.6;
+            line-height: $baseLineHeight;
+            font-size: 60px;
+            .faded{
+                color: $gray;
+            }
+        }
+        ul.contact{
+            list-style:none;
+            margin-top:-10px;
+            li{
+                display:inline;
+            }
+            li.divider{
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+        }
     }
 }
 

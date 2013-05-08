@@ -3624,7 +3624,7 @@ pre code {
   baseLineHeight: 14.4px; }
 
 body {
-  font-color: #222222; }
+  color: #222222; }
 
 .sidebar {
   -webkit-border-radius: 20px;
@@ -3697,7 +3697,32 @@ body {
     color: #999999;
     /*color: lighten( desaturate( $grayDarker, 35% ), 40% );*/ }
 
-.resume .header {
-  /*h1{*/
-  /*color:blue;*/
-  /*}*/ }
+.resume {
+  margin-top: 20px; }
+  .resume .header {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    border: 15px solid #222222;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px; }
+    .resume .header .name {
+      font-family: "Bevan", Georgia, serif;
+      font-size: 28.8px;
+      line-height: 1.6;
+      font-size: 60px; }
+      .resume .header .name a {
+        color: inherit; }
+      .resume .header .name .faded {
+        color: #555555; }
+    .resume .header ul.contact {
+      list-style: none;
+      margin-top: -10px; }
+      .resume .header ul.contact li {
+        display: inline; }
+      .resume .header ul.contact li.divider {
+        margin-left: 5px;
+        margin-right: 5px; }

@@ -5,10 +5,23 @@
     {% include header_resources.html %}
 
   %body
-    .container-fluid
+    .container
       .row-fluid
         .resume.span12
           .header
-            %h1 Kevin Kuchta
+            .name
+              <a href='mailto:kevin@kevinkuchta.com' class='faded'>Kevin@</a><a href='https://www.kevinkuchta.com'>KevinKuchta<span class='faded'>.com</span></a>
+            %ul.contact
+              %li
+                %a{href:'tel:415-758-2482'} 415-758-2482
+              %li.divider &#183;
+              %li 
+                %a{ href:'https://twitter.com/kkuchta' } @kkuchta
+              %li.divider &#183;
+              %li 
+                %a{href:'https://github.com/kkuchta'} github.com/kkuchta
+              %li.divider &#183;
+              %li
+                %a{href:'https://maps.google.com/maps?q=1137+Hyde+St,+San+Francisco,+CA&hl=en&ll=37.791473,-122.417822&spn=0.043545,0.082998&sll=37.60592,-122.280063&sspn=0.698471,1.327972'} San Francisco, CA
 
           Some day I'll set up a nice resume here.
