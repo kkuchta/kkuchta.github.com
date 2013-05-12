@@ -1,6 +1,7 @@
 ---
 layout: post
 ---
+**Note:** *I use github's api as an example here because, at the time of writing, it supported both jsonp and basic authentication.  That is [no longer the case](https://github.com/blog/1160-github-api-v2-end-of-life), though, so these examples probably won't work as-is.  As far as I'm aware, though, the technique is still sound.*
 ## JSONP background
 
 [JSONP](http://en.wikipedia.org/wiki/JSONP) is the name for a technique to get around the [same-origin policy](http://en.wikipedia.org/wiki/Same_origin_policy).  It works pretty well when you're trying to make a cross-domain request- for example, to some service's api, without using a server proxy.  In my case, I was trying to build a tool that would work from a flat file.
