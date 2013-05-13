@@ -45,7 +45,15 @@
 
         </div>
         <div class='span7 main'>
-          <h2><span class="archive-date">(Apr '13)</span><a href="/_site//2013/04/ember-each-each"> Ember.js @each@each workaround</a></h2>
+          <h2><span class="archive-date">(May '13)</span><a href="/_site//2013/05/chrome-is-too-smart"> Chrome is too smart for its own good</a></h2>
+
+<div class="archive-summary"><p>Run the following into the chrome console:</p> <pre><code>(function(){ var foo = 3; (function(){ debugger })(); })(); </code></pre> <p>When the debugger line gets hit, type <code>foo</code>. Result? <code>ReferenceError: foo is not defined</code>. What gives? <code>foo</code> should be in the closure scope!</p> <p>I'm guessing that Chrome is just trying to be smart...</div>
+
+
+<p>  <a href="" title="/_site//2013/05/chrome-is-too-smart">Read More</a>
+  <hr></p>
+
+<h2><span class="archive-date">(Apr '13)</span><a href="/_site//2013/04/ember-each-each"> Ember.js @each@each workaround</a></h2>
 
 <div class="archive-summary"><h2>Background</h2> <p>This is just a simple workaround post for future references. For more in-depth reading, read up on Ember's <a href="http://emberjs.com/guides/object-model/observers/">object model</a>.</p> <p>Anyway, when you're declaring observers in ember, <code>.@each</code> is super-useful for observing elements of arrays in your object.</p> <p>However, what happens when you want to observe elements of...</div>
 

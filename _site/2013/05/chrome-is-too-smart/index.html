@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kevin Kuchta</title>
+    <link href='/_site/stylesheets/global.css' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+<script type='text/javascript'>
+  //<![CDATA[
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-27863897-1']);
+    _gaq.push(['_setDomainName', 'kevinkuchta.com']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  //]]>
+</script>
+
+  </head>
+  <body>
+    <div class='container-fluid'>
+      <div class='row-fluid'>
+        <div class='span4 sidebar'>
+          <h1>
+  <a href='/_site/'>Kevin<br>Kuchta</a>
+</h1>
+<ul class='unstyled'>
+  <li>
+    <a href='/_site/projects'>Projects</a>
+  </li>
+  <li>
+    <a href='/_site/contact'>On the web</a>
+  </li>
+  <li>
+    <a href='/_site/resume'>Resume</a>
+  </li>
+  <li>
+    <a href='/_site/bio'>Bio</a>
+  </li>
+</ul>
+
+        </div>
+        <div class='span7 main'>
+          <p>Run the following into the chrome console:</p>
+
+<pre><code>(function(){
+    var foo = 3;
+    (function(){
+        debugger
+    })();
+})();
+</code></pre>
+
+<p>When the debugger line gets hit, type <code>foo</code>.  Result?  <code>ReferenceError: foo is not defined</code>.  What gives?  <code>foo</code> should be in the closure scope!</p>
+
+<p>I'm guessing that Chrome is just trying to be smart here and remove variables that are never used or referenced in any function that has access to the closure scope.  So, when we log <code>foo</code>, chrome detects that and keeps it available.  When we don't, though, it cleans it up pre-emptively.</p>
+
+<p>Try this:</p>
+
+<pre><code>(function(){
+    var foo = 3;
+    (function(){
+        debugger
+        console.log(foo);
+    })();
+})();
+</code></pre>
+
+<p>Magically, foo is now defined in that inner scope.</p>
+
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
