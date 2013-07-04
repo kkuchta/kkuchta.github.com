@@ -28,3 +28,5 @@ The strength of this model, for the engineer, is that she can push as hard as sh
 The downside of this is that there *are* no limits.  The freedom comes with responsiblility.  There's no policy telling you when to come in and when to leave, but when the site breaks at 2am, you need to fix it.  There's no formal review process telling what you've done well and what you've done poorly, so you need to figure it out for yourself.  You can work as hard as you want, so you work as hard as you can.  Any less and you're not furthering the company, which devalues your equity and puts your job at risk if things go south.
 
 At a big company, they'll force your interests to serve theirs, freeing you to pursue your own.  At a startup, your interests *become* theirs, freeing you from restrictions.  Neither path is right for everyone, and there is plenty of middle ground, but this is the dichotimy as I see it, and I can't imagine giving up the startup world.
+
+* My understanding of rocket science comes from Estes rocekts and the movie "October Sky", so let's considere a simplified rocket engine.
