@@ -20,18 +20,6 @@ This was just a simple 'scratch my own itch' site.  I was applying for appartmen
 
 <hr>
 
-## [Canton](https://github.com/kkuchta/canton)
-
-Canton (based on "domaine de canton" from my roommate's liquor collection) is a simple framework that's growing out of my various javascript experiments.  Each time I make a frontend-only project to play around with, I find myself with a similar set of wants:
-
-- Optionally use fun tools: sass, coffeescript, haml
-- Have assets automatically regenerate as needed
-- Compile everything to a single html file I can easily copy to a friend or slap on S3 for hosting.
-
-So, I use sinatra and a few plugins to get the fun tool stack and auto regeneration during development.  Then, for fun, I wrote a rake task to compile everything into one file (including external links like CDN stuff).  The todo list include a lot of cleanup- maybe bundle it all into a gem or something so it's more of a tool than a template.
-
-<hr>
-
 ## Toy Projects
 
 Smaller and/or less-practical things
@@ -40,9 +28,11 @@ Smaller and/or less-practical things
 
 I wanted to play around with canvas, so I drew a ball.  Then I made it move.  Then I thought the movement should be more realistic, and it spiralled from there.  Before I realized it, I had general-purpose forces like gravity and friction, and I was working on collision resolution.  It only ever dealt with balls, of course, but it was fun.
 
-### [Wall of Imgur (potentially NSFW)](http://safe-forest-6414.herokuapp.com/) <span class='github'>[[Github]](https://github.com/kkuchta/kahlua)</span>
+### [Wall of Imgur (potentially NSFW)](http://random-imgur.s3-website-us-east-1.amazonaws.com/) <span class='github'>[[Github]](https://github.com/kkuchta/RandomImagur2)</span>
 
 This is pretty silly- it's just a wall of random images from Imgur.com (an image-hosting site).  It has infinite scrolling, zoom-hover (which was a little tricky to make work nicely without covering the page and whatnot), semi-intelligent tiling, and a mode that replaces all the images with kittens.  That last one is because, since these are truly random images, some of them are occasionally NSFW and I wanted to be able to be able to work on this in public places.
+
+August 2013: I recently started a job using coffeescript and backbone.  To refamiliarize myself with these, I rebuild the wall of imgur in with them.
 
 <hr class="divider">
 
@@ -62,3 +52,19 @@ This died for a couple reasons:
 
 1. It required too much sales work- there was no organic growth.  The other guy involved (my roommate at the time) had to talk to restaurants individually, and that wasn't that scallable unless we wanted to bet the farm on this and do it full time (we weren't).
 2. By the time this started to mature, there were plenty of tools out there filling this niche already (as well as fancy features like online ordering and native apps).
+
+
+<hr>
+
+## [Canton](https://github.com/kkuchta/canton)
+
+**Update:** Grunt does pretty much everything I was doing here, but better, so I'm moving this project to the graveyard.
+
+Canton (based on "domaine de canton" from my roommate's liquor collection) is a simple framework that's growing out of my various javascript experiments.  Each time I make a frontend-only project to play around with, I find myself with a similar set of wants:
+
+- Optionally use fun tools: sass, coffeescript, haml
+- Have assets automatically regenerate as needed
+- Compile everything to a single html file I can easily copy to a friend or slap on S3 for hosting.
+
+So, I use sinatra and a few plugins to get the fun tool stack and auto regeneration during development.  Then, for fun, I wrote a rake task to compile everything into one file (including external links like CDN stuff).  The todo list include a lot of cleanup- maybe bundle it all into a gem or something so it's more of a tool than a template.
+
