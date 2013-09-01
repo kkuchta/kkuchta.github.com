@@ -45,7 +45,8 @@
 
         </div>
         <div class='span7 main'>
-          <p>So, it turns out that the code run in chrome content scripts run in their own context.  As such, I can't access global variables set by in-page code.  However, chrome content scripts do use the same DOM.  Further, when  &lt;script> elements are inserted into the DOM dynamically, they're run using the page's context, and can access those global variables/functions.</p>
+          <h1 class='title'>How to analyze global functions from a chrome content script</h1>
+<p>So, it turns out that the code run in chrome content scripts run in their own context.  As such, I can't access global variables set by in-page code.  However, chrome content scripts do use the same DOM.  Further, when  &lt;script> elements are inserted into the DOM dynamically, they're run using the page's context, and can access those global variables/functions.</p>
 
 <p>In this example, insertToDOM just adds the code as the content of a script element to the <head> element (this code uses JQeury, but you could easily do it without.</p>
 

@@ -3666,6 +3666,8 @@ body {
     border: 7.5px solid #ddd; }
   .main ul, .main ol {
     margin-left: 25px; }
+  .main .title {
+    font-size: 1.8em; }
   .main .page {
     padding: 30px;
     padding-top: 0; }
