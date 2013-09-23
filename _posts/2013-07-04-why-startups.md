@@ -2,8 +2,7 @@
 layout: post
 title: Why Startups
 ---
-
-## When you work for a large company, you work for yourself.
+#### When you work for a large company, you work for yourself.
 
 You work hard because you're incentivized to do so: you're given raises if you do and fired if you don't.  You're motivated almost entirely by the incentives the company provides you with.  Because a lot of people at the company are the same way, at least a few of them will follow those incentives to the letter, benefiting themselves to the detriment of the company.
 
@@ -17,7 +16,7 @@ The downside, of course, is that he is subject to this barrage of incentives: ru
 
 When you work for a large company, you work with only your own interests in mind- this is both good and bad.
 
-## When you work for a startup, you work for the company
+#### When you work for a startup, you work for the company
 
 At a startup, you have one incentive: furthering the company.  The smaller the company, the closer your incentives are to just "whatever you think is best."  You *could* slack off, but if things go south, your equity and employment are materially affected.  Further, unlike in a large company, your work can easily sway the success or failure of the company.
 
@@ -29,5 +28,5 @@ The downside of this is that there *are* no limits.  The freedom comes with resp
 
 At a big company, they'll force your interests to serve theirs, freeing you to pursue your own.  At a startup, your interests *become* theirs, freeing you from restrictions.  Neither path is right for everyone, and there is plenty of middle ground, but this is the dichotomy as I see it, and I can't imagine giving up the startup world.
 
-* My understanding of rocket science comes from Estes rockets and the movie "October Sky", so let's consider a simplified rocket engine.
+\* My understanding of rocket science comes from Estes rockets and the movie "October Sky", so let's consider a simplified rocket engine.
 
