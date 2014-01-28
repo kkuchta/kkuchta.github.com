@@ -4,7 +4,12 @@ layout: main
 .home
   .headline
     %h1 I'm Software Engineer.
-    %p.p1 I've worked at <a href="http://expensify.com/">Expensify</a> in San Francisco since I graduated from <a href="http://rit.edu">RIT</a> in upstate NY in 2011.
+    %p.p1
+      I've worked at
+      %a{ href: 'http://threadflip.com' } Threadflip
+      in SF since summer of 2013, and
+      %a{ href:"http://expensify.com" } Expensify
+      for a couple years before that.
   .rest
     {% for post in site.posts limit: 5 %}
     %h1
