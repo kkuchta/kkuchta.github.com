@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kevin Kuchta</title>
+    <link href='/_site/stylesheets/global.css' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
+<script type='text/javascript'>
+  //<![CDATA[
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-27863897-1']);
+    _gaq.push(['_setDomainName', 'kevinkuchta.com']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  //]]>
+</script>
+
+  </head>
+  <body>
+    <div class='container-fluid'>
+      <div class='row-fluid'>
+        <div class='span4 sidebar'>
+          <h1>
+  <a href='/_site/'>Kevin<br>Kuchta</a>
+</h1>
+<ul class='unstyled'>
+  <li>
+    <a href='/_site/projects'>Projects</a>
+  </li>
+  <li>
+    <a href='/_site/contact'>On the web</a>
+  </li>
+  <li>
+    <a href='/_site/resume'>Resume</a>
+  </li>
+  <li>
+    <a href='/_site/bio'>Bio</a>
+  </li>
+</ul>
+
+        </div>
+        <div class='span7 main'>
+          <h1 class='title'>Fishy Code&#58; In Which I Lose My Mind</h1>
+<h3>An Unexpected Journey</h3>
+
+<blockquote><p>Localhost?  Why the hell is it accessing localhost?</p></blockquote>
+
+<p>Those words ran through my head while I peered at a pile of compressed javascript.  It was in a js file being loaded from a remove server- <code>someservice.com/api.js</code>.  It was part of a connection speed test api I was using on a weekend project.</p>
+
+<p>I was trying to figure out why this file was making ajax calls when the file was loaded, rather than when it was being used.  The code was clearly minified, but I can usually muddle my way through the useless variable names to figure out what's going on.</p>
+
+<p>This code was a bit different, though.  Take a look:</p>
+
+<pre><code>        var q8 = parseInt(K8, 2),
+            M8 = 'http://localhost?q=;%29%28emiTteg.%29%28etaD%20wen%20nruter',
+            W8 = M8.constructor.constructor(unescape(/;.+/ ["exec"](M8))["split"]('')["reverse"]()["join"](''))();
+        return {
+            L8: function(w8) {
+                var c8, B8 = 0,
+                    v8 = q8 - W8 &gt; e8,
+                    p8;
+                for (; B8 &lt; w8["length"]; B8++) {
+                    p8 = parseInt(w8["charAt"](B8), ((0x190, 0x186) &lt; 0xB0 ? (62., "c") : (0x16E, 7.16E2) &gt;= 143. ? (148., 16) : (5.850E2, 56.)))["toString"](2);
+                    var T8 = p8["charAt"](p8["length"] - 1);
+                    c8 = B8 === 0 ? T8 : c8 ^ T8;
+                }
+                return c8 ? v8 : !v8;
+            }
+        };
+</code></pre>
+
+<p>At first glance, it's mostly gibberish.  I wouldn't have given it a second look if it weren't for the <code>localhost</code>.  Why the hell would it need that?  This is meant to be included on a web page loaded by end users- there’s no reason to load something from their machines (even if the same-origin policy didn’t prevent it).</p>
+
+<p>So, the first step is to see where that’s being used.  Turns out it's used only in the two lines above: <code>M8 = ...</code> and <code>W8 = ...</code>.  And what the heck is <code>W8 = ...</code> doing?</p>
+
+<p>I broke it down from the middle:</p>
+
+<pre><code>/;.+/ ["exec"](M8)
+</code></pre>
+
+<p>That's just running a regex over that localhost url.  It seems to just pull out everything after the semicolon.  As such, it just gets <code>%29%28emiTteg.%29%28etaD%20wen%20nruter</code>.</p>
+
+<p>With that result, it runs <code>unescape</code>, <code>split</code>, <code>reverse</code>, and <code>join</code>, producing
+the following steps:</p>
+
+<pre><code>";)(emiTteg.)(etaD wen nruter"
+
+[";", ")", "(", "e", "m", "i", "T", "t", "e", "g", ".", ")", "(", "e", "t", "a", "D", " ", "w", "e", "n", " ", "n", "r", "u", "t", "e", "r"]
+
+["r", "e", "t", "u", "r", "n", " ", "n", "e", "w", " ", "D", "a", "t", "e", "(", ")", ".", "g", "e", "t", "T", "i", "m", "e", "(", ")", ";"]
+
+"return new Date().getTime();"
+</code></pre>
+
+<p>Alright, there's no way any js minifier or compiler would go so far out of its way just to produce that string.  This was intentionally obfuscated.</p>
+
+<p>Continuing on, it runs <code>M8.constructor.constructor( ... )();</code> on it.  What's going on here?  Again by steps:</p>
+
+<p>If <code>M8</code> is a string, then <code>M8.constructor</code> is just the string constructor- a function used to create a string.  It's the same thing you're using when you call <code>String('foo')</code>.  In fact, <code>'somestring'.constructor === String</code>.</p>
+
+<p>So, it's a function that produces a string.  Now, what's
+<code>M8.constructor.constructor</code>?  It's a constructor for a function!  <code>"foo".constructor.constructor === Function</code>.  You may not use the function constructor all that often, but <code>function(){return 3}</code> is the same as <code>Function('return 3')</code>.</p>
+
+<p>So, put it all together and the M8/W8 lines translate to:</p>
+
+<pre><code>(function(){ return new Date().getTime(); })();
+</code></pre>
+
+<p>For all that, W8 is just the current time.  WTF.</p>
+
+<h3>Several Hours Abbreviated</h3>
+
+<p>While that's not nefarious in itself, the fact that they went so out of their way to hide it is certainly suspicious.</p>
+
+<p>I'll skip ahead a bit, but here's what I found:</p>
+
+<ul>
+<li>That date is compared against a hard-coded date in late 2014 (a few months after the date I was coding this in).</li>
+<li>Huge swaths of code change entirely after that date.  Many normal functions names (like <code>setAttribute</code>) are built up using variables (eg <code>a1 + b2 + c2</code>) whose values hinge on that date comparison.  Today, those variables add up to <code>setAttribute</code>, but after that pivotal point in time, they make up... something else.</li>
+<li>Setting my system clock past that data doesn't reveal anything- the site breaks with some undefined function error deep in the rest of this api file.</li>
+</ul>
+
+
+<p>What's going on?!  Is this set to do something evil after a certain period of time?  Is it something horrible, but just implemented incorrectly?  I'm a little concerned at this point, and thinking about how to publicly warn other users of this code before that doomsday arrives!</p>
+
+<h3>Sanity prevails, or at least makes an appearance</h3>
+
+<p>At this point I stopped to take a break, have dinner, and consult with a few friends who haven't been going blind staring at obfuscated code all day.</p>
+
+<p>The root of the puzzle seems to be:</p>
+
+<ul>
+<li>I can't find anything actually malicious in this file.</li>
+<li>But someone's clearly gone out of their way to make reverse engineering it a lot of work.</li>
+<li>There's a significant date in late November, 2014.</li>
+</ul>
+
+
+<p>Eventually, a simpler conclusion dawned on me: the providers of this js file just don't want anyone using their public api.</p>
+
+<p>You and I both know, of course, that you never trust the client-side javascript.  If my website’s JS prevents a user from, say, editing another user's content, but my server doesn't enforce this limitation, it's pretty easy for a savvy user to circumvent that client-side code.  You can make life harder for that savvy user by hiding what your javascript is doing, but all you're doing is slowing them down a little.  Why even bother, when you could instead focus on securing your server?</p>
+
+<p>Well, these guys bothered.  They obfuscated the javascript so I couldn't easily abuse their servers by mimicking what their client library did.  The client library is supposed to be hot-linked directly from their site, so there’s a date limitation to prevent me from downloading the api.js file and serving it from my server.</p>
+
+<h3>The moral of the story</h3>
+
+<p>There is no real moral.  Don't trust foreign JS unless you trust the provider, even though it turned out to be fine this time.</p>
+
+<p>Hopefully, though, if someone else out there sees this code and searches for a portion of it (as I did, early on in my wasted afternoon), they'll find this post and benefit from my conclusions.</p>
+
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
