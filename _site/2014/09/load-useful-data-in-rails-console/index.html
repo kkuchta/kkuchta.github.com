@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kevin Kuchta</title>
+    <link href='/_site/stylesheets/global.css' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
+<script type='text/javascript'>
+  //<![CDATA[
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-27863897-1']);
+    _gaq.push(['_setDomainName', 'kevinkuchta.com']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  //]]>
+</script>
+
+  </head>
+  <body>
+    <div class='container-fluid'>
+      <div class='row-fluid'>
+        <div class='span4 sidebar'>
+          <h1>
+  <a href='/_site/'>Kevin<br>Kuchta</a>
+</h1>
+<ul class='unstyled'>
+  <li>
+    <a href='/_site/projects'>Projects</a>
+  </li>
+  <li>
+    <a href='/_site/contact'>On the web</a>
+  </li>
+  <li>
+    <a href='/_site/resume'>Resume</a>
+  </li>
+  <li>
+    <a href='/_site/bio'>Bio</a>
+  </li>
+</ul>
+
+        </div>
+        <div class='span7 main'>
+          <h1 class='title'>Load useful data in the rails console</h1>
+<h3>The basics</h3>
+
+<p>I spend plenty of time in the rails console in my local dev environment, and I often find myself in need of dummy data or specific objects set up to mess around with.  For example, the user I test most things with is KevinKuchta, so I run <code>kevin = User.find_by_username('KevinKuchta')</code>.  It's like 40 characters long, but I type it often enough that I'd love to optimize it (and similar bits of code).</p>
+
+<p>It's pretty simple:</p>
+
+<ol>
+<li>Make sure you're using <a href="http://pryrepl.org/">pry</a>.  It's better than irb, and also lets us have per-project rc files (irb only has the global <code>~/.irbrc</code>).</li>
+<li>Use <code>pry-rails</code>.  It's possible to <a href="https://github.com/pry/pry/wiki/Setting-up-Rails-or-Heroku-to-use-Pry#with_gemfile">configure rails to use pry for rails console sessions</a>, but <a href="https://github.com/rweng/pry-rails">pry-rails</a> does it for you.</li>
+<li>Make yourself a <code>.pryrc</code> file at the root of your project.  These bits of code I want are, at least for me, all project-specific.  I don't want to try to load the KevinKuchta user over in an unrelated project that doesn't even have a user model, so I need a project-specific pryrc.</li>
+<li><p>Fill it up with this:</p>
+
+<pre><code> class Object
+   private
+   def kevin
+     User.find_by_username('KevinKuchta')
+   end
+ end
+</code></pre></li>
+<li><p>Save the <code>.pryrc</code> file and open the rails console.  Enter <code>kevin</code>, and the above code will be called.</p>
+
+<pre><code> ~/code/some_rails_project&gt; bundle exec rails c
+ Loading development environment (Rails 3.2.17)
+ [1] pry(main)&gt; kevin
+   User Load (1.4ms)  SELECT "users".* FROM "users" WHERE "users"."username" = 'KevinKuchta' LIMIT 1
+ =&gt; #&lt;User id: 123, username: "KevinKuchta"&gt;
+</code></pre></li>
+</ol>
+
+
+<p>As you can see, we're tacking my helper function onto the global object.  We could make a <code>Util</code> class or something, but I'd rather call <code>kevin</code> than <code>Util.kevin</code>.  The functions on <code>Object</code> are accessible without any prefix, allowing us to call our methods more succinctly</p>
+
+<p>Note that we declare out helper function as private so it's not available on anything that extends ruby's base object: <code>Hash.new.kevin</code> would return my user if it weren't private.</p>
+
+<h3>A bit better</h3>
+
+<p>Now, this still isn't quite as nice as I'd like it.  <code>kevin</code> is reloaded from the database every time I use it, wiping out any unsave changes.  Let's memoize it:</p>
+
+<pre><code>def kevin
+  @_kevin ||= User.find_by_username('KevinKuchta')
+end
+</code></pre>
+
+<p>Now I can modify that record and the database is only hit once:</p>
+
+<pre><code>[1] pry(main)&gt; kevin.email = 'foo'
+  User Load (0.8ms)  SELECT  "users".* FROM "users"  WHERE ...
+=&gt; "foo"
+[2] pry(main)&gt; kevin.email
+=&gt; "foo"
+</code></pre>
+
+<h3>A just a little further</h3>
+
+<p> Now let's generalize that logic a bit so we can easily define as many of these variables as we want.  It's a bit of ugly metaprogramming, but this isn't production code, so it's alright!</p>
+
+<pre><code>class Object
+  private
+  def populate(name, &amp;block)
+    self.class.send(:define_method, name) do
+
+      instance_variable_name = '@_' + name
+      value = instance_variable_get(instance_variable_name)
+
+      unless value
+        value = block.call
+        instance_variable_set(instance_variable_name, value)
+      end
+
+      value
+    end
+  end
+end
+
+populate('kevin') do
+  User.find_by_username('KevinKuchta')
+end
+</code></pre>
+
+<p>Now there's a nice little method you can use.  These variable can even depend on eachother:</p>
+
+<pre><code>populate('balance') do
+  kevin.account.balance
+end
+</code></pre>
+
+<p>And there you have it.  Lazy-loaded, prepopulated data in your rails console.</p>
+
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
