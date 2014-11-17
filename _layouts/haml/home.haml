@@ -5,11 +5,12 @@ layout: main
   .headline
     %h1 I'm Software Engineer.
     %p.p1
-      I've worked at
+      I've been at
+      %a{ href:"http://joyable.com" } Joyable
+      since the fall 2014.  Before that I was at
       %a{ href: 'http://threadflip.com' } Threadflip
-      in SF since summer of 2013, and
-      %a{ href:"http://expensify.com" } Expensify
-      for a couple years before that.
+      and
+      %a{ href:"http://expensify.com" } Expensify.
   .rest
     {% for post in site.posts limit: 5 %}
     %h1

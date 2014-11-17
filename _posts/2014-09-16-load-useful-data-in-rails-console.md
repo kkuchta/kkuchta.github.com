@@ -5,7 +5,7 @@ title: Load useful data in the rails console
 
 ### The basics
 
-I spend plenty of time in the rails console in my local dev environment, and I often find myself in need of dummy data or specific objects set up to mess around with.  For example, the user I test most things with is KevinKuchta, so I run `kevin = User.find_by_username('KevinKuchta')`.  It's like 40 characters long, but I type it often enough that I'd love to optimize it (and similar bits of code).
+I spend plenty of time in the rails console in my local dev environment, and I often find myself in need of dummy data or specific objects set up to mess around with.  For example, the user I test most things with is KevinKuchta, so I might run `kevin = User.find_by_username('KevinKuchta')`.  It's like 40 characters long, but I type it often enough that I'd love to optimize it (and similar bits of code).
 
 It's pretty simple:
 

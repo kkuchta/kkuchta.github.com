@@ -4,7 +4,7 @@ Just a blog and with some project pages and contact info.
 
 ## Use
 
-It's mostly a stock [Jekyll](http://jekyllrb.com/) setup.  If you're just adding content, all you need to do is run:
+It's mostly a stock [Jekyll](http://jekyllrb.com/) setup. If you're just adding content, all you need to do is run:
 
     jekyll serve -w
 
