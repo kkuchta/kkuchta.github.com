@@ -28,6 +28,15 @@ Every tech interviewing technique violates at least one of those
   - Best answer I've seen is "when they're stumped, do they give up?"
   - Can you "see how they think" with an actual code question?
 
+# Trivia
+- "You can look most things up", so not a good test on the face of it
+- It's true that experience with a tech stack correlates with more trivia knowledge.
+- 2 weeks into ruby, I might know, say, 10% of the standard lib.
+- 1 year in, I might know 50%
+- 5 years, I might know 90%
+- At 5 years, you ask 10 questions, but most of them were in the 10% I don't know
+- Too non-deterministic
+
 ## Tell me about X
 - A time you struggled with a team member
 - A big/difficult/hairy problem
@@ -55,3 +64,33 @@ Every tech interviewing technique violates at least one of those
 
 ### Takehome challenge
 - Allows more in-depth projects
+- Easier to fake (although, in practice, I've never seen this happen)
+- Selects against people without a lot of free time, or with many competing offers
+- 10 companies asking for a 10-hour challenge each while you have a full-time job is unreasonable
+- Good for second chances
+- Good for people who can't provide a code sample
+
+### Code samples
+- Plays to people's strengths
+- Let's them put their best foot forward
+- Biased against those who don't code in their spare time (good/bad)
+- Biased against those who, for many legit reasons, can't get their previous employer's permission to share code
+- Hard for recent grads
+
+### Trial periods
+
+### Contract-to-hire
+
+### Paired programming
+
+### Paired programming
+
+### Reference Checks
+
+### Blind Reference Checks
+
+### Design Questions
+
+### Casual Conversation
+
+### Open Source Work
