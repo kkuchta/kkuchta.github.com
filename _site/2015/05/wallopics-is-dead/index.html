@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kevin Kuchta</title>
+    <link href='/_site/stylesheets/global.css' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
+<script type='text/javascript'>
+  //<![CDATA[
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-27863897-1']);
+    _gaq.push(['_setDomainName', 'kevinkuchta.com']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  //]]>
+</script>
+
+  </head>
+  <body>
+    <div class='container-fluid'>
+      <div class='row-fluid'>
+        <div class='span4 sidebar'>
+          <h1>
+  <a href='/_site/'>Kevin<br>Kuchta</a>
+</h1>
+<ul class='unstyled'>
+  <li>
+    <a href='/_site/projects'>Projects</a>
+  </li>
+  <li>
+    <a href='/_site/contact'>On the web</a>
+  </li>
+  <li>
+    <a href='/_site/resume'>Resume</a>
+  </li>
+  <li>
+    <a href='/_site/bio'>Bio</a>
+  </li>
+</ul>
+
+        </div>
+        <div class='span7 main'>
+          <h1 class='title'>Wallopics Is Dead</h1>
+<h2>TLDR</h2>
+
+<p><a href="http://wallopics.com">Wallopics.com</a> is broken.  Imgur decided to start blocking it.  It won't be coming back.  If you still want to use it, you can download <a href="https://raw.githubusercontent.com/kkuchta/RandomImagur2/master/index.html">this html file</a> and open it in a browser.</p>
+
+<h2>What was wallopics?</h2>
+
+<p>Wallopics.com was a simple little JS site I build a while back.  It was an infinitely scrolling mosiac wall of pictures.  Each picture was randomly pulled from imgur.com by guessing imgur urls (<code>i.imgur.com/XXXXX.jpg</code>) until it found one that worked.</p>
+
+<p>I thought it was kinda cool.  It was a fun little JS project to give me a bit more experience with Backbone.js (this was several years ago).</p>
+
+<p>Other people thoguht it was pretty cool too.  It was a hit on <a href="http://www.reddit.com/r/InternetIsBeautiful/comments/1k7tms/infinite_wall_of_truly_random_imgur/">reddit</a>.  When I finally got around to adding google analytics to it almost a year and a half after I released it, I was still getting a few hundred hits per day.  Even now, after it's been defunct for a couple months, it's still the top google result for "random imgur".</p>
+
+<h2>Death and Tech Support</h2>
+
+<p>About two months ago, I checked google analytics for the site (as I did every few weeks) and noticed a significant decline in traffic.  I checked the site and found that it was no longer working- no images would load!</p>
+
+<p>A few quick minutes of debugging revealed that any image requests with wallopics.com as a referer were being rejected by imgur:</p>
+
+<pre><code>$ curl --referer 'wallopics.com' -I http://i.imgur.com/1lhTi.jpg
+HTTP/1.1 403 Forbidden
+
+$ curl --referer 'notwallopics.com' -I http://i.imgur.com/1lhTi.jpg
+HTTP/1.1 200 OK
+</code></pre>
+
+<p>Since that's pretty clearly Imgur taking a direct step against my site specifically, I decided to try to get in touch with their support staff.  As far as I knew, imgur was pretty cool with hotlinking from their site, so I couldn't be violating any of their terms of service, right?</p>
+
+<p>Their response was:</p>
+
+<blockquote><p>Thanks for writing. Unfortunately your site has been blocked from hotlinking because it violates our user's privacy. We offer private image uploading and want our users to feel secure knowing that no one can find an image without the direct link. I'm very sorry for the confusion. Please let me know if I can help further.</p></blockquote>
+
+<p>Now, of course, this is pretty thoroughly ridiculous.  If your image can be found by guessing a url, it's not particularly private.  At this point, I didn't expect that arguing would get me anywhere, and I wasn't about to try to circumvent the block just to prove a point.  I did feel compelled to try to politely point out that it wouldn't be hard to do so, and that this might not be a wise long-term strategy for them.  Their response was:</p>
+
+<blockquote><p>Thanks for the info! We've just recently started cracking down on referrers, so we'll definitely take that into consideration. But we make a distinction between private and secret images. An image can never be secret, but any privately uploaded image can only be accessed by going to the direct link - even if you guess it! Here's an article that explains this further: https://help.imgur.com/hc/en-us/articles/201746817-Image-and-album-privacy-explained-. Have a great weekend!</p></blockquote>
+
+<p>Now, I can understand where Imgur's coming from.  They want to be able to offer private image-hosting for users such that users can still share those images with their friends without needing cumbersome access controls and logins for everyone involved.  Security through obscurity, with all the pros and cons associated with that.</p>
+
+<p>Unfortunately, they don't <em>actually</em> offer that service.  Their urls <em>are</em> easily guessable.  Anyone with a minimal amount of programing knowledge (or even just a web browser and the patience to guess a few urls by hand) can access "private" images.</p>
+
+<h2>What I could do</h2>
+
+<p>There are a few options I could pursue to circumvent this block:</p>
+
+<ol>
+<li>A proxy-server that strips the referer would make it work again pretty easily.  Wallopics.com would request images from proxy.wallopics.com, which would pass the request on to imgur with no referer.  Imgur might counter that with an IP block, but that can be addressed other ways.</li>
+<li>I could host the page on some popular domain (eg <code>https://s3-us-west-1.amazonaws.com/some_bucket/index.html</code>).  Imgur couldn't block that domain as a referer- aws is too widely used.  They might try to block that bucket name, but I could rotate through bucket names easily enough.  Wallopics.com would just always redirect to the latest bucket.</li>
+<li>I could distribute this as an app (desktop or otherwise) that people run themselves.</li>
+</ol>
+
+
+<p>In reality, I'm not going to bypass Imgur's wishes just to be a jerk.  However, I'm not the only one running a random imgur site.  A search for 'random imgur' turns up a dozen other options with slightly worse UIs.  I'm sure at least one of those won't be as nice.</p>
+
+<h2>What Imgur should do</h2>
+
+<p>Guids.  Imgur urls (at least the ones I'm checking) are 5-digits.  If you pick a 5-digit alphanumeric imgur url, you have about a 45% chance to hit an image.  That number drops precipitously if you use a 6-digit code.  If imgur were to use a full-on guid like <code>imgur.com/0df12896-d854-4deb-b659-0b55b75f08ea</code> for their 'private' images, it would be astronomically impossible to find even one real image by chance.  Heck, even an 8-digit code would make a browsable site like mine impractical.</p>
+
+<h2>What you can do</h2>
+
+<p>If you still want to use my infinite wall of imgur pics, the code has always been available on <a href="https://github.com/kkuchta/RandomImagur2">github</a>.  If you're too lazy to mess with frontend build tools (and I would hardly blame you), <a href="https://raw.githubusercontent.com/kkuchta/RandomImagur2/master/index.html">here's a compiled single html file</a> that you can download to get the full wallopics experience yourself.</p>
+
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
