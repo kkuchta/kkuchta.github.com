@@ -11,3 +11,4 @@ exclude:
     - Gemfile
     - Gemfile.lock
 baseurl: /_site/
+excerpt_separator: "<!--break-->"

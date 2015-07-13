@@ -48,6 +48,9 @@
           <h1 class='title'>Converting state-plane coordinates in ruby</h1>
 <p>I got a pile of data with coordinates last night.  The coordinates were in State Plane NY West format, which is a <a href="http://en.wikipedia.org/wiki/State_Plane_Coordinate_System">semi-state specific</a> coordinate system that needs to be translated before you can use it like latitude/longitude.  There are better references out there if you want a thorough treatise on the subject, but I thought I'd give the concrete solutions I came up with in case you, like me, just want to get lat/lon and could hardly care less about 80's era cartography.</p>
 
+<!--break-->
+
+
 <ol>
 <li><p>Install <a href="http://trac.osgeo.org/proj/">proj4</a>, the 80's-era c library that everything relating to geospatial coordinate transformations seems to be built on.  This is <em>related to</em> and possibly the basis for, but not actually the same thing as <a href="http://gdal.org/">gdal</a>.  Gdal has some handy command-line tools in case you don't need to do this programmatically.  Further, it takes similar projection strings as proj4.</p>
 

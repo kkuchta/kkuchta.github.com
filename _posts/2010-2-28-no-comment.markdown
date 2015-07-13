@@ -5,6 +5,7 @@ mt_id: 12
 date: 2010-02-28 22:05:22.000000000 -08:00
 ---
 Much like throwing a kitten into a pit of rottweilers, there are a few questions you can throw into any group of developers that'll have them at each other's throats in moments.  One fun one I discovered recently was:
+<!--break-->
 
 "When do you comment?"
 

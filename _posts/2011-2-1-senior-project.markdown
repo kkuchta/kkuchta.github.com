@@ -6,6 +6,7 @@ date: 2011-02-01 01:16:32.000000000 -08:00
 ---
 ### What is it?
 "Senior Project" is the capstone class in the RIT Software Engineering program.  It's a 6-month project on a team of 4-5 SEs working for an external client on a real problem.  In my case, I'm working with 4 other seniors ([Chris Tosswill](http://tosswill.net), [Matt Olenik](http://mattolenik.net/), Bernard Stern, and Pete Bergeron; our sponsor is Eastman Kodak.
+<!--break-->
 
 What we're developing is a Facebook collage generator.  The flow is like this:
 

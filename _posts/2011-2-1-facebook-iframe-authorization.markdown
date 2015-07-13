@@ -5,6 +5,7 @@ mt_id: 20
 date: 2011-02-01 01:18:31.000000000 -08:00
 ---
 So, it turns out that any facebook page, when loaded in an iframe, will explode. That is, it'll display the facebook logo and nothing else. It'd say it's an anti-clickjacking measure, if I had to guess.
+<!--break-->
 
 The problem is that this applies to /any/ iframe, including facebook's own. This presents a problem when trying to load facebook's authorization page in a facebook iframe-based app. This was a problem as of Jan 1, 2011, but facebook changes things so fast that it may be resolved by now. If not, here's how to fix it.
 

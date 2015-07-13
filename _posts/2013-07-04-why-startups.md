@@ -5,6 +5,7 @@ title: Why Startups
 #### When you work for a large company, you work for yourself.
 
 You work hard because you're incentivized to do so: you're given raises if you do and fired if you don't.  You're motivated almost entirely by the incentives the company provides you with.  Because a lot of people at the company are the same way, at least a few of them will follow those incentives to the letter, benefiting themselves to the detriment of the company.
+<!--break-->
 
 For example, if the company starts rewarding you for fixing bugs, someone will start introducing bugs in order to fix them, or focusing on bug fixes instead of their existing projects, or fixing bugs quickly but with unmaintainable hacks.  If the company punishes people whose projects fail, people avoid risky projects.  If the company rewards people who participate in meetings, work slows down while everyone frantically schedules meetings.  I think it was Scott Adams who said "all incentives produce unintended behavior."
 

@@ -5,6 +5,7 @@ mt_id: 16
 date: 2010-07-21 23:41:39.000000000 -07:00
 ---
 Because I got bored and my javascript is rusty, I put together what I'm calling a Wrttn.in quine.
+<!--break-->
 
 **Edit:** Does not appear to be working in Chrome (my main browser).  I'd only tested it in Firefox so far because A) firebug rocks and B) I'm too lazy to care about cross-browser compatibility in my free time.  I'll take a look at the problem sometime soon when it's not after midnight on a workday.
 

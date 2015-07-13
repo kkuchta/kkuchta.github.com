@@ -5,6 +5,7 @@ mt_id: 17
 date: 2010-10-17 22:52:03.000000000 -07:00
 ---
 I'm sick of Facebook's liking system.  I can see their idea, but it's become complete crap.  99% of "likes" that show up in my feed are either thoroughly inane our outright malicious (seriously, I never thought I'd see this much clickjacking in the wild).
+<!--break-->
 
 So, here's a prototype of a script to remove them from the front page:
 

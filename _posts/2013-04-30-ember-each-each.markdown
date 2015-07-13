@@ -5,6 +5,7 @@ title: Ember.js @each@each workaround
 ## Background
 
 This is just a simple workaround post for future references.  For more in-depth reading, read up on Ember's [object model](http://emberjs.com/guides/object-model/observers/).
+<!--break-->
 
 Anyway, when you're declaring observers in ember, `.@each` is super-useful for observing elements of arrays in your object.
 

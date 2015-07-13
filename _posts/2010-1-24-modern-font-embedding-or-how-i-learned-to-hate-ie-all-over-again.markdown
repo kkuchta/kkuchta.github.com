@@ -6,6 +6,7 @@ date: 2010-01-24 15:41:52.000000000 -08:00
 ---
 
 ** Note: This post is so out of date as to be useless.  Ignore it! **
+<!--break-->
 
 ###A New Hope
 

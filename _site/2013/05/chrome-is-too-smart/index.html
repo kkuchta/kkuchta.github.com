@@ -56,6 +56,9 @@
 })();
 </code></pre>
 
+<!--break-->
+
+
 <p>When the debugger line gets hit, type <code>foo</code>.  Result?  <code>ReferenceError: foo is not defined</code>.  What gives?  <code>foo</code> should be in the closure scope!</p>
 
 <p>I'm guessing that Chrome is just trying to be smart here and remove variables that are never used or referenced in any function that has access to the closure scope.  So, when we log <code>foo</code>, chrome detects that and keeps it available.  When we don't, though, it cleans it up pre-emptively.</p>

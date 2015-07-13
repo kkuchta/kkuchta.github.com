@@ -6,6 +6,7 @@ title: Wallopics Is Dead
 ## TLDR
 
 [Wallopics.com](http://wallopics.com) is broken.  Imgur decided to start blocking it.  It won't be coming back.  If you still want to use it, you can download [this html file](https://raw.githubusercontent.com/kkuchta/RandomImagur2/master/index.html) and open it in a browser.
+<!--break-->
 
 ## What was wallopics?
 

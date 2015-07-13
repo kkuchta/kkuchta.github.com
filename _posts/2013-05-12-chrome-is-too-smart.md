@@ -11,6 +11,7 @@ Run the following into the chrome console:
             debugger
         })();
     })();
+<!--break-->
 
 When the debugger line gets hit, type `foo`.  Result?  `ReferenceError: foo is not defined`.  What gives?  `foo` should be in the closure scope!
 

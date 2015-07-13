@@ -16,7 +16,8 @@ layout: main
     %h1
       %a{ href: '{{site.baseurl}}{{post.url}}' } {{post.title}}
     %p
-      {{post.content | truncatewords: 50}}
+      -#{{post.content | truncatewords: 50}}
+      {{post.excerpt}}
     %p
       %a{ href: '{{site.baseurl}}{{post.url}}' } Read more
     %hr

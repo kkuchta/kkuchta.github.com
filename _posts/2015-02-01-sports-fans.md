@@ -4,6 +4,7 @@ title: I'd like To Hate on Sports Fans
 ---
 
 I’d like to rag on sports fans for their ridiculous tribalism, but then I realize that half my clothing is just one organization or another that I’d like to associate with, and that I feel a sense of camaraderie with those who share those preferences.
+<!--break-->
 
 I’d like to make fun of how much time sports fans waste on an ultimately useless pursuit, but then I remember that I spent at least as much time playing video games yesterday as most people will spend today watching football.
 

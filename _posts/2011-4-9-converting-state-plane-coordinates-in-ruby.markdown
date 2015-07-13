@@ -5,6 +5,7 @@ mt_id: 21
 date: 2011-04-09 14:59:36.000000000 -07:00
 ---
 I got a pile of data with coordinates last night.  The coordinates were in State Plane NY West format, which is a [semi-state specific](http://en.wikipedia.org/wiki/State_Plane_Coordinate_System) coordinate system that needs to be translated before you can use it like latitude/longitude.  There are better references out there if you want a thorough treatise on the subject, but I thought I'd give the concrete solutions I came up with in case you, like me, just want to get lat/lon and could hardly care less about 80's era cartography.
+<!--break-->
 
 1.  Install [proj4](http://trac.osgeo.org/proj/), the 80's-era c library that everything relating to geospatial coordinate transformations seems to be built on.  This is *related to* and possibly the basis for, but not actually the same thing as [gdal](http://gdal.org/).  Gdal has some handy command-line tools in case you don't need to do this programmatically.  Further, it takes similar projection strings as proj4.
 

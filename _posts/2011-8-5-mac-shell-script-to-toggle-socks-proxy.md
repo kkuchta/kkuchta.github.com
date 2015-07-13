@@ -8,6 +8,7 @@ date: 2011-08-05 15:57:40.000000000 -07:00
 ### What
 
 A simple script that'll toggle your System Preferences proxy settings on a Mac.  It takes one argument- the name of the interface on which to toggle the proxy (eg, 'Airport' or 'Ethernet').  You can easily wrap this with an automator script using the "Get specified text" action to provide the argument and the 'Shell Script' action to run the script.
+<!--break-->
 
 Uses growl to notify you of what it's done.  That can be removed if you want- just delete the end of the script below the relavent comment.
 

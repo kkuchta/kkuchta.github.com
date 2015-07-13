@@ -7,7 +7,7 @@ date: 2010-02-04 20:18:04.000000000 -08:00
 ###Hell is shiny objects
 I don't know about you, but I often suffer from a lack of motivation on personal projects.  Usually it goes something like this:
 
-1.    Be sitting at my computer and thing "Hey, I've got a half hour; I could try to fix that bug in the FPA event model."
+1.    Be sitting at my computer and thing "Hey, I've got a half hour; I could try to fix that bug in the FPA event model." <!--break-->
 2.    Launch Textmate, open the relevant directory in it, and wait for that to load.
 3.    Launch MAMP and wait for it to spool up it's isolated MySQL and Apache servers
 5.    Start up the Fixx issue tracker server and wait for that to load.

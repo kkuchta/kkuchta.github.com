@@ -6,6 +6,7 @@ date: 2011-08-02 00:05:25.000000000 -07:00
 ---
 ## Problem
 You'd think that encryption is in encryption- AES is AES, DES is DES, etc.  Encrypt with scheme X, decrypt with scheme X, and it comes out clean.  Turns out, though, that it's not that easy.  Or rather, it is, but the relevant libraries on different platforms like to do things different.  Consider that to encrypt/decrypt something with AES you need:
+<!--break-->
 
  - To use the same mode (CBC, EBC, etc)
  - The same block type for block cipher modes

@@ -6,6 +6,7 @@ title: Why I'm Leaving
 Last Friday I tendered my resignation at Expensify, the startup I've been working at for the last 2 years.  The following Tuesday (by mutual decision) was my last day.
 
 Before I made the decision to start looking at other companies, I wrote a short essay to myself outlining the reasons.  Since several people have asked, here follows a cleaned-up version of that essay.
+<!--break-->
 
 The most glaring reason is PHP.  I've made no secret among my coworkers and my friends that I don't care for the language.  The classic article [Fractal of Bad Design](http://me.veekun.com/blog/2012/04/09/php-a-fractal-of-bad-design/) hits on a lot of my gripes with it.  I think I'd be legitimately happier working with most other web tech stacks.  However, I'm an engineer.  I can get by with almost any language, which is only a tool.  My distaste for PHP was a factor in my decision to leave, but not the main one.
 

@@ -7,6 +7,7 @@ title: Fishy Code&#58; In Which I Lose My Mind
 > Localhost?  Why the hell is it accessing localhost?
 
 Those words ran through my head while I peered at a pile of compressed javascript.  It was in a js file being loaded from a remove server- `someservice.com/api.js`.  It was part of a connection speed test api I was using on a weekend project.
+<!--break-->
 
 I was trying to figure out why this file was making ajax calls when the file was loaded, rather than when it was being used.  The code was clearly minified, but I can usually muddle my way through the useless variable names to figure out what's going on.
 
