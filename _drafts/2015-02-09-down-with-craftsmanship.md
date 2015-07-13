@@ -3,45 +3,49 @@ layout: post
 title: Down With Craftsmanship
 ---
 
-When I say crafstmanship, I mean an appeal to craftsmanship as an argument.
+The appeal to "craftsmanship" is a blight on software engineering decision-making.
 
-A debate:
-  - A) We should do X
-  - B) We should do Y
-  - A) Why?
-  - B) Because we're craftsmen, pride in our work, etc
+Imagine a technical debate:
 
-Delibrate blindness
+> Vladamir: I'll build this feature using a few ActiveRecord callbacks and simple config file.
+> Estragon: No, we should build it using a few service objects with the data stored in the db.
+> Vladamir: Why should we do that?  It'd take twice as long.
+> Extragon: Because it's the right solution.
+> Vladamir: Sure, but but we could get this feature out a week earlier if we did it my way.
+> Estragon: Have you no pride in your work?  We have a duty to build the best thing we can.  We are craftsmen, and we should act like it!
 
-Everything in software development is a tradeoff
-  - Speed of dev vs maintainability
+Who is right?  Really, it could be either of them.  Don't focus on the subject, but the argument.  Estragon's argument, though noble-sounding, is deliberate blindness.  
+
+Because really, everything in software development is a tradeoff:
+
+  - Speed of development vs maintainability
   - Understandability vs performance
-  - Usability vs underyling model
+  - Usability vs staying true to the underlying model
+  - etc etc
 
 Arguing for "pride in our work" is just one side of a tradeoff masquerading as a platonic ideal.
 
-To be clear, I'm *not* arguing that you should write bad code.  I'm arguing that you should be aware of the tradeoffs you're making
+To be clear, I'm *not* arguing that you should write bad code.  I'm arguing that you should be aware of the tradeoffs you're making.  Appealing to "craftsmanship" as a noble goal in and of itself is just closing your eyes to the actual decision you're making and pretending it doesn't exist.
 
-Appealing to craftsmanship is usually part of the "build it fast and get business value now" vs "built it more carefully and hopefully get business value later" debate.  Both sides of that argument have merit, and which one you pick depends on your business needs and the exact weights of each side for the specific codein question.  Appealing to craftsmanship is burrying your head in the sand and declaring one side universally superior.
+Appealing to craftsmanship is usually part of the "build it fast and get business value now" vs "built it more carefully and hopefully get business value later" debate.  Both sides of that argument have merit, and which one you pick depends on your business needs and the exact weights of each side for the specific code in question.  Appealing to craftsmanship is burying your head in the sand and declaring one side universally superior.  You may feel better, but you're being foolish.
 
-That kind of purism has no place in the lexicon of a well-rounded developer with any thoughts of seeing beyond his or her narrow field of work.
+Now, you might argue that doing it "right" is always in the best long-term interest of the project.  Consider a hypothetical project:
 
-*somewhere*: craftsmanship is in the *developer's* best interests because it means less work for them.  It may be in the company's best interests to build a crappy version now and then spend more money to build it better later.  Now, it may be that, for a particular problem, it's worth the time to do it right- that the tradeoff makes sense.  Make *that* argument.  Don't appeal to an abstract concept of goodness like this is a moral decision.
+- Your development costs for this project are $50k/mo
+- You can build a slapdash version of in 3 months and have to spend 6 months rebuilding it a year later.  Or you can build it well in 6 months and never have to rebuild it.
+- Let's say the project generates $60k/mo once it's completed.
+- If you do it the "right" way, it costs you $300k to build it now and generates $1,080k in revenue by the end of two years.
+- If you do it the "wrong" way, it costs you $450k in development costs ($150k now, and $300k later).  It ends up generating $1260k by the end of two years.
+- In this case, the "right" way netted you $780k profit while the "wrong" way netted you $810k.
 
-So, up with tradeoffs.
+Now, I'm *not* saying that doing it the "wrong" way is always best.  This is obviously a contrived example.  I'm saying that you should have this debate, rather than putting your fingers in your ears and pretending that the "right" way is the only path for a true engineer.
+
+That kind of puritanical argument has no place in the lexicon of a well-rounded developer with any thoughts of seeing beyond his or her narrow field of work.
+
+So, up with considering both sides.
 
 Up with carefully considered tradeoffs.
 
-Up with well-written, maintainable code when that is what is in the business' best interest.
+Up with well-written, maintainable code *when that is what is in the business' best interest*.
 
 Down with "craftsmanship"
-
----
-
-Example to work in somewhere
-
-- Your development costs are $50k/mo
-- Build it crappy in 3 months (and have to rebuild it a year later in 6 months) or build it well in 6 and never have to rebuild it.
-- Project generates $60k/mo once completed.
-- Right: costs $300k, ends up generating 780k by the end of 2 years
-- Wrong: costs $450k, ends up generating 810k by the end of 2 years
