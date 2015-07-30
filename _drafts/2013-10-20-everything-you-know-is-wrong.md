@@ -38,7 +38,7 @@ You probably know this kind of question before I even describe it: What does the
 
 <a href="http://dilbert.com/strips/comic/1998-05-17/" title="Dilbert.com"><img src="http://dilbert.com/dyn/str_strip/000000000/00000000/0000000/000000/10000/2000/700/12758/12758.strip.sunday.gif" border="0" alt="Dilbert.com" /></a>
 
-Trivia questions are a great way to feel superior, and are easy to administer without much thought.  If *you* know the answer, surely any compotent developer familiar with the tech stack in question would know it, right?
+Trivia questions are a great way to feel superior, and are easy to administer without much thought.  If *you* know the answer, surely any competent developer familiar with the tech stack in question would know it, right?
 
 As it turns out, most languages and frameworks have far more dark corners than you think.  A dev can spend several years using a tool and still be missing a few sections of it.  A high-level example might be a java programmer doing some heavy web development and building a lot of interesting things, but not really knowing much about the Swing classes.
 
