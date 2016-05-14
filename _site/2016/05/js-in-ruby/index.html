@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kevin Kuchta</title>
+    <link href='/_site/stylesheets/global.css' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
+<script type='text/javascript'>
+  //<![CDATA[
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-27863897-1']);
+    _gaq.push(['_setDomainName', 'kevinkuchta.com']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  //]]>
+</script>
+
+  </head>
+  <body>
+    <div class='container-fluid'>
+      <div class='row-fluid'>
+        <div class='span4 sidebar'>
+          <h1>
+  <a href='/_site/'>Kevin<br>Kuchta</a>
+</h1>
+<ul class='unstyled'>
+  <li>
+    <a href='/_site/projects'>Projects</a>
+  </li>
+  <li>
+    <a href='/_site/contact'>On the web</a>
+  </li>
+  <li>
+    <a href='/_site/resume'>Resume</a>
+  </li>
+  <li>
+    <a href='/_site/bio'>Bio</a>
+  </li>
+</ul>
+
+        </div>
+        <div class='span7 main'>
+          <h1 class='title'>Making Ruby Look Like Javascript</h1>
+<blockquote><p>Yeah, yeah, but your scientists were so preoccupied with whether or not they could that they didn't stop to think if they should.
+- Dr. Ian Malcolm, Jurassic park</p></blockquote>
+
+<p>Inspired by <a href="https://twitter.com/stevenf/status/730905829977661440">this</a> tweet, I was wondering tonight to what degree I could make ruby look like other languages.  Please don't anyone every actually do this.</p>
+
+<!--break-->
+
+
+<p>So far I've come up with three tactics:</p>
+
+<ol>
+<li>Semicolons are already valid in ruby.</li>
+<li><code>var foo =</code> can be accomplished by a dummy <code>var</code> function.</li>
+<li><code>function(x){</code> just looks like the start of some block syntax.</li>
+</ol>
+
+
+<p>Put it all together and you might be able to confuse a JS programmer for a second or two:</p>
+
+<pre><code>var sum = function(:a, :b) {
+  a + b;
+};
+console.log[ sum[ 3, 4 ] ];
+# Prints "7"
+</code></pre>
+
+<p>Here's the code to make it work:</p>
+
+<pre><code>require 'ostruct'
+
+def var(_)
+end
+
+console = OpenStruct.new(log: (-&gt;(s){puts s}))
+
+def function(*args, &amp;block)
+  klass = Class.new { attr_accessor *args }
+  Proc.new { |*arg_values|
+    obj = klass.new
+    args.zip(arg_values).each {|arg, arg_value| obj.send(:"#{arg}=", arg_value) }
+    obj.instance_eval(&amp;block)
+  }
+end
+</code></pre>
+
+<p>The only interesting bit is the <code>function</code> definition.  It takes in a block and returns a function (a proc) that, when called, executes the block.  It injects the specified variables into the block by sticking them on a new object then evaluating the block with that object as context.  There's probably a better way to do that, but this was all I could find.  Everything else would have required declaring the function with a very un-javascript-like <code>function(:a, :b) { |a, b| ...</code>.</p>
+
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
