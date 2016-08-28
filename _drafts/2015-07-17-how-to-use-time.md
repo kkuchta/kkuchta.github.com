@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to use time
+title: Notes: how to use time
 ---
 There are two main models for measuring work:
 
