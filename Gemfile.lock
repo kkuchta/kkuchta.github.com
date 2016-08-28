@@ -67,9 +67,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  guard
-  guard-haml
-  haml
-  jekyll
-  rdiscount
-  sass
+  guard (= 1.8.0)
+  guard-haml (= 0.5.0)
+  haml (= 3.1.4)
+  jekyll (= 1.0.0)
+  rdiscount (= 2.1.6)
+  sass (= 3.2.9)
