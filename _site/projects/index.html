@@ -48,9 +48,13 @@
           <div class='page'>
   <h1>Projects</h1>
 
-<h2><a href="http://www.vimbits.com">Vimbits.com</a> <span class='github'><a href="https://github.com/kkuchta/Vimbits">[github]</a></span></h2>
+<h2>Bub <span class='github'><a href="https://github.com/kkuchta/bub">[github]</a></span></h2>
 
-<p>A site to upvote and downvote your favorite Vim configuration snippets.  Made with Bootstrap and Rails (decided to keep it largely js-free for v1).  Hit the HN front page twice, and got about 12k uniques in the first week or so.  It's levelled off to around 80 uniques a day.  It needs a lot of visual work and some bug fixes, but mostly it needs better features to support wading through the mass of noise to find the gems: duplicate detection, a moderation queue/interface, real searching, better tagging, etc.</p>
+<p>A slackbot for claiming and deploying to heroku servers.  My company has a handful of heroku boxes we use for staging new features + doing acceptance test on them.  Since several new features may be in progress at once, the devs were constantly asking "Is sassy free?" (sassy being the name of one of the staging servers).  This is a slackbot I wrote to manage claiming and releasing servers.</p>
+
+<p>I also recently added the ability to actually deploy github branches to heroku through bub.</p>
+
+<p>Although this is used by Joyable, it's a personal project– I've strictly separated my work on this from my employer, using personal time and machines, so I can show it off here.</p>
 
 <hr>
 
@@ -62,20 +66,18 @@
 <hr>
 
 
-<h2><a href="http://www.sfrentalapp.com">SFRentalApp</a> <span class='github'><a href="https://github.com/kkuchta/amaretto">[github]</a></span></h2>
-
-<p>This was just a simple 'scratch my own itch' site.  I was applying for appartments and it was surprisingly difficult to find a basic common rental application.  So, I built one myself.  It's just a flatfile js page that looks like a printed form (and some of the interface disappears when you actually print it).  I used it as an excuse to play with coffeescript some more, so it has kind of an overbuilt class structure, but I had fun with it.  :)</p>
-
-<hr>
-
-
 <h2>Toy Projects</h2>
 
 <p>Smaller and/or less-practical things</p>
 
 <h3><a href="https://github.com/kkuchta/physicsengine">Baller JS Physics Engine</a></h3>
 
-<p>I wanted to play around with canvas, so I drew a ball.  Then I made it move.  Then I thought the movement should be more realistic, and it spiralled from there.  Before I realized it, I had general-purpose forces like gravity and friction, and I was working on collision resolution.  It only ever dealt with balls, of course, but it was fun.</p>
+<p>I wanted to play around with canvas, so I drew a ball.  Then I made it move.  Then I thought the movement should be more realistic, and it spiraled from there.  Before I realized it, I had general-purpose forces like gravity and friction, and I was working on collision resolution.  It only ever dealt with balls, of course, but it was fun.</p>
+
+<hr class="divider">
+
+
+<h1>Graveyard</h1>
 
 <h3><a href="http://random-imgur.s3-website-us-east-1.amazonaws.com/">Wall of Imgur (potentially NSFW)</a> <span class='github'><a href="https://github.com/kkuchta/RandomImagur2">[Github]</a></span></h3>
 
@@ -83,16 +85,25 @@
 
 <p>August 2013: I recently started a job using coffeescript and backbone.  To refamiliarize myself with these, I rebuild the wall of imgur in with them.</p>
 
-<hr class="divider">
+<p>May 2015: Wall of Imgur (renamed to wallopics.com) was quite popular on reddit.  Then, eventually, Imgur decided to shut it down by blocking wallopics.com as a referrer.  See the <a href="/_site/2015/05/wallopics-is-dead/">writeup</a> for more details.  Moving this to the graveyard, but you can still user the compiled site on <a href="finished%20site">github raw</a>.</p>
+
+<hr>
 
 
-<h1>Graveyard</h1>
+<h2><a href="http://www.vimbits.com">Vimbits.com</a> <span class='github'><a href="https://github.com/kkuchta/Vimbits">[github]</a></span></h2>
+
+<p>A site to upvote and downvote your favorite Vim configuration snippets.  Made with Bootstrap and Rails (decided to keep it largely js-free for v1).  Hit the HN front page twice, and got about 12k uniques in the first week or so.  It's leveled off to around 80 uniques a day.  It needs a lot of visual work and some bug fixes, but mostly it needs better features to support wading through the mass of noise to find the gems: duplicate detection, a moderation queue/interface, real searching, better tagging, etc.</p>
+
+<p>This is probably my most popular project to date.  Unfortunately, I kinda outgrew it.  It's on a really old version of rails and written pretty poorly.  I built it before I was a full-time rails dev, and so I contravened a <em>lot</em> of best practices.  Predictably, it became a maintainability nightmare.  Since there also isn't a whole lot it can teach me anymore, I let it quietly die.</p>
 
 <h2>Rayne, aka ShitIbuilt.com</h2>
 
-<p>This was intended to be a competitor to Linkedin that was focused on "Shit I Built".  It addressed the problem that although I have a bunch of friends, I can't really vouch for many of them as good programmers/designers/marketers/whatever, as I just haven't worked with them.  This was meant to be an 'anti-social network' where the key link was not friendship or aquaintence, but shared projects.</p>
+<p>This was intended to be a competitor to Linkedin that was focused on "Shit I Built".  It addressed the problem that although I have a bunch of friends, I can't really vouch for many of them as good programmers/designers/marketers/whatever, as I just haven't worked with them.  This was meant to be an 'anti-social network' where the key link was not friendship or acquaintance, but shared projects.</p>
 
-<p>Rayne (our internal name) died on the vine as we became less convinced that we had the interest to make it happen.  We built a minimum product, but the 'viable' part was not really there: an idea that simple really needed a lot more polish than we had the time to give it (and we weren't nearly confident enough about the idea to go full-time on it).  The remenants of it can be found at <a href="http://shitibuilt.com/">http://shitibuilt.com/</a> or directly on <a href="http://quiet-rain-7455.herokuapp.com/">heroku</a>, although that link will probably die eventually.</p>
+<p>Rayne (our internal name) died on the vine as we became less convinced that we had the interest to make it happen.  We built a minimum product, but the 'viable' part was not really there: an idea that simple really needed a lot more polish than we had the time to give it (and we weren't nearly confident enough about the idea to go full-time on it).  The remnants of it can be found at <a href="http://shitibuilt.com/">http://shitibuilt.com/</a> or directly on <a href="http://quiet-rain-7455.herokuapp.com/">heroku</a>, although that link will probably die eventually.</p>
+
+<hr>
+
 
 <h2><a href="http://www.ubimenu.com/">Ubimenu.com</a></h2>
 
@@ -101,7 +112,7 @@
 <p>This died for a couple reasons:</p>
 
 <ol>
-<li>It required too much sales work- there was no organic growth.  The other guy involved (my roommate at the time) had to talk to restaurants individually, and that wasn't that scallable unless we wanted to bet the farm on this and do it full time (we weren't).</li>
+<li>It required too much sales work- there was no organic growth.  The other guy involved (my roommate at the time) had to talk to restaurants individually, and that wasn't that scalable unless we wanted to bet the farm on this and do it full time (we weren't).</li>
 <li>By the time this started to mature, there were plenty of tools out there filling this niche already (as well as fancy features like online ordering and native apps).</li>
 </ol>
 
@@ -122,7 +133,11 @@
 </ul>
 
 
-<p>So, I use sinatra and a few plugins to get the fun tool stack and auto regeneration during development.  Then, for fun, I wrote a rake task to compile everything into one file (including external links like CDN stuff).  The todo list include a lot of cleanup- maybe bundle it all into a gem or something so it's more of a tool than a template.</p>
+<p>So, I use sinatra and a few plugins to get the fun tool stack and auto regeneration during development.  Then, for fun, I wrote a rake task to compile everything into one file (including external links like CDN stuff).  The todo list includes a lot of cleanup- maybe bundle it all into a gem or something so it's more of a tool than a template.</p>
+
+<h2><a href="http://www.sfrentalapp.com">SFRentalApp</a> <span class='github'><a href="https://github.com/kkuchta/amaretto">[github]</a></span></h2>
+
+<p>This was just a simple 'scratch my own itch' site.  I was applying for apartments and it was surprisingly difficult to find a basic common rental application.  So, I built one myself.  It's just a flatfile js page that looks like a printed form (and some of the interface disappears when you actually print it).  I used it as an excuse to play with coffeescript some more, so it has kind of an overbuilt class structure, but I had fun with it.  :)</p>
 
 </div>
 
