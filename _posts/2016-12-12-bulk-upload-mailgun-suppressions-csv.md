@@ -8,7 +8,7 @@ This is just another one of those posts summarizing some time I wasted so hopefu
 If you have a big list of suppressions (emails of users who unsubscribed, marked you as spam, etc) from another email provider (eg Sendgrid) and want to import them into Mailgun, there's no easy way to do it.  The web UI doesn't seem to have a way and their SDKs don't support it yet.
 
 Their API, however, does.  Here's a little ruby script that will read a sendgrid csv and upload all the emails to mailgun as suppressions (in this case "complaints", which are the equivalent of sendgrid's "spam" list emails).
-
+<!--break-->
 ```
 require 'csv'
 require 'net/http'
