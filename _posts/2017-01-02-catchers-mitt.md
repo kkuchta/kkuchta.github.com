@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Catcher's Mitt: A Simple Tool To Print Http Requests
+title: Catcher's Mitt- A Simple Tool To Print Http Requests
 ---
 
 The other day I released [Mitt](https://github.com/kkuchta/mitt), a simple tool that listens for http connections on a specified port and prints out requests to stdout.
