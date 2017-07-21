@@ -45,7 +45,105 @@
 
         </div>
         <div class='span7 main'>
-          <h2><span class="archive-date">(May '17)</span><a href="/_site//2017/05/twitter-ffmpeg"> Twitter + Ffmpeg</a></h2>
+          <h2><span class="archive-date">(Jul '17)</span><a href="/_site//2017/07/disguising-ruby-as-javascript"> Disguising Ruby as Javascript</a></h2>
+
+<div class="archive-summary"><p>Because my parents didn't raise me right, I decided to take <a href="/_site/{%%20post_url%202016-05-13-js-in-ruby%20%}">another</a> crack at making valid ruby that is indistinguishable from javascript.</p>
+
+<p>This is valid <em>ruby</em>:</p>
+
+<pre><code>  var first = 3;
+  var second = 4;
+
+  var sum = function(a, b) {
+    a + b;
+  }
+
+  console.log("Sum = ", sum(first, second));
+</code></pre>
+
+<p>Here's the code behind it:</p>
+
+<pre><code>  console = (Class.new { def log(*x); puts x.join(""); end }).new
+
+  define_method(:var) { |random_function_name|
+    var_name = local_variables.find do |local_var|
+      local_var != :random_function_name &amp;&amp; eval(local_var.to_s) == random_function_name
+    end
+    define_method(var_name) { |*args|
+      send(random_function_name, *args)
+    }
+  }
+
+  class Object
+    def method_missing(*args)
+      skip_methods = %i(to_a to_hash to_io to_str to_ary to_int)
+      return nil if skip_methods.include?(args[0])
+      return args[0]
+    end
+  end
+
+  def function(*args, &amp;block)
+    func_name = :"func_#{rand(1000000)}"
+
+    klass = Class.new { attr_accessor *args }
+    function_block = Proc.new { |*arg_values|
+      obj = klass.new
+      args.zip(arg_values).each {|arg, arg_value| obj.send(:"#{arg}=", arg_value) }
+      obj.instance_eval(&amp;block)
+    }
+
+    define_method(func_name, &amp;function_block)
+
+    func_name
+  end
+</code></pre>
+
+<h3>What The Hell, Kevin</h3>
+
+<p>Here's an overview of the techniques we're using:</p>
+
+<p><code>console</code> is just an instance of a class that has a <code>log</code> function.  Pretty straightforward.</p>
+
+<p><code>function(a, b) { ... }</code> is, rather than declaring a function, actually <em>calling</em> the function <code>function</code> with an arbitrary number of arguments and a ruby block.</p>
+
+<p>We're able to reference <code>a</code> and <code>b</code> here when they haven't been defined yet by using <code>method_missing</code> on <code>Object</code> (which is the global default namespace).  When you reference some unknown identifier <code>whatever</code>, method_missing is called and returns the symbol <code>:whatever</code>.  Overriding the root method_missing is dangerous, though.  Some classes rely on the default method_missing function falling through for whatever reason, so we have to exempt them: <code>to_a</code>, <code>to_hash</code>, etc.</p>
+
+<p>So, defining a function is actually <code>some_func(:a, :b) { ... }</code>.</p>
+
+<p>Now how about those vars?  We could just <code>def var(_);end</code> and then var would ignore whatever we sent to it.  That'd let <code>var foo = 5</code> work, since it'd just be <code>var(foo = 5)</code>.  With var as a no-op, the local assignment sticks (and, importantly, happens before the the method_missing junk above gets triggered).</p>
+
+<p>However, we don't do that because we need <code>var whatever = function(...) { ... }</code> to work.</p>
+
+<p>When we call that <code>function</code> function, we <em>could</em> return some sort of actual ruby function (eg a lambda).  However, we could only call that using ruby's weird syntax: <code>some_func.call(4)</code> or <code>some_func[4]</code>.  But we're hardcore javascript purists here!  We accept no substitutes!</p>
+
+<p>Instead, what <code>function</code> does is defines a method on the global namespace with the contents of the block you gave it (eg <code>a + b</code>).  We use an anonymous class and <code>instance_eval</code> to provide the function's arguments to the block body.</p>
+
+<p>But wait!  <code>function</code> doesn't know what it's called!  When you do <code>sum = function() {...}</code>, function has no way to know about <code>sum</code>.</p>
+
+<p>So what <code>function</code> does is it defines its method on the global namespace with a random name (eg <code>func_492041</code>) and returns that string (symbol, actually).  Then <code>var</code> picks up both the name passed (eg <code>sum</code>) and the random function name (<code>func_492041</code>) and defines a global namespace method named <code>sum</code> that just calls <code>func_492041</code>.</p>
+
+<p><code>var</code> <em>does</em> have to get a bit clever since, if you'll remember, calling <code>var(foo = function{...})</code> doesn't actually pass <code>foo</code> to <code>var</code> in any way.  It just defines a <code>foo</code> local variable.  <code>var</code> <em>does</em> know the contents of foo, though: it knows it'll be equal to whatever was passed in to it (in this case, the symbol <code>:func_492041</code>).</p>
+
+<p>To find its variable name, <code>var</code> just looks through the local namespace's list of variables (<code>local_variables.find</code>) and evaluates each one until it finds one that matches its input.  Once it finds that, it can define its global namespace method.</p>
+
+<p>And so, finally, we can call the global namespace method <code>sum(3, 4)</code>, which calls <code>func_492041(3, 4)</code>, which evaluates the <code>{ a + b }</code> block in the context of a class that happens to have <code>a</code> and <code>b</code> members whose values are <code>3</code> and <code>4</code>, respectively.</p>
+
+<h3>FAQ</h3>
+
+<p>Oh god why?  <strong>Some devs just like to watch the world burn</strong></p>
+
+<p>You realize this is terrible, right?  <strong>Yes.</strong></p>
+
+<p>Should I use this in production?  <strong>Absolutely.  Please tell me how that goes.</strong></p>
+
+<p>I can do this with fewer/more hacks! <strong>Tweet at me (@kkuchta)!  The world-fire can always use more wood.</strong></p>
+</div>
+
+
+<p>  <a href="" title="/_site//2017/07/disguising-ruby-as-javascript">Read More</a>
+  <hr></p>
+
+<h2><span class="archive-date">(May '17)</span><a href="/_site//2017/05/twitter-ffmpeg"> Twitter + Ffmpeg</a></h2>
 
 <div class="archive-summary"><p>Want to upload audio to twitter?  You can't.  You'd have to upload it to soundcloud, then post that link to twitter.  Some clients will give you a nice in-app soundcloud player and some won't.</p>
 
