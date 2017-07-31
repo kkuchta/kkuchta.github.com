@@ -3,13 +3,19 @@ layout: page
 ---
 # Projects
 
+## [UnexpectedHamilton](https://twitter.com/suddenhamilton) <span class='github'>[[github]](https://github.com/kkuchta/lyric_bot)</span>
+
+A ruby twitterbot for detecting partial song lyrics and tweeting the next few lines.  Eg if you tweet "I took my shot," it might detect that as a match to the line "Not throwing away my shot" from the musical Hamilton.  The bot would then tweet the following lines from Hamilton: "Hey yo, I'm just like my country / I'm young, scrappy and hungry."
+
+It matches base on line endings.  It weights each matching word based on how common the word is (so a match of "and me" is scored lower than a match of "extra marsupials"), and considers the tweet + lyric a match if the weighted score is over a configurable threshold.
+
 ## Bub <span class='github'>[[github]](https://github.com/kkuchta/bub)</span>
 
-A slackbot for claiming and deploying to heroku servers.  My company has a handful of heroku boxes we use for staging new features + doing acceptance test on them.  Since several new features may be in progress at once, the devs were constantly asking "Is sassy free?" (sassy being the name of one of the staging servers).  This is a slackbot I wrote to manage claiming and releasing servers.
+A ruby slackbot for claiming and deploying to heroku servers.  My company has a handful of heroku boxes we use for staging new features + doing acceptance test on them.  Since several new features may be in progress at once, the devs were constantly asking "Is sassy free?" (sassy being the name of one of the staging servers).  This is a slackbot I wrote to manage claiming and releasing servers.
 
 I also recently added the ability to actually deploy github branches to heroku through bub.
 
-Although this is used by Joyable, it's a personal project– I've strictly separated my work on this from my employer, using personal time and machines, so I can show it off here.
+Although this is used by Joyable, it's a personal project- I've strictly separated my work on this from my employer, using personal time and machines, so I can show it off here.
 
 <hr>
 
