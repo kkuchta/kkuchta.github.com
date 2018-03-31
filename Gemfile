@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0', patchlevel: '481'
+ruby '2.0.0'
 
 gem 'haml', '3.1.4'
 gem 'sass', '3.2.9'
