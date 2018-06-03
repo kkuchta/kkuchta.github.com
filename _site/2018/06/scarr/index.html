@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kevin Kuchta</title>
+    <link href='/_site/stylesheets/global.css' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
+<script type='text/javascript'>
+  //<![CDATA[
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-27863897-1']);
+    _gaq.push(['_setDomainName', 'kevinkuchta.com']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  //]]>
+</script>
+
+  </head>
+  <body>
+    <div class='container-fluid'>
+      <div class='row-fluid'>
+        <div class='span4 sidebar'>
+          <h1>
+  <a href='/_site/'>Kevin<br>Kuchta</a>
+</h1>
+<ul class='unstyled'>
+  <li>
+    <a href='/_site/projects'>Projects</a>
+  </li>
+  <li>
+    <a href='/_site/contact'>On the web</a>
+  </li>
+  <li>
+    <a href='/_site/resume'>Resume</a>
+  </li>
+  <li>
+    <a href='/_site/bio'>Bio</a>
+  </li>
+</ul>
+
+        </div>
+        <div class='span7 main'>
+          <h1 class='title'>Scarr&colon; S3 + Cloudfront + ACM + Route53</h1>
+<p>There are a bunch of free/cheap options for hosting static sites (just html/css/js) out there: github pages, netlify, firebase hosting - but when I want to build a bulletproof static site "for real", my go-to toolset is S3 for hosting with Cloudfront caching in front of it.</p>
+
+<h4>My workflow for that usually looks like:</h4>
+
+<!--break-->
+
+
+<ol>
+<li>Spend entirely too long picking a meaningful domain name like falafel.exposed</li>
+<li>Try to remember which registrar I decided I'd use for all my domains (namecheap, iwantmyname, gandhi, route53).  Fail and pick one at random.</li>
+<li>Register the domain, then realize that one doesn't support apex domains (I demand falafel.exposed, not www.falafel.exposed like some peasant).  Transfer the domain to route53 which does support apex domains.</li>
+<li>Create the falafel S3 bucket.</li>
+<li>Upload my flat files detailing the falafel conspiracy to S3</li>
+<li>Remember I need to enable S3 web hosting</li>
+<li>Create a new Cloudfront distribution pointing to that S3 bucket.  Wait 45 minutes for this to finish.</li>
+<li>Realize I used the wrong bucket url format.  Update Cloudfront and wait another 45 minutes.</li>
+<li>Remember I wanted TLS so that Big Falafel can't interfere with my traffic.</li>
+<li>Create an ACM certificate</li>
+<li>Verify the ACM certificate using route53.  Spend 15 minutes futzing with route53's UI.</li>
+<li>Add the cert to the Cloudfront distribution and wait 45 minutes..</li>
+<li>Remember I need to configure an index file in S3.  Go back and do that.</li>
+<li>Realize I got a Cloudfront setting wrong.  Fix and wait 45 minutes.</li>
+<li>Same ^</li>
+<li>Look up how to set an apex domain in route53.  Realize the web console doesn't support it yet.  Spend 30 minutes futzing with the CLI tool instead.</li>
+<li>Cloudfront again.</li>
+<li>Finally get the truth up at <a href="https://falafel.exposed">https://falafel.exposed</a> up, an entire afternoon later.</li>
+</ol>
+
+
+<p>I figured that after a few times doing this (I've uncovered a <em>lot</em> of food-related conspiracies), I'd automate it.  There are a few pre-existing tools for parts of this, but none I could find that did the whole thing from registration through uploading and Cloudfront invalidation.</p>
+
+<h4>So I built <a href="https://github.com/kkuchta/scarr">Scarr</a>:</h4>
+
+<p><strong>S</strong>3<br>
+<strong>C</strong>loudfront<br>
+<strong>A</strong>CM<br>
+<strong>R</strong>oute53<br>
+<strong>R</strong>edundant letter to prevent name collision</p>
+
+<p>You use it like this:</p>
+
+<pre><code>$ scarr init -domain falafel.exposed -name falafelexposed
+  Initializing...done
+$ cd falafelexposed
+$ vim scarr.yml # Edit a few fields here
+$ echo "&lt;html&gt;The deadly secret of falafel&lt;/html&gt;" &gt; index.html
+$ AWS_PROFILE=scarr scarr deploy
+  ... a bunch of aws stuff happens automatically ...
+$ curl https://falafel.exposed
+  &lt;html&gt;The deadly secret of falafel&lt;/html&gt;
+</code></pre>
+
+<p>What it's doing under the hood is:</p>
+
+<ol>
+<li>Registers the given domain through route53 (prompts to confirm this)</li>
+<li>Creates a TLS certificate through ACM</li>
+<li>Uses route53 DNS to validate that certificate</li>
+<li>Creates an S3 bucket</li>
+<li>Creates a Cloudfront distribution pointed to that S3 bucket using the ACM certificate</li>
+<li>Creates an apex dns record pointing to that Cloudfront</li>
+<li>Syncs the current directory to that S3 bucket and invalidates the Cloudfront cache.</li>
+</ol>
+
+
+<p>It's also smart enough to detect if parts of this have already been done (eg you've already got the domain name in route53) and skip those parts.  If you run the deploy command twice, all it does is sync the current directory to S3 and invalidate the cache.</p>
+
+<p>Really, it's a glorified set of shell scripts wrapped in a single command.  I wanted to be able to distribute it as a binary, though, so people could use it without needing to mess with ruby/python/node dependencies, so I took it as an opportunity to finally learn Go.  It's generally a nice language - I'd forgotten how comfortable type-checking can be!  On the other hand, I <em>really</em> missed ruby's built-in collection tools.  The lack of generics was weird too.</p>
+
+<p>The code's a hot mess.  Everything's in the same package, there's global functions everywhere, and it's probably about as far from idiomatic Go as you can get, but it works.  And at least it eschews the single-letter variables that seem so popular in Go.  Surely <em>that</em> convention came from a falafelist.</p>
+
+<p>Anyway, I'll try to clean it up if anyone takes an interest in it.  I'm also open to expanding the functionality a bit if anyone has ideas that don't overly complicate the main use-case.  PRs are welcome, although even lazy suggestions will get a friendly ear.</p>
+
+<p>Anyway, the binary's at <a href="https://scarr.io/dist/scarr">https://scarr.io/dist/scarr</a> and the code's on github at <a href="https://github.com/kkuchta/scarr">github.com/kkuchta/scarr!</a></p>
+
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
