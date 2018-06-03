@@ -3,6 +3,24 @@ layout: page
 ---
 # Projects
 
+## [Scarr](http://kevinkuchta.com/_site/2018/06/scarr/) <span class='github'>[[github]](https://github.com/kkuchta/scarr)</span>
+
+An end-to-end tool for flat-files on AWS.  It handles registering a domain, generating a TLS cert, creating an S3 bucket, creating a cloudfront distribution, setting up DNS, and uploading files.  This is my first time touching Go, so the code is likely to turn you to stone if you look at it too long.
+
+## [Kmk.Party](http://localhost:4000/_site/2018/03/lambda-only-url-shortener/) <span class='github'>[[github]](https://github.com/kkuchta/url_shortener)</span>
+
+A url-shortener with Lambda &ndash; JUST Lambda.  This is not intended to be used - it's a massive abuse of AWS's Lambda service.  If you know lambda, you know how ridiculous this is.  If not, well... Lambda is a very specific kind of hammer that's extremely good at hammering a very specific kind of nail.  This project proves it's possible to use that hammer to drive a wing-nut into silly putty if you swing hard enough and are willing to get messy.
+
+If you're here looking for tech stacks, this is all Python (although admittedly it's more Python than I've written in the last decade before this).
+
+## [VoyageFound.com](https://voyagefound.com/) <span class='github'>[[github]](https://github.com/kkuchta/voyagefound)</span>
+
+I like browsing random locations on Wikivoyage, a wikipedia-like travel site, to explore places I might like to travel to. However, wikivoyage's "Random" button tends to take me to one of the bazillion little towns in New England more often than not.
+
+VoyageFound is a tool I built on top of Wikivoyage. It lets you jump to a random page, subject to filters you can define. For example, if you want to leave out all of the US, you can add "United States" to the exclude filter. If you want to search for places in Asia but you've already been to a few countries, you can include Asia but exclude Vietnam and Thailand.
+
+This was my first personal project with React.js, and I'm already feeling the need for a proper state management system (we use redux at work).
+
 ## [UnexpectedHamilton](https://twitter.com/suddenhamilton) <span class='github'>[[github]](https://github.com/kkuchta/lyric_bot)</span>
 
 A ruby twitterbot for detecting partial song lyrics and tweeting the next few lines.  Eg if you tweet "I took my shot," it might detect that as a match to the line "Not throwing away my shot" from the musical Hamilton.  The bot would then tweet the following lines from Hamilton: "Hey yo, I'm just like my country / I'm young, scrappy and hungry."
@@ -68,23 +86,4 @@ This died for a couple reasons:
 
 1. It required too much sales work- there was no organic growth.  The other guy involved (my roommate at the time) had to talk to restaurants individually, and that wasn't that scalable unless we wanted to bet the farm on this and do it full time (we weren't).
 2. By the time this started to mature, there were plenty of tools out there filling this niche already (as well as fancy features like online ordering and native apps).
-
-<hr>
-
-## [Canton](https://github.com/kkuchta/canton)
-
-**Update:** Grunt does pretty much everything I was doing here, but better, so I'm moving this project to the graveyard.
-
-Canton (based on "domaine de canton" from my roommate's liquor collection) is a simple framework that's growing out of my various javascript experiments.  Each time I make a frontend-only project to play around with, I find myself with a similar set of wants:
-
-- Optionally use fun tools: sass, coffeescript, haml
-- Have assets automatically regenerate as needed
-- Compile everything to a single html file I can easily copy to a friend or slap on S3 for hosting.
-
-So, I use sinatra and a few plugins to get the fun tool stack and auto regeneration during development.  Then, for fun, I wrote a rake task to compile everything into one file (including external links like CDN stuff).  The todo list includes a lot of cleanup- maybe bundle it all into a gem or something so it's more of a tool than a template.
-
-
-## [SFRentalApp](http://www.sfrentalapp.com) <span class='github'>[[github]](https://github.com/kkuchta/amaretto)</span>
-
-This was just a simple 'scratch my own itch' site.  I was applying for apartments and it was surprisingly difficult to find a basic common rental application.  So, I built one myself.  It's just a flatfile js page that looks like a printed form (and some of the interface disappears when you actually print it).  I used it as an excuse to play with coffeescript some more, so it has kind of an overbuilt class structure, but I had fun with it.  :)
 
