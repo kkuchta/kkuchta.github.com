@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kevin Kuchta</title>
+    <link href='/_site/stylesheets/global.css' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
+<script type='text/javascript'>
+  //<![CDATA[
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-27863897-1']);
+    _gaq.push(['_setDomainName', 'kevinkuchta.com']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  //]]>
+</script>
+
+  </head>
+  <body>
+    <div class='container-fluid'>
+      <div class='row-fluid'>
+        <div class='span4 sidebar'>
+          <h1>
+  <a href='/_site/'>Kevin<br>Kuchta</a>
+</h1>
+<ul class='unstyled'>
+  <li>
+    <a href='/_site/projects'>Projects</a>
+  </li>
+  <li>
+    <a href='/_site/contact'>On the web</a>
+  </li>
+  <li>
+    <a href='/_site/resume'>Resume</a>
+  </li>
+  <li>
+    <a href='/_site/bio'>Bio</a>
+  </li>
+</ul>
+
+        </div>
+        <div class='span7 main'>
+          <h1 class='title'>Totes-not-amazon.com&colon; Markov Chain Generation for AWS Announcements</h1>
+<p>I challenge you to reliably tell the difference between <a href="https://aws.amazon.com/about-aws/whats-new/2018/07/amazon-ec2-nitro-system-based-instances-now-support-faster-ebs-optimized-performance/?fc=p_2">AWS</a> and <a href="https://totes-not-amazon.com/">Totes-not-amazon</a>.</p>
+
+<!--break-->
+
+
+<p>The former, of course, is AWS's announcement blog.  It's capably written, but AWS's word-soup product names and features make it sometimes sound like it was written by a script.  So I built that.  Meet <a href="https://totes-not-amazon.com">https://totes-not-amazon.com</a>!  I set it up to reroute you to a reusable link so people can share particularly funny results.  Click nearly any link to generate a new post.</p>
+
+<p>Implementation-wise, it goes something like:</p>
+
+<ol>
+<li>An offline script scrapes all 3k+ aws posts under aws.amazon.com/about-aws/whats-new and produces a json dump of these.  This is in ruby because I just wanted to get this step done fast and that's the language I know best at the moment.</li>
+<li>Another offline script takes that json dump of blog posts + titles and fills up a markov model for text generation.  I used the excellent <a href="https://github.com/jsvine/markovify">Markovify</a> libaray for that.  I went with python for this script because it seemed to have good markov libraries and also I needed to share some logic with step 4.  After generating the markov model, this script dumps that model to json.</li>
+<li>Now, online, when a user hits totes-not-amazon.com/, the frontent js hits an api backed by AWS API Gateway, which triggers a lambda function.</li>
+<li>The lambda function (which includes a copy of the dumped markov model json) loads up the markov model and generates a new randomized blog post + title, then returns it to the frontend JS.  I'd have used ruby here, but AWS Lambda doesn't support that yet.  I'd have used node, but I wanted to be able to specify a seed for the randomness used in the markov model, allowing me to reproduce especially funny results by specifying a seed.  JS doesn't allow that but python does.</li>
+<li>Back in the clientside JS, we get the result of the api call (a blog post + title) and insert it into the page.</li>
+</ol>
+
+
+<p>For the lambda function, I used the Serverless Framework for the first time, which was a pretty nice way of managing a lambda function.</p>
+
+<p>For hosting + deploying the static files I used S3 + Cloudfront + ACM + Route53 (through my own <a href="http://kevinkuchta.com/_site/2018/06/scarr/">Scarr</a> tool).</p>
+
+<p>If you want to see the code, it's kind of a mess, but it's at <a href="https://github.com/kkuchta/aws_markov">github.com/kkuchta/aws_markov</a>.  For a silly one-off like this I'm unlikely to go back and clean it up unless someone really wants me too.</p>
+
+<p>Anyway, this is just some silliness and an excudes to mess with a bunch of random tools + languages.  Nothing serious today.  Go <a href="https://totes-not-amazon.com">play</a> with it and tweet your favorites to <a href="https://twitter.com/kkuchta">@kkuchta</a>!</p>
+
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
