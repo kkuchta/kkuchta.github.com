@@ -3,48 +3,6 @@ layout: page
 ---
 # Projects
 
-AWS's product announcements are sometimes a bit hard to read through all the propriertary names and terms - they feel like they could have been written by a markov chain.  [So I built that](https://totes-not-amazon.com)!  A ruby script scrapes all 3k+ aws announcement posts, then a python script creates a markov chain model from that.  Then more python uses that to generate posts + titles on demand and feeds them to some js which inserts them into a page that looks just like an amazon announcement.
-
-Some posts are almost coherent, like "Elastic Load Balancing Support for Just-In-Time Registration of Device Certificates".  Others are less so - eg "Switch Tape Backups to AWS Management Console adds support for Connection Draining". It's hosted, of course, all on AWS.  Lambda & ApiGateway for the post generation + cloudfront for caching/routing + S3 for static files and route53 for DNS.
-
-## [Scarr](http://kevinkuchta.com/_site/2018/06/scarr/) <span class='github'>[[github]](https://github.com/kkuchta/scarr)</span>
-
-An end-to-end tool for flat-files on AWS.  It handles registering a domain, generating a TLS cert, creating an S3 bucket, creating a cloudfront distribution, setting up DNS, and uploading files.  This is my first time touching Go, so the code is likely to turn you to stone if you look at it too long.
-
-## [Kmk.Party](http://localhost:4000/_site/2018/03/lambda-only-url-shortener/) <span class='github'>[[github]](https://github.com/kkuchta/url_shortener)</span>
-
-A url-shortener with Lambda &ndash; JUST Lambda.  This is not intended to be used - it's a massive abuse of AWS's Lambda service.  If you know lambda, you know how ridiculous this is.  If not, well... Lambda is a very specific kind of hammer that's extremely good at hammering a very specific kind of nail.  This project proves it's possible to use that hammer to drive a wing-nut into silly putty if you swing hard enough and are willing to get messy.
-
-If you're here looking for tech stacks, this is all Python (although admittedly it's more Python than I've written in the last decade before this).
-
-## [VoyageFound.com](https://voyagefound.com/) <span class='github'>[[github]](https://github.com/kkuchta/voyagefound)</span>
-
-I like browsing random locations on Wikivoyage, a wikipedia-like travel site, to explore places I might like to travel to. However, wikivoyage's "Random" button tends to take me to one of the bazillion little towns in New England more often than not.
-
-VoyageFound is a tool I built on top of Wikivoyage. It lets you jump to a random page, subject to filters you can define. For example, if you want to leave out all of the US, you can add "United States" to the exclude filter. If you want to search for places in Asia but you've already been to a few countries, you can include Asia but exclude Vietnam and Thailand.
-
-This was my first personal project with React.js, and I'm already feeling the need for a proper state management system (we use redux at work).
-
-## [UnexpectedHamilton](https://twitter.com/suddenhamilton) <span class='github'>[[github]](https://github.com/kkuchta/lyric_bot)</span>
-
-A ruby twitterbot for detecting partial song lyrics and tweeting the next few lines.  Eg if you tweet "I took my shot," it might detect that as a match to the line "Not throwing away my shot" from the musical Hamilton.  The bot would then tweet the following lines from Hamilton: "Hey yo, I'm just like my country / I'm young, scrappy and hungry."
-
-It matches base on line endings.  It weights each matching word based on how common the word is (so a match of "and me" is scored lower than a match of "extra marsupials"), and considers the tweet + lyric a match if the weighted score is over a configurable threshold.
-
-## Bub <span class='github'>[[github]](https://github.com/kkuchta/bub)</span>
-
-A ruby slackbot for claiming and deploying to heroku servers.  My company has a handful of heroku boxes we use for staging new features + doing acceptance test on them.  Since several new features may be in progress at once, the devs were constantly asking "Is sassy free?" (sassy being the name of one of the staging servers).  This is a slackbot I wrote to manage claiming and releasing servers.
-
-I also recently added the ability to actually deploy github branches to heroku through bub.
-
-Although this is used by Joyable, it's a personal project- I've strictly separated my work on this from my employer, using personal time and machines, so I can show it off here.
-
-<hr>
-
-## [KevinKuchta.com](http://www.kevinkuchta.com) <span class='github'>[[github]](https://github.com/kkuchta/kkuchta.github.com)</span>
-
-Included here for completeness, this is a generated static Jekyll-based site hosted on github pages.  I've added in Haml for the html and Sass for the css, along with Jekyll's built-in markdown parsing for the content.  I started from a bootstrap base, but the visible design and css are my own.  I'm debating whether to keep the faux-bold headings- my more design-oriented friends say they're crap- I'm mixed on it.
-
 <span id="totes-not-amazon" />
 ## [Totes Not Amazon](https://totes-not-amazon.com) <span class='github'>[[github]](https://github.com/kkuchta/aws_markov)</span>
 
@@ -52,11 +10,11 @@ AWS's product announcements are sometimes a bit hard to read through all the pro
 
 It's hosted, of course, all on AWS.  Lambda & ApiGateway for the post generation + cloudfront for caching/routing + S3 for static files and route53 for dns.
 
-## [Scarr](http://kevinkuchta.com/_site/2018/06/scarr/) <span class='github'>[[github]](https://github.com/kkuchta/scarr)</span>
+## [Scarr](/_site/2018/06/scarr/) <span class='github'>[[github]](https://github.com/kkuchta/scarr)</span>
 
 An end-to-end tool for flat-files on AWS.  It handles registering a domain, generating a TLS cert, creating an S3 bucket, creating a cloudfront distribution, setting up DNS, and uploading files.  This is my first time touching Go, so the code is likely to turn you to stone if you look at it too long.
 
-## [Kmk.Party](http://localhost:4000/_site/2018/03/lambda-only-url-shortener/) <span class='github'>[[github]](https://github.com/kkuchta/url_shortener)</span>
+## [Kmk.Party](/_site/2018/03/lambda-only-url-shortener/) <span class='github'>[[github]](https://github.com/kkuchta/url_shortener)</span>
 
 A url-shortener with Lambda &ndash; JUST Lambda.  This is not intended to be used - it's a massive abuse of AWS's Lambda service.  If you know lambda, you know how ridiculous this is.  If not, well... Lambda is a very specific kind of hammer that's extremely good at hammering a very specific kind of nail.  This project proves it's possible to use that hammer to drive a wing-nut into silly putty if you swing hard enough and are willing to get messy.
 
