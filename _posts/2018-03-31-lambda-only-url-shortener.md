@@ -56,6 +56,7 @@ Soon we'll want to put together a function to generate these short links.  There
 Now, saner developers might tell you that Lambda is stateless and you can't use it to store data.  You and I know those people just lack strength of character.  Remember: if Lambda functions don't solve your problem, you're not using enough of them.
 
 As it turns out, all you need to do to store a global counter is write a self-updating Lambda function!  Let's call this function `iterator`, and in pseudocode it looks like:
+
 ```
 def handle(event, context):
   i = 0
