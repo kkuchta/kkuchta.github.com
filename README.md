@@ -1,6 +1,6 @@
 # Personal Site
 
-Just a blog and with some project pages and contact info.
+Just a blog and with some project pages and contact info.  This is now quite a few years old and very much does not reflect what I think is good frontend design or code.  At the very least, I'd rewrite this using css flexbox instead of bootstrap, were I writing this from scratch.  That may yet happen if I have the free time to rebuild this whole ting.
 
 ## Use
 

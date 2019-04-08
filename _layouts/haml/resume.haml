@@ -26,7 +26,7 @@
             %a{href:'https://github.com/kkuchta'} github.com/kkuchta
           %li.divider &#183;
           %li
-            %a{href:'https://www.google.com/maps/place/Pierce+St+%26+Page+St,+San+Francisco,+CA+94117'} San Francisco, CA
+            %a{href:'https://www.google.com/maps/place/Stanyan+St+%26+Frederick+St'} San Francisco, CA
 
       .experience.row
         %h2
@@ -37,68 +37,75 @@
             %li.company Joyable
             %li.dates 2014-Present
           .description.span6
-            As a full stack developer using <b>rails</b> and <b>angular.js</b>, I helped this mental health startup grow from 5 to 40 people.  I built many user-facing activities, improved <b>frontend performance</b>, integrated our payments processor, built the subscription system, wrote the internal admin tools, and drove the transition towards an <b>SPA</b>.
+            As a full stack developer using <b>Ruby on Rails</b> and <b>Angular.js</b> (and later <b>React</b>), I helped this mental health startup grow from 5 to 40 people. I built many user-facing activities, improved frontend performance, built the payment + subscription systems, wrote internal admin tools, built most of the API, drove the transition to an <b>SPA</b>, and managed/developed the <b>Docker</b>-based infrastructure.
         .job.row
           %ul.details.span2
             %li.title Software Developer
             %li.company Threadflip
             %li.dates 2013-2014
           .description.span6
-            I did full stack development with <b>rails</b>, <b>coffeescript</b>, and <b>backbone</b>.  I worked on user-facing features, internal tools, refactoring, and optimization.
+            I did full stack development with <b>Rails</b>, <b>Coffeescript</b>, and <b>Backbone</b>.  I worked on user-facing features, internal tools, refactoring, and optimization.
         .job.row
           %ul.details.span2
             %li.title Software Engineer
             %li.company Expensify
             %li.dates 2011-2013
           .description.span6
-            I was an early developer at this SAAS Expense Reporting startup.  I worked on both the <b>PHP</b> backend (bank integrations, a <b>mechanical turk</b> system, html receipt parsing) and the heavy <b>JS</b> frontend (tiered feature-sets, report permissions, dropbox integration).
+            I was an early developer at this SaaS expense reporting startup.  I worked on both the <b>PHP</b> backend (bank integrations, a <b>mechanical turk</b> system, receipt parsing) and the heavy <b>JS</b> frontend (tiered feature-sets, report permissions, dropbox integration).
         .job.row
           %ul.details.span2
-            %li.title Misc
+            %li.title Prior
           .description.span6
-            %ul
-              %li
-                %b Co-ops:
-                6 months each at Parse3 (C#), IBM (JS), and GE MDS (Java)
-              %li
-                %b Part Time:
-                3 years RIT SoFA (PHP), 8 months Rails (Vitame.com, freelancing)
+            Parse3 (<b>C#</b>), IBM (<b>JS</b>), GE (<b>Java</b>), RIT SoFA (<b>PHP</b>)
       .projects.row
         %h2 Projects
         .project.row
           %ul.details.span2
+            %li.title Scarr
+            %li
+              %a{href:'https://github.com/kkuchta/scarr'} github/kkuchta/scarr
+          .description.span6
+            A <b>Golang</b> tool to quickly register + spin up new sites with <b>S3</b>, <b>Cloudfront</b>, <b>ACM</b>, and <b>Route53</b> on <b>AWS</b>.
+        .project.row
+          %ul.details.span2
+            %li.title VoyageFound.com
+            %li
+              %a{href:'https://github.com/kkuchta/voyagefound'} github/kkuchta/voyagefound
+          .description.span6
+            A mobile-friendly <b>React</b> site for exploring the wikivoyage travel site (and using a <b>Ruby</b>-based scraper).
+        .project.row
+          %ul.details.span2
             %li.title Bub
             %li
-              %a{href:'https://github.com/kkuchta/bub'} github.com/kkuchta/bub
+              %a{href:'https://github.com/kkuchta/bub'} github/kkuchta/bub
           .description.span6
-            A rack-based slack bot to manage reserving servers.  Built partially as an exercise in building a ruby http service without rails.
+            A <b>Ruby</b> rack-based slack bot to manage reserving servers.  Built partially as an exercise in building a Ruby http service without Rails.
         .project.row
           %ul.details.span2
-            %li.title BeanSpeed.com
+            %li.title totes-not-amazon.com
             %li
-              %a{href:'http://github.com/kkuchta/coffeewifi'} github.com/kkuchta/coffeewifi
+              %a{href:'https://github.com/kkuchta/aws_markov'} github/kkuchta/aws_markov
           .description.span6
-            A rails + backbone site for comparing the wifi speeds at nearby coffeeshops.  Uses google maps, the yelp api, and a speed-test tool.
-        .project.row
-          %ul.details.span2
-            %li.title Vimbits.com
-            %li
-              %a{href:'http://github.com/kkuchta/vimbits'} github.com/kkuchta/vimbits
-          .description.span6
-            A Rails site for trading snippets of Vim configuration I did to scratch my own itch.  Browse 'top', 'hot', 'new', and 'random' vimrc snippets.  Has user account, tags, code highlighting.
+            A markov-generator that produces realistic-looking Amazon announcements.  Parser in <b>Ruby</b>, generator in <b>Python</b> (on AWS Lambda), frontend in <b>JS</b>.
+            A <b>Ruby-</b>, <b>python-</b>, and <b>js</b>-based markov-generator to produce realistic-looking Amazon announcements.
         .project.row
           %ul.details.span2
             %li.title Other Projects
           .description.span6
-            SFRentalApp.com, a JS Physics Engine, an infinite-scrolling random Imgur wall, a social-media campaign manager, a crime-rate service called "Danger Zone", a facebook collage maker (on a 5-person team), Ubimenu, mobile menus as a service.
+            A <b>Rails</b> + <b>Coffeescript</b> app for tracking coffeeshop internet speeds.  An infinite-scrolling wall of random imgur images in <b>Angular</b>.  A tiny <b>javascript</b> physics engine.  A humorous-but-functional url shortener using only <b>AWS Lambda</b>.  A <b>Ruby</b> twitterbot that completes Hamilton lyrics.
       .other.row
-        .education.span5
+        .education.span3
           %h2 Education
           BS in Software Engineering, 2011
           %br
           Rochester Institute of Technology
+        .talks.span3
+          %h2 Speaking
+          <a href="https://www.youtube.com/watch?v=datDkio1AXM">Ruby is the Best Javascript</a>
+          %br
+          RubyConf 2018
         .interests.span3
           %h2 Other Interests
           Homebrewing, Photography,
           %br
-          Travel, Rock Climbing
+          Travel, Comic Drawing

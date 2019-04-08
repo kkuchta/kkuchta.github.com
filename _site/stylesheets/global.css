@@ -3771,8 +3771,14 @@ body {
     margin-top: 10px;
     margin-bottom: 50px;
     /*font-size: $baseFontSize * 1.2;*/ }
+    .resume .other * {
+      width: 206px; }
     .resume .other .education {
       margin-left: 10px; }
+    .resume .other .talks {
+      text-align: center; }
+    .resume .other .interests {
+      text-align: right; }
     .resume .other h2 {
       margin-left: 0px; }
   .resume hr {

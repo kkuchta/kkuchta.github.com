@@ -97,15 +97,15 @@
 
 <p>Now, saner developers might tell you that Lambda is stateless and you can't use it to store data.  You and I know those people just lack strength of character.  Remember: if Lambda functions don't solve your problem, you're not using enough of them.</p>
 
-<p>As it turns out, all you need to do to store a global counter is write a self-updating Lambda function!  Let's call this function <code>iterator</code>, and in pseudocode it looks like:
-<code>
-def handle(event, context):
+<p>As it turns out, all you need to do to store a global counter is write a self-updating Lambda function!  Let's call this function <code>iterator</code>, and in pseudocode it looks like:</p>
+
+<pre><code>def handle(event, context):
   i = 0
   myCode = load the code for this function from the filesystem
   myCode = myCode.replace('i = ' + i, 'i = ' + (i+1))
   AWS.lambda.updateCode('iterator', myCode)
   return i
-</code></p>
+</code></pre>
 
 <p>Self-updating code: what could go wrong?</p>
 

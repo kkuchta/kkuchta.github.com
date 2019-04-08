@@ -221,8 +221,19 @@ body{
     .other{
         margin-top: 10px;
         margin-bottom: 50px;
+        // Anti-bootstrap hack.  TODO: ditch bootstrap and rewrite this all with
+        // flexbox and cssgrid.
+        * {
+          width: 206px;
+        }
         .education{
             margin-left: 10px;
+        }
+        .talks {
+          text-align: center;
+        }
+        .interests {
+          text-align: right;
         }
         h2{
             margin-left:0px;
