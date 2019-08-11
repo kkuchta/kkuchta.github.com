@@ -48,37 +48,18 @@
 
         </div>
         <div class='span7 main'>
-          <h1 class='title'>Chrome is too smart for its own good</h1>
-<p>Run the following into the chrome console:</p>
+          <div class='page'>
+  <h1>Conference Talks</h1>
 
-<pre><code>(function(){
-    var foo = 3;
-    (function(){
-        debugger
-    })();
-})();
-</code></pre>
+<p>Damn.  I was hoping you wouldn't click this link, and that the plural in the title would convince you there were multiple talks.  So far it's just the one.</p>
 
-<!--break-->
+<h2>Ruby is the Best Javascript</h2>
 
+<p>Presented at RubyConf 2018 <a href="http://confreaks.tv/videos/rubyconf2018-ruby-is-the-best-javascript">[video]</a> <a href="https://speakerdeck.com/kkuchta/ruby-is-the-best-javascript">[slides]</a></p>
 
-<p>When the debugger line gets hit, type <code>foo</code>.  Result?  <code>ReferenceError: foo is not defined</code>.  What gives?  <code>foo</code> should be in the closure scope!</p>
+<p>Some people love Ruby and some people love Javascript. Both will hate this talk. In a display of complete moral depravity, we'll abuse flexible syntax and metaprogramming to make valid Ruby code that's indistinguishable from Javascript. We'll use a variety of tricks to accomplish it that you can take home and use in more respectable code</p>
 
-<p>I'm guessing that Chrome is just trying to be smart here and remove variables that are never used or referenced in any function that has access to the closure scope.  So, when we log <code>foo</code>, chrome detects that and keeps it available.  When we don't, though, it cleans it up pre-emptively.</p>
-
-<p>Try this:</p>
-
-<pre><code>(function(){
-    var foo = 3;
-    (function(){
-        debugger
-        console.log(foo);
-    })();
-})();
-</code></pre>
-
-<p>Magically, foo is now defined in that inner scope.</p>
-
+</div>
 
         </div>
       </div>
