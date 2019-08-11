@@ -4,7 +4,7 @@
     <title>Kevin Kuchta</title>
     <link href='/_site/stylesheets/global.css' rel='stylesheet' type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css' />
-<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 <script type='text/javascript'>
   //<![CDATA[
     var _gaq = _gaq || [];
@@ -33,6 +33,9 @@
     <a href='/_site/projects'>Projects</a>
   </li>
   <li>
+    <a href='/_site/hacks'>Hacks</a>
+  </li>
+  <li>
     <a href='/_site/contact'>On the web</a>
   </li>
   <li>
@@ -45,23 +48,9 @@
           <div class='page'>
   <h1>Projects</h1>
 
-<p><span id="totes-not-amazon" /></p>
-
-<h2><a href="https://totes-not-amazon.com">Totes Not Amazon</a> <span class='github'><a href="https://github.com/kkuchta/aws_markov">[github]</a></span></h2>
-
-<p>AWS's product announcements are sometimes a bit hard to read through all the propriertary names and terms - they feel like they could have been written by a markov chain.  <a href="https://totes-not-amazon.com">So I built that</a>!  A ruby script scrapes all 3k+ aws announcement posts, then a python script creates a markov chain model from that.  Then more python uses that to generate posts + titles on demand and feeds them to some js which inserts them into a page that looks just like an amazon announcement.</p>
-
-<p>It's hosted, of course, all on AWS.  Lambda &amp; ApiGateway for the post generation + cloudfront for caching/routing + S3 for static files and route53 for dns.</p>
-
 <h2><a href="/_site/2018/06/scarr/">Scarr</a> <span class='github'><a href="https://github.com/kkuchta/scarr">[github]</a></span></h2>
 
 <p>An end-to-end tool for flat-files on AWS.  It handles registering a domain, generating a TLS cert, creating an S3 bucket, creating a cloudfront distribution, setting up DNS, and uploading files.  This is my first time touching Go, so the code is likely to turn you to stone if you look at it too long.</p>
-
-<h2><a href="/_site/2018/03/lambda-only-url-shortener/">Kmk.Party</a> <span class='github'><a href="https://github.com/kkuchta/url_shortener">[github]</a></span></h2>
-
-<p>A url-shortener with Lambda &ndash; JUST Lambda.  This is not intended to be used - it's a massive abuse of AWS's Lambda service.  If you know lambda, you know how ridiculous this is.  If not, well... Lambda is a very specific kind of hammer that's extremely good at hammering a very specific kind of nail.  This project proves it's possible to use that hammer to drive a wing-nut into silly putty if you swing hard enough and are willing to get messy.</p>
-
-<p>If you're here looking for tech stacks, this is all Python (although admittedly it's more Python than I've written in the last decade before this).</p>
 
 <h2><a href="https://voyagefound.com/">VoyageFound.com</a> <span class='github'><a href="https://github.com/kkuchta/voyagefound">[github]</a></span></h2>
 
@@ -95,9 +84,7 @@
 <hr>
 
 
-<h2>Toy Projects</h2>
-
-<p>Smaller and/or less-practical things</p>
+<h1>Graveyard</h1>
 
 <h3><a href="https://github.com/kkuchta/physicsengine">Baller JS Physics Engine</a></h3>
 
@@ -105,8 +92,6 @@
 
 <hr class="divider">
 
-
-<h1>Graveyard</h1>
 
 <h3><a href="http://random-imgur.s3-website-us-east-1.amazonaws.com/">Wall of Imgur (potentially NSFW)</a> <span class='github'><a href="https://github.com/kkuchta/RandomImagur2">[Github]</a></span></h3>
 

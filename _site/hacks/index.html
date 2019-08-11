@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kevin Kuchta</title>
+    <link href='/_site/stylesheets/global.css' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+<script type='text/javascript'>
+  //<![CDATA[
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-27863897-1']);
+    _gaq.push(['_setDomainName', 'kevinkuchta.com']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  //]]>
+</script>
+
+  </head>
+  <body>
+    <div class='container-fluid'>
+      <div class='row-fluid'>
+        <div class='span4 sidebar'>
+          <h1>
+  <a href='/_site/'>Kevin<br>Kuchta</a>
+</h1>
+<ul class='unstyled'>
+  <li>
+    <a href='/_site/projects'>Projects</a>
+  </li>
+  <li>
+    <a href='/_site/hacks'>Hacks</a>
+  </li>
+  <li>
+    <a href='/_site/contact'>On the web</a>
+  </li>
+  <li>
+    <a href='/_site/resume'>Resume</a>
+  </li>
+</ul>
+
+        </div>
+        <div class='span7 main'>
+          <div class='page'>
+  <h1>Silly Hacks</h1>
+
+<p>In my professional life, I tend to stick to clear, non-clever code.  So when I go home at night, I write terrible things.  Here are some of them.</p>
+
+<h2><a href="https://github.com/kkuchta/css-only-chat">CSS-Only Chat</a> <span class='github'><a href="https://github.com/kkuchta/css-only-chat">[github]</a></span></h2>
+
+<p>Writing an asynchronous web-based chat system is pretty easy with modern tooling:
+a bit of javascript on the frontend and a bit of logic on the backend.</p>
+
+<p>This project is a truly monstrous async web chat using no JS whatsoever on the frontend whatsoever.  It works by abusing the http protocol (chunked transfer encoding) to send data to the frontend and abuses CSS background images + pseudoselectors to send data back.  See the github for a gif-demo and a full technical writeup.</p>
+
+<p>This was, surprisingly to me, by far the most popular thing I've ever built.</p>
+
+<h2><a href="http://localhost:4000/_site/2017/07/disguising-ruby-as-javascript/">Ruby is the best Javascript</a> <span class='github'><a href="https://www.youtube.com/watch?v=datDkio1AXM">[talk]</a></span></h2>
+
+<p>Ruby has very a flexible syntax and powerful metaprogramming tools. In a display of complete moral depravity, I've abused those features to make valid Ruby code that's indistinguishable from Javascript.  There are a bunch of clever and terrible tricks in this, which I elaborated on in my talk at the <a href="https://www.youtube.com/watch?v=datDkio1AXM">2019 RubyConf</a>.</p>
+
+<h2><a href="/_site/2018/03/lambda-only-url-shortener/">Kmk.Party</a> <span class='github'><a href="https://github.com/kkuchta/url_shortener">[github]</a></span></h2>
+
+<p>A url-shortener with Lambda &ndash; JUST Lambda.  This is not intended to be used - it's a massive abuse of AWS's Lambda service.  If you know lambda, you know how ridiculous this is.  If not, well... Lambda is a very specific kind of hammer that's extremely good at hammering a very specific kind of nail.  This project proves it's possible to use that hammer to drive a wing-nut into silly putty if you swing hard enough and are willing to get messy.</p>
+
+<p>If you're here looking for tech stacks, this is all Python (although admittedly it's more Python than I've written in the last decade before this).</p>
+
+<p><span id="totes-not-amazon" /></p>
+
+<h2><a href="https://totes-not-amazon.com">Totes Not Amazon</a> <span class='github'><a href="https://github.com/kkuchta/aws_markov">[github]</a></span></h2>
+
+<p>AWS's product announcements are sometimes a bit hard to read through all the proprietary names and terms - they feel like they could have been written by a markov chain.  <a href="https://totes-not-amazon.com">So I built that</a>!  A ruby script scrapes all 3k+ aws announcement posts, then a python script creates a markov chain model from that.  Then more python uses that to generate posts + titles on demand and feeds them to some js which inserts them into a page that looks just like an amazon announcement.</p>
+
+<p>It's hosted, of course, all on AWS.  Lambda &amp; ApiGateway for the post generation + cloudfront for caching/routing + S3 for static files and route53 for dns.</p>
+
+</div>
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
