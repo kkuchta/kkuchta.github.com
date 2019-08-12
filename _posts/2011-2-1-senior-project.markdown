@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Seniot Project
+title: Senior Project
 mt_id: 19
 date: 2011-02-01 01:16:32.000000000 -08:00
 ---

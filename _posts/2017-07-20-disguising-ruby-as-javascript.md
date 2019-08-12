@@ -3,7 +3,7 @@ layout: post
 title: Disguising Ruby as Javascript
 ---
 
-Because my parents didn't raise me right, I decided to take [another](/_site/{% post_url 2016-05-13-js-in-ruby %}) crack at making valid ruby that is indistinguishable from javascript.
+Because my parents didn't raise me right, I decided to take [another](/2016/05/js-in-ruby/) crack at making valid ruby that is indistinguishable from javascript.
 
 <!--break-->
 

@@ -19,7 +19,7 @@ Implementation-wise, it goes something like:
 
 For the lambda function, I used the Serverless Framework for the first time, which was a pretty nice way of managing a lambda function.
 
-For hosting + deploying the static files I used S3 + Cloudfront + ACM + Route53 (through my own [Scarr](http://kevinkuchta.com/_site/2018/06/scarr/) tool).
+For hosting + deploying the static files I used S3 + Cloudfront + ACM + Route53 (through my own [Scarr](http://kevinkuchta.com/2018/06/scarr/) tool).
 
 If you want to see the code, it's kind of a mess, but it's at [github.com/kkuchta/aws_markov](https://github.com/kkuchta/aws_markov).  For a silly one-off like this I'm unlikely to go back and clean it up unless someone really wants me too.
 

@@ -13,11 +13,11 @@ This project is a truly monstrous async web chat using no JS whatsoever on the f
 
 This was, surprisingly to me, by far the most popular thing I've ever built.
 
-## [Ruby is the best Javascript](http://localhost:4000/_site/2017/07/disguising-ruby-as-javascript/) <span class='github'>[[talk]](https://www.youtube.com/watch?v=datDkio1AXM)</span>
+## [Ruby is the best Javascript](/2017/07/disguising-ruby-as-javascript/) <span class='github'>[[talk]](https://www.youtube.com/watch?v=datDkio1AXM)</span>
 
 Ruby has very a flexible syntax and powerful metaprogramming tools. In a display of complete moral depravity, I've abused those features to make valid Ruby code that's indistinguishable from Javascript.  There are a bunch of clever and terrible tricks in this, which I elaborated on in my talk at the [2019 RubyConf](https://www.youtube.com/watch?v=datDkio1AXM).
 
-## [Kmk.Party](/_site/2018/03/lambda-only-url-shortener/) <span class='github'>[[github]](https://github.com/kkuchta/url_shortener)</span>
+## [Kmk.Party](/2018/03/lambda-only-url-shortener/) <span class='github'>[[github]](https://github.com/kkuchta/url_shortener)</span>
 
 A url-shortener with Lambda &ndash; JUST Lambda.  This is not intended to be used - it's a massive abuse of AWS's Lambda service.  If you know lambda, you know how ridiculous this is.  If not, well... Lambda is a very specific kind of hammer that's extremely good at hammering a very specific kind of nail.  This project proves it's possible to use that hammer to drive a wing-nut into silly putty if you swing hard enough and are willing to get messy.
 

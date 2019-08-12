@@ -7,6 +7,6 @@ layout: main
 
 <div class="archive-summary">{{post.excerpt}}</div>
 
-  [Read More]('{{site.baseurl}}{{post.url}}')
+  [Read More]({{post.url}})
   <hr>
 {% endfor %}

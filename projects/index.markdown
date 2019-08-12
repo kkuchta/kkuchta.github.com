@@ -4,7 +4,7 @@ layout: page
 # Projects
 
 
-## [Scarr](/_site/2018/06/scarr/) <span class='github'>[[github]](https://github.com/kkuchta/scarr)</span>
+## [Scarr](/2018/06/scarr/) <span class='github'>[[github]](https://github.com/kkuchta/scarr)</span>
 
 An end-to-end tool for flat-files on AWS.  It handles registering a domain, generating a TLS cert, creating an S3 bucket, creating a cloudfront distribution, setting up DNS, and uploading files.  This is my first time touching Go, so the code is likely to turn you to stone if you look at it too long.
 
@@ -33,7 +33,7 @@ Although this is used by Joyable, it's a personal project- I've strictly separat
 
 <hr>
 
-## [KevinKuchta.com](http://www.kevinkuchta.com) <span class='github'>[[github]](https://github.com/kkuchta/kkuchta.github.com)</span>
+## [KevinKuchta.com](http://kevinkuchta.com) <span class='github'>[[github]](https://github.com/kkuchta/kkuchta.github.com)</span>
 
 Included here for completeness, this is a generated static Jekyll-based site hosted on github pages.  I've added in Haml for the html and Sass for the css, along with Jekyll's built-in markdown parsing for the content.  I started from a bootstrap base, but the visible design and css are my own.  I'm debating whether to keep the faux-bold headings- my more design-oriented friends say they're crap- I'm mixed on it.
 
@@ -54,7 +54,7 @@ This is pretty silly- it's just a wall of random images from Imgur.com (an image
 
 August 2013: I recently started a job using coffeescript and backbone.  To refamiliarize myself with these, I rebuild the wall of imgur in with them.
 
-May 2015: Wall of Imgur (renamed to wallopics.com) was quite popular on reddit.  Then, eventually, Imgur decided to shut it down by blocking wallopics.com as a referrer.  See the [writeup](/_site/2015/05/wallopics-is-dead/) for more details.  Moving this to the graveyard, but you can still user the compiled site on [github raw](finished site).
+May 2015: Wall of Imgur (renamed to wallopics.com) was quite popular on reddit.  Then, eventually, Imgur decided to shut it down by blocking wallopics.com as a referrer.  See the [writeup](/2015/05/wallopics-is-dead/) for more details.  Moving this to the graveyard, but you can still use the compiled site on [github raw](https://rawgithub.com/kkuchta/RandomImagur2/master/index.html).
 
 <hr>
 
@@ -68,7 +68,7 @@ This is probably my most popular project to date.  Unfortunately, I kinda outgre
 
 This was intended to be a competitor to Linkedin that was focused on "Shit I Built".  It addressed the problem that although I have a bunch of friends, I can't really vouch for many of them as good programmers/designers/marketers/whatever, as I just haven't worked with them.  This was meant to be an 'anti-social network' where the key link was not friendship or acquaintance, but shared projects.
 
-Rayne (our internal name) died on the vine as we became less convinced that we had the interest to make it happen.  We built a minimum product, but the 'viable' part was not really there: an idea that simple really needed a lot more polish than we had the time to give it (and we weren't nearly confident enough about the idea to go full-time on it).  The remnants of it can be found at [http://shitibuilt.com/](http://shitibuilt.com/) or directly on [heroku](http://quiet-rain-7455.herokuapp.com/), although that link will probably die eventually.
+Rayne (our internal name) died on the vine as we became less convinced that we had the interest to make it happen.  We built a minimum product, but the 'viable' part was not really there: an idea that simple really needed a lot more polish than we had the time to give it (and we weren't nearly confident enough about the idea to go full-time on it).
 <hr>
 
 ## [Ubimenu.com](http://www.ubimenu.com/)

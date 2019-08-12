@@ -1,14 +1,16 @@
 # Personal Site
 
-Just a blog and with some project pages and contact info.  This is now quite a few years old and very much does not reflect what I think is good frontend design or code.  At the very least, I'd rewrite this using css flexbox instead of bootstrap, were I writing this from scratch.  That may yet happen if I have the free time to rebuild this whole ting.
+Just a blog and with some project pages and contact info.  This is now quite a few years old and very much does not reflect what I think is good frontend design or code.
 
 ## Use
 
 It's mostly a stock [Jekyll](http://jekyllrb.com/) setup. If you're just adding content, all you need to do is run:
 
-    jekyll serve -w
+    jekyll build -w
 
-Do that from the root of this repo and it'll monitor content changes and show the resulting site at `localhost:4000/_site/`.
+Do that from the root of this repo and it'll monitor content changes and build to `/_site`
+
+To serve locally, just run `python -m SimpleHTTPServer 3030` from the `/_site/` directory and you'll be able to access the site at `localhost:3030`.
 
 If you want to play with the layouts, don't change the .html files in `/_layouts` or `/_includes`.  Instead, run:
 

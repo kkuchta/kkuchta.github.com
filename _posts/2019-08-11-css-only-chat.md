@@ -23,11 +23,12 @@ I was (and still am, as of this writing) taking the summer off to travel after l
 
 I was unprepared for the level of response I'd get.
 
-I've always been pretty bad at predicting how popular the things I create will be.  [My AWS markov chain](http://kevinkuchta.com/_site/2018/08/totes-not-amazon/) went nowhere; [My blockchain comic](https://twitter.com/kkuchta/status/983740731234729986/photo/1) went mildly viral.  My wikivoyage explorer[https://github.com/kkuchta/voyagefound] has interested exactly no one, but my [ruby js nonsense](http://kevinkuchta.com/_site/2017/07/disguising-ruby-as-javascript/) has done pretty well (even becoming a [RubyConf talk](https://www.youtube.com/watch?v=datDkio1AXM)).  Who knows what will stick when I throw it against the wall?
+I've always been pretty bad at predicting how popular the things I create will be.  [My AWS markov chain](/2018/08/totes-not-amazon/) went nowhere; [My blockchain comic](https://twitter.com/kkuchta/status/983740731234729986/photo/1) went mildly viral.  My [wikivoyage explorer]( https://github.com/kkuchta/voyagefound ) has interested exactly no one, but my [ruby js nonsense](/2017/07/disguising-ruby-as-javascript/) has done pretty well (even becoming a [RubyConf talk](https://www.youtube.com/watch?v=datDkio1AXM)).  Who knows what will stick when I throw it against the wall?
 
-Anyway, this Chat abomination became a wild success.  Top of hacker news for a good chunk of the day; tripling my twitter follower count; 5k stars on github.  Old acquaintances reached out when they recognized my name and friends told me when coworkers posted it in their work slacks.
+Anyway, this chat abomination became a wild success.  Top of hacker news for a good chunk of the day; tripling my twitter follower count; 5k stars on github.  Old acquaintances reached out when they recognized my name and friends told me when coworkers posted it in their work slacks.
 
 I credit the success of this to:
+
 - Easy to understand.  The [tweet](https://twitter.com/kkuchta/status/1125789539530956801) explains the whole concept and the demo gif shows it off in just a few seconds.
 - Inherently click-baity title "CSS-only async chat" seems inherently impossible until you read the article.
 - The underlying content is actually interesting.  It's a legitimately clever hack (if I do say so myself).

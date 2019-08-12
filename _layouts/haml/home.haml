@@ -7,21 +7,23 @@ layout: main
     %p.p1
       in San Francisco.
       %br
-      I build serious tools and
-      %a{ href: "/_site/2018/03/lambda-only-url-shortener/"} silly hacks.
+      I build
+      %a{ href: "/projects" } serious tools
+      and
+      %a{ href: "/hacks"} silly hacks.
       Currently traveling, recently at
       %a{ href:"http://joyable.com" } Joyable.
       I'll be looking for work again in the fall of 2019.
   .rest
     {% for post in site.posts limit: 5 %}
     %h1
-      %a{ href: '{{site.baseurl}}{{post.url}}' } {{post.title}}
+      %a{ href: '{{post.url}}' } {{post.title}}
     %p
       -#{{post.content | truncatewords: 50}}
       {{post.excerpt}}
     %p
-      %a{ href: '{{site.baseurl}}{{post.url}}' } Read more
+      %a{ href: '{{post.url}}' } Read more
     %hr
     {% endfor %}
     .more-posts
-      %a.btn{ href: '{{site.baseurl}}archive' } More posts
+      %a.btn{ href: 'archive' } More posts

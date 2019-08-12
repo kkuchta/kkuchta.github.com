@@ -142,6 +142,6 @@ How would you actually go about building a url-shortener? **The inspiration for 
 
 Why python? **I wrote half of this in node, but creating/updating Lambda functions requires creating a zip file which node doesn't do natively.  Using a node library requires a huge node_modules folder that must itself get zipped up when you're making a self-updating function like some kind of crazy person.  Switching to python, with its built-in Zipfile module, saved a lot of time and made the iterator run in under a second instead of around 5.**
 
-I very much enjoy Code That Should Not Be **Then you might like [Disguising Ruby as Javascript](/_site/2017/07/disguising-ruby-as-javascript/) where I wield ruby metaprogramming like a hacksaw in a horror film.**
+I very much enjoy Code That Should Not Be **Then you might like [Disguising Ruby as Javascript](/2017/07/disguising-ruby-as-javascript/) where I wield ruby metaprogramming like a hacksaw in a horror film.**
 
 I know a way to make this whole thing even more ridiculous **Tweet at me ([@kkuchta](https://twitter.com/kkuchta))! The world-fire can always use more fuel.**

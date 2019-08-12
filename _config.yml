@@ -10,5 +10,6 @@ exclude:
     - Guardfile
     - Gemfile
     - Gemfile.lock
-baseurl: /_site/
+baseurl: ''
 excerpt_separator: "<!--break-->"
+host: localhost
