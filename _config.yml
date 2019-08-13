@@ -10,6 +10,8 @@ exclude:
     - Guardfile
     - Gemfile
     - Gemfile.lock
+keep_files:
+  - scarr.yml
 baseurl: ''
 excerpt_separator: "<!--break-->"
 host: localhost
