@@ -5,6 +5,8 @@ title: Disguising Ruby as Javascript
 
 Because my parents didn't raise me right, I decided to take [another](/2016/05/js-in-ruby/) crack at making valid ruby that is indistinguishable from javascript.
 
+Update: This post became a [talk at RubyConf 2018](http://confreaks.tv/videos/rubyconf2018-ruby-is-the-best-javascript).
+
 <!--break-->
 
 This is valid *ruby*:
