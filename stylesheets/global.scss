@@ -217,6 +217,9 @@ body{
             margin-bottom: 0px;
             padding-bottom: 0px;
         }
+        .subheading, .company, .dates {
+          font-size: 10px;
+        }
     }
     .other{
         margin-top: 10px;
@@ -224,16 +227,19 @@ body{
         // Anti-bootstrap hack.  TODO: ditch bootstrap and rewrite this all with
         // flexbox and cssgrid.
         * {
-          width: 206px;
+          width: 198px;
         }
         .education{
             margin-left: 10px;
         }
         .talks {
           text-align: center;
+          width: 220px;
+          margin-left: 28px;
         }
         .interests {
           text-align: right;
+          margin-left: 12px;
         }
         h2{
             margin-left:0px;

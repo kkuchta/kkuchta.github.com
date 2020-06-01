@@ -3767,18 +3767,23 @@ body {
   .resume .experience .job:last-child, .resume .experience .project:last-child, .resume .projects .job:last-child, .resume .projects .project:last-child {
     margin-bottom: 0px;
     padding-bottom: 0px; }
+  .resume .experience .subheading, .resume .experience .company, .resume .experience .dates, .resume .projects .subheading, .resume .projects .company, .resume .projects .dates {
+    font-size: 10px; }
   .resume .other {
     margin-top: 10px;
     margin-bottom: 50px;
     /*font-size: $baseFontSize * 1.2;*/ }
     .resume .other * {
-      width: 206px; }
+      width: 198px; }
     .resume .other .education {
       margin-left: 10px; }
     .resume .other .talks {
-      text-align: center; }
+      text-align: center;
+      width: 220px;
+      margin-left: 28px; }
     .resume .other .interests {
-      text-align: right; }
+      text-align: right;
+      margin-left: 12px; }
     .resume .other h2 {
       margin-left: 0px; }
   .resume hr {
