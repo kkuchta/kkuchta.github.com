@@ -58,7 +58,7 @@
 
 <p>And since it may not be clear to everyone, this post contains Bad Ideas&trade; and Extremely Inappropriate Uses of Tools&reg;.  Don't try this in production.</p>
 
-<p><img src="files/lambda_diagram.png" width="600" alt="" /></p>
+<p><img src="/files/lambda_diagram.png" width="600" alt="" /></p>
 
 <h1>Lambda</h1>
 
@@ -116,7 +116,7 @@
 
 <p>Now, the observant among you might be noticing a problem (besides the obvious one that this is all horrifying):  concurrent requests to this function might overwrite each other.  A good fix for this would be to use literally anything else in technology as a datastore.  But since obviously that's not the fix we're going to use, we'll just tell Lambda to limit the maximum concurrency on this function to 1 so it can never run twice in a row!</p>
 
-<p><img src="files/lambda_concurrency.png" width="600" alt="" /></p>
+<p><img src="/files/lambda_concurrency.png" width="600" alt="" /></p>
 
 <p>And now we've got our massively overcomplicated way of storing one number in the cloud!  Here I am using <code>apex</code>, a handy Lambda cli tool, to run the <code>iterator</code> function repeatedly.</p>
 
@@ -152,7 +152,7 @@ $ apex invoke iterator -a '$LATEST'
 
 <h1>Index</h1>
 
-<p><img src="files/lambda_diagram.png" width="600" alt="" /></p>
+<p><img src="/files/lambda_diagram.png" width="600" alt="" /></p>
 
 <p>All the pieces of this abomination are in place.</p>
 

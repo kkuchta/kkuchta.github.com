@@ -11,7 +11,7 @@ If you want to know how to build a sanely-architected url-shortener using AWS La
 
 And since it may not be clear to everyone, this post contains Bad Ideas&trade; and Extremely Inappropriate Uses of Tools&reg;.  Don't try this in production.
 
-![]({{site.baseurl}}files/lambda_diagram.png =600x)
+![]({{site.baseurl}}/files/lambda_diagram.png =600x)
 
 # Lambda
 
@@ -72,7 +72,7 @@ Self-updating code: what could go wrong?
 
 Now, the observant among you might be noticing a problem (besides the obvious one that this is all horrifying):  concurrent requests to this function might overwrite each other.  A good fix for this would be to use literally anything else in technology as a datastore.  But since obviously that's not the fix we're going to use, we'll just tell Lambda to limit the maximum concurrency on this function to 1 so it can never run twice in a row!
 
-![]({{site.baseurl}}files/lambda_concurrency.png =600x)
+![]({{site.baseurl}}/files/lambda_concurrency.png =600x)
 
 And now we've got our massively overcomplicated way of storing one number in the cloud!  Here I am using `apex`, a handy Lambda cli tool, to run the `iterator` function repeatedly.
 
@@ -109,7 +109,7 @@ As you can see, every time you use this `write` function to create a new shorten
 As a brief aside, I should mention that this is a horrible security hole.  `url` is untrusted user input, but we're just interpolating it into code and *running* that code.  We can work around that, though, by [base-64 encoding and decoding the url](https://github.com/kkuchta/url_shortener/blob/master/functions/write/main.py#L21).
 
 # Index
-![]({{site.baseurl}}files/lambda_diagram.png =600x)
+![]({{site.baseurl}}/files/lambda_diagram.png =600x)
 
 All the pieces of this abomination are in place.
 
