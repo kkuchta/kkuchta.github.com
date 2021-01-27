@@ -1,3 +1,33 @@
+@font-face {
+  font-family: "Bevan";
+  src: url("/fonts/Bevan-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "PT Sans";
+  src: url("/fonts/PTSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "PT Sans";
+  src: url("/fonts/PTSans-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: "PT Sans";
+  src: url("/fonts/PTSans-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic; }
+
+@font-face {
+  font-family: "PT Sans";
+  src: url("/fonts/PTSans-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic; }
+
 /*$baseFontFamily: 'Allerta', Verdana, Helvetica, sans-serif;*/
 .clearfix {
   *zoom: 1; }
@@ -82,7 +112,7 @@ textarea {
 
 body {
   margin: 0;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: "PT Sans", Impact, Arial, sans-serif;
   font-size: 18px;
   line-height: 1.6;
   color: #333333;
@@ -244,7 +274,7 @@ a:hover {
 
 p {
   margin: 0 0 0.8;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: "PT Sans", Impact, Arial, sans-serif;
   font-size: 18px;
   line-height: 1.6; }
   p small {
@@ -483,7 +513,7 @@ label, input, button, select, textarea {
   line-height: 1.6; }
 
 input, button, select, textarea {
-  font-family: "PT Sans", Helvetica, Arial, sans-serif; }
+  font-family: "PT Sans", Impact, Arial, sans-serif; }
 
 label {
   display: block;
@@ -3608,7 +3638,11 @@ a.thumbnail:hover {
   color: #666666; }
 
 /* Literal.Number.Integer.Long */
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: "Bevan", Georgia, serif;
   font-size: 28.8px;
   line-height: 1.6; }
@@ -3624,7 +3658,7 @@ h4 {
 
 pre code {
   font-size: 14.4px;
-  baseLineHeight: 14.4px; }
+  baselineheight: 14.4px; }
 
 body {
   color: #222222; }
@@ -3664,7 +3698,8 @@ body {
   .main hr.divider {
     width: 90%;
     border: 7.5px solid #ddd; }
-  .main ul, .main ol {
+  .main ul,
+  .main ol {
     margin-left: 25px; }
   .main .title {
     font-size: 1.8em; }
@@ -3675,11 +3710,13 @@ body {
       font-size: 39.6px; }
     .main .page h2 {
       margin-top: 20px; }
-    .main .page h1 .github a, .main .page h2 .github a {
+    .main .page h1 .github a,
+    .main .page h2 .github a {
       color: #abd7ed; }
     .main .page hr {
       margin-top: 30px; }
-  .main .home h1, .main .home .p1 {
+  .main .home h1,
+  .main .home .p1 {
     display: inline;
     font-size: 25.2px; }
   .main .home .headline {
@@ -3694,11 +3731,14 @@ body {
     padding: 30px;
     padding-top: 0;
     min-width: 330px; }
-    .main .home .rest h2, .main .home .rest h3, .main .home .rest pre code {
+    .main .home .rest h2,
+    .main .home .rest h3,
+    .main .home .rest pre code {
       display: none; }
     .main .home .rest .more-posts {
       text-align: center; }
-  .main .archive-summary h2, .main .archive-summary h3 {
+  .main .archive-summary h2,
+  .main .archive-summary h3 {
     display: none; }
   .main .archive-date {
     color: #999999;
@@ -3737,7 +3777,7 @@ body {
       .resume .header .name a {
         color: inherit; }
       .resume .header .name .faded {
-        color: #555555; }
+        color: #999999; }
     .resume .header ul.contact {
       list-style: none;
       margin-top: -10px; }
@@ -3746,29 +3786,57 @@ body {
       .resume .header ul.contact li.divider {
         margin-left: 5px;
         margin-right: 5px; }
-  .resume .experience .job, .resume .experience .project, .resume .projects .job, .resume .projects .project {
+  .resume .experience .job,
+  .resume .experience .project,
+  .resume .projects .job,
+  .resume .projects .project {
     margin: 10px;
     margin-left: 20px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
     padding: 10px; }
-    .resume .experience .job ul.details, .resume .experience .project ul.details, .resume .projects .job ul.details, .resume .projects .project ul.details {
+    .resume .experience .job ul.details,
+    .resume .experience .project ul.details,
+    .resume .projects .job ul.details,
+    .resume .projects .project ul.details {
       list-style: none;
       margin: 0;
       padding: 0; }
-      .resume .experience .job ul.details li.title, .resume .experience .project ul.details li.title, .resume .projects .job ul.details li.title, .resume .projects .project ul.details li.title {
+      .resume .experience .job ul.details li.title,
+      .resume .experience .project ul.details li.title,
+      .resume .projects .job ul.details li.title,
+      .resume .projects .project ul.details li.title {
         font-weight: bold; }
-    .resume .experience .job .description ul, .resume .experience .project .description ul, .resume .projects .job .description ul, .resume .projects .project .description ul {
+    .resume .experience .job .description ul,
+    .resume .experience .project .description ul,
+    .resume .projects .job .description ul,
+    .resume .projects .project .description ul {
       list-style: none;
       margin-top: 0px; }
-  .resume .experience .job:nth-child(even), .resume .experience .project:nth-child(even), .resume .projects .job:nth-child(even), .resume .projects .project:nth-child(even) {
+  .resume .experience .job .details,
+  .resume .projects .job .details {
+    min-height: 62px; }
+  .resume .experience .job:nth-child(even),
+  .resume .experience .project:nth-child(even),
+  .resume .projects .job:nth-child(even),
+  .resume .projects .project:nth-child(even) {
     background-color: #f5f5f5; }
-  .resume .experience .job:last-child, .resume .experience .project:last-child, .resume .projects .job:last-child, .resume .projects .project:last-child {
+  .resume .experience .job:last-child,
+  .resume .experience .project:last-child,
+  .resume .projects .job:last-child,
+  .resume .projects .project:last-child {
     margin-bottom: 0px;
     padding-bottom: 0px; }
-  .resume .experience .subheading, .resume .experience .company, .resume .experience .dates, .resume .projects .subheading, .resume .projects .company, .resume .projects .dates {
+  .resume .experience .subheading,
+  .resume .experience .company,
+  .resume .experience .dates,
+  .resume .projects .subheading,
+  .resume .projects .company,
+  .resume .projects .dates {
     font-size: 10px; }
+  .resume .experience {
+    margin-bottom: 10px; }
   .resume .other {
     margin-top: 10px;
     margin-bottom: 50px;

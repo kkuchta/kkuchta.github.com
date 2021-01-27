@@ -3,7 +3,7 @@ layout: main
 \---
 .home
   .headline
-    %h1 I'm Full Stack Software Engineer
+    %h1 I'm a Generalist Software Engineer
     %p.p1
       in San Francisco.
       %br
@@ -12,8 +12,11 @@ layout: main
       and
       %a{ href: "/hacks"} silly hacks.
       Recently at
-      %a{ href:"http://brex.com" } Brex
-      , now looking for an early startup to help grow.
+      %a{ href:"https://www.duckbillgroup.com/" } The Duckbill Group
+      and 
+      = succeed "," do
+        %a{ href:"https://www.brex.com" } Brex
+      now looking for an early startup to help grow.
   .rest
     {% for post in site.posts limit: 5 %}
     %h1

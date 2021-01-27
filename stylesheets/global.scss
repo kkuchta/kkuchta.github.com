@@ -1,7 +1,39 @@
 ---
 ---
-$baseFontFamily: 'PT Sans', Helvetica, Arial, sans-serif;
-$headerFontFamily: 'Bevan', Georgia, serif;
+
+@font-face {
+  font-family: "Bevan";
+  src: url("/fonts/Bevan-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "PT Sans";
+  src: url("/fonts/PTSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "PT Sans";
+  src: url("/fonts/PTSans-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "PT Sans";
+  src: url("/fonts/PTSans-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "PT Sans";
+  src: url("/fonts/PTSans-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+$baseFontFamily: "PT Sans", Impact, Arial, sans-serif;
+$headerFontFamily: "Bevan", Georgia, serif;
 /*$baseFontFamily: 'Allerta', Verdana, Helvetica, sans-serif;*/
 $baseFontSize: 18px;
 $baseLineHeight: 1.6;
@@ -9,259 +41,282 @@ $baseLineHeight: 1.6;
 @import "stylesheets/bootstrap";
 @import "stylesheets/pygments/default";
 
-h1,h2,h3,h4,h5{
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $headerFontFamily;
+  font-size: $baseFontSize * 1.6;
+  line-height: $baseLineHeight;
+}
+h2 {
+  font-size: $baseFontSize * 1.4;
+}
+h3 {
+  font-size: $baseFontSize * 1.2;
+}
+h4 {
+  font-size: $baseFontSize * 1.1;
+}
+pre code {
+  font-size: $baseFontSize * 0.8;
+  baselineheight: $baseFontSize * 0.8;
+}
+
+body {
+  color: $grayDarker;
+}
+
+.sidebar {
+  @include border-radius(20px);
+  min-width: 350px;
+  border: 15px solid $grayDarker;
+  margin-left: 15px;
+  margin-top: 30px;
+  padding-left: 20px;
+  padding-top: 20px;
+  h1 {
+    a {
+      color: $grayDarker;
+    }
+    a:hover {
+      color: $grayDark;
+      text-decoration: none;
+    }
+    font-size: 72px;
+    line-height: 0.9em;
+  }
+  ul {
     font-family: $headerFontFamily;
-    font-size: $baseFontSize * 1.6;
-    line-height: $baseLineHeight;
-}
-h2{
-    font-size: $baseFontSize * 1.4;
-}
-h3{
-    font-size: $baseFontSize * 1.2;
-}
-h4{
-    font-size: $baseFontSize * 1.1;
-}
-pre code{
-    font-size: $baseFontSize * .8;
-    baseLineHeight: $baseFontSize * .8;
+    font-size: $baseFontSize * 1.8;
+    margin-left: 30px;
+  }
 }
 
-body{
-    color: $grayDarker;
-}
-
-.sidebar{
+.main {
+  margin-top: 30px;
+  min-width: 350px;
+  hr {
     @include border-radius(20px);
-    min-width: 350px;
-    border:15px solid $grayDarker;
-    margin-left: 15px;
-    margin-top: 30px;
-    padding-left: 20px;
-    padding-top: 20px;
-    h1{
-        a{
-            color: $grayDarker;
-        }
-        a:hover{
-            color: $grayDark;
-            text-decoration: none;
-        }
-        font-size: 72px;
-        line-height: 0.9em;
-    }
-    ul{
-        font-family: $headerFontFamily;
-        font-size: $baseFontSize * 1.8;
-        margin-left: 30px;
-    }
-}
+    border: 7.5px solid #eee;
+    width: 75%;
+  }
+  hr.divider {
+    width: 90%;
+    border: 7.5px solid #ddd;
+  }
+  ul,
+  ol {
+    margin-left: 25px;
+  }
 
-.main{
-    margin-top: 30px;
-    min-width: 350px;
-    hr{
-        @include border-radius(20px);
-        border:7.5px solid #eee;
-        width: 75%;
-    }
-    hr.divider{
-        width: 90%;
-        border:7.5px solid #ddd;
-    }
-    ul,ol{
-        margin-left: 25px;
-    }
+  .title {
+    font-size: 1.8em;
+  }
 
-    .title{
-      font-size: 1.8em;
+  .page {
+    h1 {
+      font-size: $baseFontSize * 2.2;
     }
+    h2 {
+      margin-top: 20px;
+    }
+    h1,
+    h2 {
+      .github a {
+        color: lighten(desaturate($linkColor, 35%), 40%);
+      }
+    }
+    hr {
+      margin-top: 30px;
+    }
+    padding: 30px;
+    padding-top: 0;
+  }
 
-    .page{
-        h1{
-            font-size: $baseFontSize * 2.2;
-        }
-        h2{
-            margin-top: 20px;
-        }
-        h1,h2{
-            .github a{
-                color: lighten( desaturate( $linkColor, 35% ), 40% );
-            }
-        }
-        hr{
-            margin-top: 30px;
-        }
-        padding:30px;
-        padding-top:0;
+  .home {
+    h1,
+    .p1 {
+      display: inline;
+      font-size: $baseFontSize * 1.4;
     }
 
-    .home{
-        h1, .p1{
-            display:inline;
-            font-size: $baseFontSize * 1.4;
-        }
-
-        .headline{
-            @include border-radius(20px);
-            border:15px solid #ccc;
-            padding:15px;
-            min-width: 330px;
-            margin-bottom: 15px;
-        }
-        .rest{
-            padding: 30px;
-            padding-top: 0;
-            min-width: 330px;
-            h2,h3, pre code{
-                display:none;
-            }
-            .more-posts{
-                text-align:center;
-            }
-
-        }
+    .headline {
+      @include border-radius(20px);
+      border: 15px solid #ccc;
+      padding: 15px;
+      min-width: 330px;
+      margin-bottom: 15px;
     }
-
-    .archive-summary{
-        h2,h3{
-            display:none;
-        }
-    }
-    .archive-date{
-        color: $grayLight;
-        /*color: lighten( desaturate( $grayDarker, 35% ), 40% );*/
-    }
-}
-.resume-page{
-    @media screen{
-        min-width: 1000px;
-    }
-    @media print{
-        .floater{
-            display:none;
-        }
-    }
-}
-
-.resume{
-    $baseFontSize: 12px;
-    font-size: $baseFontSize;
-    margin-top: 20px;
-    max-width: 650px;
-
-    h2{
-        margin-left: 10px;
-        font-size: $baseFontSize * 1.4;
-    }
-
-    .header{
-        @include border-radius(20px);
-        border:15px solid $grayDarker;
+    .rest {
+      padding: 30px;
+      padding-top: 0;
+      min-width: 330px;
+      h2,
+      h3,
+      pre code {
+        display: none;
+      }
+      .more-posts {
         text-align: center;
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-top: 0px;
-        padding-bottom: 0px;
-        margin-bottom: 15px;
-        .name{
-            a{
-                color:inherit;
-            }
-            font-family: $headerFontFamily;
-            font-size: $baseFontSize * 1.6;
-            line-height: $baseLineHeight;
-            font-size: 40px;
-            .faded{
-                color: $gray;
-            }
-        }
-        ul.contact{
-            list-style:none;
-            margin-top:-10px;
-            li{
-                display:inline;
-            }
-            li.divider{
-                margin-left: 5px;
-                margin-right: 5px;
-            }
-        }
+      }
     }
-    .experience, .projects{
-        .job, .project{
-            margin: 10px;
-            margin-left: 20px;
-            @include border-radius(10px);
-            padding: 10px;
-            ul.details{
-                list-style:none;
-                margin:0;
-                padding:0;
-                li.title{
-                    font-weight:bold;
-                }
-            }
-            .description{
-                ul{
-                    list-style:none;
-                    margin-top:0px;
-                }
-            }
-        }
-        .job:nth-child(even), .project:nth-child(even){
-            background-color: #f5f5f5;
-        }
-        .job:last-child, .project:last-child{
-            margin-bottom: 0px;
-            padding-bottom: 0px;
-        }
-        .subheading, .company, .dates {
-          font-size: 10px;
-        }
+  }
+
+  .archive-summary {
+    h2,
+    h3 {
+      display: none;
     }
-    .other{
-        margin-top: 10px;
-        margin-bottom: 50px;
-        // Anti-bootstrap hack.  TODO: ditch bootstrap and rewrite this all with
-        // flexbox and cssgrid.
-        * {
-          width: 198px;
-        }
-        .education{
-            margin-left: 10px;
-        }
-        .talks {
-          text-align: center;
-          width: 220px;
-          margin-left: 28px;
-        }
-        .interests {
-          text-align: right;
-          margin-left: 12px;
-        }
-        h2{
-            margin-left:0px;
-        }
-        /*font-size: $baseFontSize * 1.2;*/
+  }
+  .archive-date {
+    color: $grayLight;
+    /*color: lighten( desaturate( $grayDarker, 35% ), 40% );*/
+  }
+}
+.resume-page {
+  @media screen {
+    min-width: 1000px;
+  }
+  @media print {
+    .floater {
+      display: none;
     }
-    hr{
-        @include border-radius(20px);
-        border:7.5px solid #eee;
-        width: 50%;
-    }
+  }
 }
 
-.floater{
-    position:absolute;
-    padding: 5px 10px 5px 10px;
+.resume {
+  $baseFontSize: 12px;
+  font-size: $baseFontSize;
+  margin-top: 20px;
+  max-width: 650px;
+
+  h2 {
     margin-left: 10px;
-    @include border-radius(10px);
-    border:4px solid #eee;
-    ul{
-        margin:0px;
-        padding:0px;
-        list-style: none;
+    font-size: $baseFontSize * 1.4;
+  }
+
+  .header {
+    @include border-radius(20px);
+    border: 15px solid $grayDarker;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 15px;
+    .name {
+      a {
+        color: inherit;
+      }
+      font-family: $headerFontFamily;
+      font-size: $baseFontSize * 1.6;
+      line-height: $baseLineHeight;
+      font-size: 40px;
+      .faded {
+        color: $grayLight;
+      }
     }
+    ul.contact {
+      list-style: none;
+      margin-top: -10px;
+      li {
+        display: inline;
+      }
+      li.divider {
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+    }
+  }
+  .experience,
+  .projects {
+    .job,
+    .project {
+      margin: 10px;
+      margin-left: 20px;
+      @include border-radius(10px);
+      padding: 10px;
+      ul.details {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li.title {
+          font-weight: bold;
+        }
+      }
+      .description {
+        ul {
+          list-style: none;
+          margin-top: 0px;
+        }
+      }
+    }
+    .job {
+      .details {
+        min-height: 62px;
+      }
+    }
+    .job:nth-child(even),
+    .project:nth-child(even) {
+      background-color: #f5f5f5;
+    }
+    .job:last-child,
+    .project:last-child {
+      margin-bottom: 0px;
+      padding-bottom: 0px;
+    }
+    .subheading,
+    .company,
+    .dates {
+      font-size: 10px;
+    }
+  }
+  .experience {
+    margin-bottom: 10px;
+  }
+  .other {
+    margin-top: 10px;
+    margin-bottom: 50px;
+    // Anti-bootstrap hack.  TODO: ditch bootstrap and rewrite this all with
+    // flexbox and cssgrid.
+    * {
+      width: 198px;
+    }
+    .education {
+      margin-left: 10px;
+    }
+    .talks {
+      text-align: center;
+      width: 220px;
+      margin-left: 28px;
+    }
+    .interests {
+      text-align: right;
+      margin-left: 12px;
+    }
+    h2 {
+      margin-left: 0px;
+    }
+    /*font-size: $baseFontSize * 1.2;*/
+  }
+  hr {
+    @include border-radius(20px);
+    border: 7.5px solid #eee;
+    width: 50%;
+  }
+}
+
+.floater {
+  position: absolute;
+  padding: 5px 10px 5px 10px;
+  margin-left: 10px;
+  @include border-radius(10px);
+  border: 4px solid #eee;
+  ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+  }
 }
