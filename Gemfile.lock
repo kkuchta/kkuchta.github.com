@@ -11,7 +11,7 @@ GEM
       highline (~> 1.6.11)
     directory_watcher (1.4.1)
     fast-stemmer (1.0.2)
-    ffi (1.8.1)
+    ffi (1.12.2)
     formatador (0.2.4)
     guard (1.8.0)
       formatador (>= 0.2.4)
