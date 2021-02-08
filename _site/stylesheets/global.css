@@ -3711,7 +3711,8 @@ body {
     .main .page h2 {
       margin-top: 20px; }
     .main .page h1 .github a,
-    .main .page h2 .github a {
+    .main .page h2 .github a,
+    .main .page h3 .github a {
       color: #abd7ed; }
     .main .page hr {
       margin-top: 30px; }
