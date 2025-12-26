@@ -1,3 +1,5 @@
+NOTE: this repo is now deprecated.  After about a decade, it succumbed to bitrot - I could no longer get Jekyll working on a recent version of ruby alongside some of the hacks I put in here.  I've replaced it with https://github.com/kkuchta/blog2.
+
 # Personal Site
 
 Just a blog and with some project pages and contact info.  This is now quite a few years old and very much does not reflect what I think is good frontend design or code.
